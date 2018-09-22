@@ -6,6 +6,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicon.ico">
+        <meta name="theme-color" content="#1676d8">
+
         <title>Kingdom</title>
 
         <link rel="stylesheet" href="./css/main.css" />
@@ -25,7 +29,7 @@
                 module = window.module;
             }
 
-            $(function() {
+            $(function () {
                 FastClick.attach(document.body);
             });
         </script>
@@ -35,21 +39,25 @@
         <div class="main">
             <div class="toolbar">
                 <div class="toolbar-buttons">
-                    <button id="Generate-Button-Shuffle" data-toggle="tooltip" data-placement="bottom" title="Shuffle Cards" class="btn-toolbar toolbar-shuffle hidden">
+                    <button id="Generate-Button-Shuffle" data-toggle="tooltip" data-placement="bottom" title="Shuffle Cards"
+                        class="btn-toolbar toolbar-shuffle hidden">
                         <i class="material-icons">shuffle</i>
                     </button>
 
-                    <button id="Generate-Button-Clear" data-toggle="tooltip" data-placement="bottom" title="Clear Cards" class="btn-toolbar toolbar-cards hidden">
+                    <button id="Generate-Button-Clear" data-toggle="tooltip" data-placement="bottom" title="Clear Cards"
+                        class="btn-toolbar toolbar-cards hidden">
                         <i class="material-icons">delete_sweep</i>
                     </button>
 
                     <div class="toolbar-divider toolbar-cards hidden"></div>
 
-                    <button id="Generate-Button-CodeScan" data-toggle="tooltip" data-placement="bottom" title="Scan a Code" class="btn-toolbar">
+                    <button id="Generate-Button-CodeScan" data-toggle="tooltip" data-placement="bottom" title="Scan a Code"
+                        class="btn-toolbar">
                         <i class="material-icons">camera_enhance</i>
                     </button>
 
-                    <button id="Generate-Button-Code" data-toggle="tooltip" data-placement="bottom" title="Generate Code" class="btn-toolbar toolbar-cards hidden">
+                    <button id="Generate-Button-Code" data-toggle="tooltip" data-placement="bottom" title="Generate Code"
+                        class="btn-toolbar toolbar-cards hidden">
                         <i class="material-icons">code</i>
                     </button>
 
@@ -59,7 +67,8 @@
                         <i class="material-icons">info</i>
                     </button>
 
-                    <button id="SetSelection-Open" data-toggle="tooltip" data-placement="bottom" title="My Expansions" class="btn-toolbar">
+                    <button id="SetSelection-Open" data-toggle="tooltip" data-placement="bottom" title="My Expansions"
+                        class="btn-toolbar">
                         <i class="material-icons">extension</i>
                     </button>
                 </div>
@@ -95,7 +104,8 @@
                     <span class="state-subheading state-text-empty">Welcome to Kingdom</span>
                     <span class="state-text state-text-empty">Scan a code or generate a Kingdom to start</span>
                 </div>
-                <div id="Generate-Button-Fab" data-toggle="tooltip" data-placement="left" title="Generate Kingdom" class="btn-fab btn-fab-drawer">
+                <div id="Generate-Button-Fab" data-toggle="tooltip" data-placement="left" title="Generate Kingdom"
+                    class="btn-fab btn-fab-drawer">
                     <div class="btn-fab-btn">
                         <div class="btn-fab-btn-icon">
                             <img src="./img/victory.svg"></img>
@@ -132,7 +142,8 @@
                                         <i class="material-icons">add</i>
                                     </div>
                                 </div>
-                                <div id="Generate-Drawer-Randomize" data-toggle="tooltip" data-placement="top" title="Randomize Sets" class="btn-icon btn-randomize">
+                                <div id="Generate-Drawer-Randomize" data-toggle="tooltip" data-placement="top" title="Randomize Sets"
+                                    class="btn-icon btn-randomize">
                                     <i class="material-icons">casino</i>
                                 </div>
                             </div>
@@ -142,7 +153,7 @@
                             <div class="drawer-checkbox">
                                 <div class="checkbox-switch">
                                     <p>Potion Clustering</p>
-                                    <input type="checkbox" id="Generate-Drawer-ClusterPotions" checked/>
+                                    <input type="checkbox" id="Generate-Drawer-ClusterPotions" checked />
                                     <label for="Generate-Drawer-ClusterPotions"></label>
                                 </div>
                                 <p class="description">
@@ -153,7 +164,7 @@
                             <div class="drawer-checkbox">
                                 <div class="checkbox-switch">
                                     <p>Set Distribution</p>
-                                    <input type="checkbox" id="Generate-Drawer-DistributeSets" checked/>
+                                    <input type="checkbox" id="Generate-Drawer-DistributeSets" checked />
                                     <label for="Generate-Drawer-DistributeSets"></label>
                                 </div>
                                 <p class="description">
@@ -189,7 +200,7 @@
         <script>
             document.addEventListener(
                 "touchstart",
-                function() {}, true);
+                function () { }, true);
         </script>
 
         <script src="./scripts/tether.min.js"></script>
