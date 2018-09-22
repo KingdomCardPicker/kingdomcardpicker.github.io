@@ -735,7 +735,7 @@ textarea {
   height: 20px;
   padding: 6px 0; }
   .checkbox-check.small p {
-    padding-top: 2px;
+    padding-top: 0;
     padding-right: 28px;
     text-align: right; }
   .checkbox-check.small label {
@@ -811,6 +811,7 @@ textarea {
     .checkbox-check {
       height: 28px; }
       .checkbox-check.small p {
+        padding-top: 3px;
         padding-right: 36px; }
       .checkbox-check.small label {
         height: 20px; }

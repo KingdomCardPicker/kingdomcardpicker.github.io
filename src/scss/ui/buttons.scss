@@ -380,7 +380,7 @@ textarea {
 
     &.small {
         p {
-            padding-top: 2px;
+            padding-top: 0;
             padding-right: $checkbox-check-size + $text-padding;
 
             text-align: right;
@@ -482,6 +482,7 @@ textarea {
 
         &.small {
             p {
+                padding-top: 3px;
                 padding-right: $checkbox-check-size-touch + $text-padding;
             }
 
