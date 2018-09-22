@@ -4,12 +4,13 @@ $primary-color-light: #64a4ff;
 $primary-color-dark: #004ba6;
 $error-color: #f44336;
 $error-color-light: #ff7961;
+$success-color: #498e38;
 $background-color: #fafafa;
 $background-color-dark: #ececec;
 $foreground-color: #ffffff;
 // Card colors
 $card-color-bane: #ff5722;
-$card-color-victory: #498e38;
+$card-color-victory: #498e38;;
 // Text
 $text-color: rgba(0, 0, 0, 0.87);
 $text-color-detail: rgba(0, 0, 0, 0.6);
@@ -35,7 +36,7 @@ $scrollbar-color-hover: rgba(0, 0, 0, 0.5);
 
 // Borders
 $border-color: rgba(0, 0, 0, 0.15);
-$border-radius: 0;
+$border-radius: 2px;
 $border-radius-card: 5px;
 $border-radius-card-small: 2px;
 $border-radius-card-dialog: 0;

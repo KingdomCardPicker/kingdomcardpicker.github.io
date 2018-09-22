@@ -1,3 +1,5 @@
+$set-entry-row-small: 20px;
+
 .dialog.dialog-set .dialog-middle {
     .dialog-content {
         overflow: hidden;
@@ -66,8 +68,8 @@
         transition: height 0.25s $m-ease-in-out, margin-bottom 0.25s $m-ease-in-out;
 
         &.set-entry-visible {
-            height: $checkbox-switch-height-small + $text-padding + 4px;
-            margin-bottom: 4px;
+            height: $set-entry-row-small + $text-padding + 4px;
+            margin-bottom: $set-entry-row-small * 0.5;
         }
     }
 }

@@ -33,6 +33,12 @@ var totalSets = {
 };
 
 $(function () {
+    // Generate from code (if available)
+    var code = window.location.hash;
+    if (code != undefined && code != null && code != "") {
+        loadKingdomFromCode(code.substring(1));
+    }
+
     if (typeof (Storage) !== undefined) {
         var ownedSetsCount = 0;
         for (setName in totalSets) {
@@ -54,7 +60,6 @@ $(function () {
 
     // Setup checkboxes
     for (s of $(".checkbox-switch")) {
-        console.log(s);
         createCheckboxSwitch(s);
     }
 
@@ -141,7 +146,7 @@ $(function () {
     // Enable tooltips
     $('[data-toggle="tooltip"]').tooltip({
         container: $(".main"),
-        trigger: 'hover',
+        trigger: 'manual',
         constraints: [
             {
                 to: "window",
@@ -149,6 +154,20 @@ $(function () {
             }
         ]
     });
+
+    /*$('[data-toggle="tooltip"]').on('touchstart mouseover focus', function (e) {
+        if (e.type == 'touchstart') {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            $(this).trigger("click");
+        } else {
+            $(this).tooltip("show");
+        }
+    });
+
+    $('[data-toggle="tooltip"]').on('mouseleave click', function (e) {
+        $(this).tooltip("hide");
+    });*/
 
     window.setTimeout(function () {
         $('[data-toggle="tooltip"]').tooltip('show');
@@ -313,7 +332,7 @@ function setupSwitches() {
             var sId = "Sets-Selection-" + setName + setName;
             if (localStorage.getItem(sId) === "on") {
                 // Generate the switch
-                var switchContainer = $("<div class='checkbox-switch'></div>").appendTo(c);
+                var switchContainer = $("<div class='checkbox-check'></div>").appendTo(c);
 
                 // Generate the text
                 $("<p>" + setName + "</p>").appendTo(switchContainer);
@@ -728,10 +747,58 @@ function setKingdomCards(kingdomData) {
         $(".cards-table-specialcards").removeClass("cards-table-supply");
     }
 
+    // Update the url with the kingdom code
+    updateUrlKingdomCode();
+
     if (REPEAT && gamesPlayed < REPEAT_MAX) {
         window.setTimeout(function () {
             generateNewKingdom();
         }, 1000);
+    }
+}
+
+function updateUrlKingdomCode() {
+    if (currentKingdom.kingdomCards) {
+        // Generate the code
+        if (typeof (Worker) !== "undefined") {
+            var codeWorker = new Worker("./scripts/card-selection/kingdom-code/kingdom-code.js");
+            var parameters = {
+                request: 'cards-to-code',
+                kingdomCards: currentKingdom.kingdomCards,
+                supplyCards: currentKingdom.extraSupplyCards,
+                obeliskCard: currentKingdom.obeliskCard,
+                baneCard: currentKingdom.baneCard,
+
+                appDir: absolutePath(window.location.href, "/"),
+                totalSets: totalSets
+            }
+
+            // Start the worker
+            codeWorker.postMessage(parameters);
+            // Setup return message
+            codeWorker.onmessage = function (event) {
+                // Terminate the worker
+                codeWorker.terminate();
+                codeWorker = undefined;
+                // Find the data
+                var data = event.data;
+                if (data.result === "success") {
+                    // Update the url search
+                    window.location.hash = data.kingdomCode;
+                } else if (data.result === "error") {
+                    console.error("Error");
+                }
+            }
+
+            // Setup error message
+            codeWorker.onerror = function (err) {
+                // Terminate the worker
+                codeWorker.terminate();
+                codeWorker = undefined;
+                // Show an error
+                console.error(err.message + "\nAt line: " + err.lineno + " in " + err.filename);
+            }
+        }
     }
 }
 
@@ -1147,7 +1214,7 @@ function createDialogForCard(imageDir, kingdomCard) {
 
     $(cardDetailDialog).find('[data-toggle="tooltip"]').tooltip({
         container: $(".main"),
-        trigger: 'hover',
+        trigger: 'manual',
         constraints: [
             {
                 to: "window",
@@ -1236,6 +1303,8 @@ function openCodeDialog() {
         $("<p>Kingdom codes are a way to share sets of cards with other players " +
             "in a game</p>").appendTo(codeDialogInner);
 
+        var codeContainer = $("<div class='kingdom-code-container'></div>").appendTo(codeDialogInner);
+
         if (currentKingdom.kingdomCards) {
             // Generate the code
             if (typeof (Worker) !== "undefined") {
@@ -1261,8 +1330,6 @@ function openCodeDialog() {
                     // Find the data
                     var data = event.data;
                     if (data.result === "success") {
-                        var codeContainer = $("<div class='kingdom-code-container'></div>").appendTo(codeDialogInner);
-
                         // Set the options for the new code
                         var codeOptions = {
                             text: data.kingdomCode,
@@ -1298,10 +1365,56 @@ function openCodeDialog() {
             }
         }
 
+        // Add a direct link
+        var directLink = window.location.href;
+        $("<h3>Direct Link</h3>").appendTo(codeDialogInner);
+        $("<a href='" + directLink + "'>" + directLink + "</a>").appendTo(codeDialogInner);
+
+        var scanButton = $("<div class='btn'>Copy Link to Clipboard</div>").appendTo(codeDialogInner);
+        var scanButtonMessage = $("<div class='btn-message'>Copied Link!</div>").appendTo(scanButton);
+        scanButton.on('click', function () {
+            copyToClipboard(window.location.href);
+            scanButtonMessage.addClass("visible");
+
+            window.setTimeout(function () {
+                scanButtonMessage.removeClass("visible");
+            }, 1000);
+        });
+
         codeDialog.one('dialog-close', function () {
             codeDialog = undefined;
         });
     }
+}
+
+const copyToClipboard = str => {
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    iosCopyToClipboard(el);
+    document.body.removeChild(el);
+};
+
+function iosCopyToClipboard(el) {
+    var oldContentEditable = el.contentEditable,
+        oldReadOnly = el.readOnly,
+        range = document.createRange();
+
+    el.contentEditable = true;
+    el.readOnly = true;
+    range.selectNodeContents(el);
+
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(range);
+
+    el.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+
+    el.contentEditable = oldContentEditable;
+    el.readOnly = oldReadOnly;
+
+    document.execCommand('copy');
 }
 
 function openScanDialog() {
@@ -1393,7 +1506,7 @@ function openScanDialog() {
         $("<p class='photoinput-loading-error'>Could not find code</p>").appendTo(photoInputLoading);
 
         var photoInput = $("<input type='file' id='CodePhotoInput' accept='image/*' capture='camera'>").appendTo(codeScanDialogInner)[0];
-        var photoInputLabel = $("<label class='btn' for='CodePhotoInput'>Scan a Code</label>").appendTo(codeScanDialogInner)[0];
+        var photoInputLabel = $("<label class='btn' for='CodePhotoInput'>Take a Photo</label>").appendTo(codeScanDialogInner)[0];
 
         photoInput.addEventListener('change', function (e) {
             $(photoInputLoading).addClass("loading");

@@ -537,6 +537,7 @@ textarea {
     font-weight: 400; }
 
 .btn {
+  position: relative;
   width: 100%;
   margin: 0 auto;
   padding: 8px 0;
@@ -547,8 +548,8 @@ textarea {
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
-  -webkit-border-radius: 0;
-          border-radius: 0;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
   background-color: #1676d8;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
@@ -634,6 +635,27 @@ textarea {
   .btn-toolbar i {
     font-size: 28px; }
 
+.btn-message {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  padding: 8px 0;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  color: #ffffff;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  background-color: #1676d8; }
+  .btn-message.visible {
+    opacity: 1;
+    background-color: #498e38; }
+
 .checkbox-switch {
   position: relative;
   width: 100%;
@@ -665,8 +687,8 @@ textarea {
     -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid #1676d8;
-    -webkit-border-radius: 0;
-            border-radius: 0;
+    -webkit-border-radius: 2px;
+            border-radius: 2px;
     background-color: #ffffff; }
     .checkbox-switch label span {
       position: absolute;
@@ -681,8 +703,8 @@ textarea {
       -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
-      -webkit-border-radius: 0;
-              border-radius: 0;
+      -webkit-border-radius: 2px;
+              border-radius: 2px;
       background-color: #1676d8;
       -webkit-box-shadow: none;
               box-shadow: none; }
@@ -710,16 +732,18 @@ textarea {
 .checkbox-check {
   position: relative;
   width: 100%;
-  height: 16px;
+  height: 20px;
   padding: 6px 0; }
   .checkbox-check.small p {
-    padding-right: 24px;
+    padding-top: 2px;
+    padding-right: 28px;
     text-align: right; }
   .checkbox-check.small label {
     height: 16px;
-    -webkit-border-radius: 0;
-            border-radius: 0; }
+    -webkit-border-radius: 2px;
+            border-radius: 2px; }
   .checkbox-check p {
+    padding-top: 4px;
     vertical-align: middle;
     font-size: 13px; }
     .checkbox-check p.description {
@@ -731,22 +755,25 @@ textarea {
     right: 0;
     top: -4px;
     bottom: 0;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     margin: auto 0;
     cursor: pointer;
     -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid #1676d8;
-    -webkit-border-radius: 0;
-            border-radius: 0;
-    background-color: #ffffff; }
+    -webkit-border-radius: 2px;
+            border-radius: 2px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
     .checkbox-check label:after {
       position: absolute;
-      left: 2px;
-      top: 3px;
-      width: 10px;
-      height: 5px;
+      left: -webkit-calc(25% - 1px);
+      left: calc(25% - 1px);
+      top: 25%;
+      width: 50%;
+      height: 25%;
       content: "";
       -webkit-transition: opacity 0.1s ease, -webkit-transform 0.1s cubic-bezier(0.4, 0, 1, 1);
       transition: opacity 0.1s ease, -webkit-transform 0.1s cubic-bezier(0.4, 0, 1, 1);
@@ -760,6 +787,10 @@ textarea {
       border-top: none;
       border-right: none;
       background: transparent; }
+    .checkbox-check label:hover {
+      background-color: rgba(0, 0, 0, 0.05); }
+    .checkbox-check label:active {
+      background-color: rgba(0, 0, 0, 0.1); }
   .checkbox-check input[type=checkbox] {
     display: none;
     visibility: hidden; }
@@ -776,6 +807,16 @@ textarea {
         opacity: 1; }
     .checkbox-check input[type=checkbox]:checked:active {
       background-color: #ffffff; }
+  @media screen and (max-width: 960px) {
+    .checkbox-check {
+      height: 28px; }
+      .checkbox-check.small p {
+        padding-right: 36px; }
+      .checkbox-check.small label {
+        height: 20px; }
+      .checkbox-check label {
+        width: 28px;
+        height: 28px; } }
 
 .input-text {
   position: relative; }
@@ -1119,6 +1160,7 @@ input[type="file"] {
               box-sizing: border-box;
       width: 100%;
       height: 100%;
+      margin: 12px 0;
       -webkit-box-flex: 1;
       -webkit-flex: auto;
           -ms-flex: auto;
@@ -1137,10 +1179,15 @@ input[type="file"] {
         margin: auto;
         -webkit-animation: code-in 0.275s cubic-bezier(0, 0, 0.2, 1);
                 animation: code-in 0.275s cubic-bezier(0, 0, 0.2, 1); }
-    .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner p {
-      padding-bottom: 12px; }
+    .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner a {
+      padding-bottom: 8px;
+      text-decoration: none;
+      color: #1676d8; }
     .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner h1 {
       padding-bottom: 8px; }
+    .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner h2,
+    .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner h3 {
+      padding-bottom: 4px; }
 
 .dialog.dialog-code-scan .dialog-middle .dialog-content {
   overflow: hidden;
@@ -1338,8 +1385,8 @@ input[type="file"] {
     -webkit-transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1), margin-bottom 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1), margin-bottom 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
     .set-entry .set-entry-controls.set-entry-visible {
-      height: 28px;
-      margin-bottom: 4px; }
+      height: 32px;
+      margin-bottom: 10px; }
 
 .dialog {
   position: fixed;
@@ -1370,8 +1417,8 @@ input[type="file"] {
               animation: dialog-in 0.2s cubic-bezier(0, 0, 0.2, 1);
       -webkit-animation-fill-mode: backwards;
               animation-fill-mode: backwards;
-      -webkit-border-radius: 0;
-              border-radius: 0;
+      -webkit-border-radius: 2px;
+              border-radius: 2px;
       background-color: #ffffff;
       -webkit-box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
               box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8); }
@@ -2045,8 +2092,8 @@ input[type="file"] {
     text-align: center;
     opacity: 0;
     color: #ffffff;
-    -webkit-border-radius: 0;
-            border-radius: 0;
+    -webkit-border-radius: 2px;
+            border-radius: 2px;
     background-color: #616161;
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4); }
@@ -3042,16 +3089,9 @@ input[type="file"] {
     top: 0;
     bottom: 0;
     content: "";
-    -webkit-transition: opacity 0.1875s ease 0.1875s, -webkit-transform 0.375s cubic-bezier(0.4, 0, 1, 1);
-    transition: opacity 0.1875s ease 0.1875s, -webkit-transform 0.375s cubic-bezier(0.4, 0, 1, 1);
-    transition: transform 0.375s cubic-bezier(0.4, 0, 1, 1), opacity 0.1875s ease 0.1875s;
-    transition: transform 0.375s cubic-bezier(0.4, 0, 1, 1), opacity 0.1875s ease 0.1875s, -webkit-transform 0.375s cubic-bezier(0.4, 0, 1, 1);
-    -webkit-transform: scale(0);
-        -ms-transform: scale(0);
-            transform: scale(0);
+    -webkit-transition: opacity 0.75s ease;
+    transition: opacity 0.75s ease;
     opacity: 0;
-    -webkit-border-radius: 50%;
-            border-radius: 50%;
     background-color: rgba(22, 118, 216, 0.8); }
   .onboarding-circle::after {
     position: absolute;
@@ -3074,17 +3114,12 @@ input[type="file"] {
     -webkit-transition: visibility 0s linear 0s;
     transition: visibility 0s linear 0s; }
     .onboarding-circle.open .onboarding-text {
-      -webkit-transition: opacity 0.2s ease 0.25s;
-      transition: opacity 0.2s ease 0.25s;
+      -webkit-transition: opacity 0.5s ease 0.25s;
+      transition: opacity 0.5s ease 0.25s;
       opacity: 1; }
     .onboarding-circle.open::before {
-      -webkit-transition: opacity 0.2s ease 0s, -webkit-transform 0.75s cubic-bezier(0, 0, 0.2, 1);
-      transition: opacity 0.2s ease 0s, -webkit-transform 0.75s cubic-bezier(0, 0, 0.2, 1);
-      transition: transform 0.75s cubic-bezier(0, 0, 0.2, 1), opacity 0.2s ease 0s;
-      transition: transform 0.75s cubic-bezier(0, 0, 0.2, 1), opacity 0.2s ease 0s, -webkit-transform 0.75s cubic-bezier(0, 0, 0.2, 1);
-      -webkit-transform: scale(1);
-          -ms-transform: scale(1);
-              transform: scale(1);
+      -webkit-transition: opacity 0.75s ease;
+      transition: opacity 0.75s ease;
       opacity: 1; }
     .onboarding-circle.open::after {
       z-index: 11;
@@ -3164,7 +3199,8 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+a {
   margin: 0;
   padding: 0;
   color: rgba(0, 0, 0, 0.87);
@@ -3172,7 +3208,8 @@ p {
   font-size: 14px; }
 
 h1,
-h2 {
+h2,
+h3 {
   text-transform: uppercase;
   font-family: "Font-Headings", sans-serif; }
 
@@ -3182,6 +3219,14 @@ h1 {
 h2 {
   color: #1676d8;
   font-size: 24px; }
+
+h3 {
+  font-family: "Font-Subheadings", sans-serif;
+  font-size: 18px; }
+
+h4 {
+  font-family: "Font-Subheadings", sans-serif;
+  font-size: 16px; }
 
 .description {
   color: rgba(0, 0, 0, 0.6);

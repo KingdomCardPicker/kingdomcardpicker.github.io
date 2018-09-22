@@ -169,7 +169,7 @@ function addSet(c, setName, setButtons) {
 function addSwitch(c, name, setName, small = false) {
     sId = setName + name;
     // Generate the switch
-    switchContainer = $("<div class='checkbox-switch'></div>").appendTo(c);
+    switchContainer = $("<div class='checkbox-check'></div>").appendTo(c);
     if (small) {
         switchContainer.addClass("small");
     }

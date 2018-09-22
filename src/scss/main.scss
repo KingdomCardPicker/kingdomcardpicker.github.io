@@ -97,7 +97,8 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+a {
     margin: 0;
     padding: 0;
 
@@ -108,7 +109,8 @@ p {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     text-transform: uppercase;
 
     font-family: "Font-Headings", sans-serif;
@@ -122,6 +124,16 @@ h2 {
     color: $primary-color;
 
     font-size: 24px;
+}
+
+h3 {
+    font-family: "Font-Subheadings", sans-serif;
+    font-size: 18px;
+}
+
+h4 {
+    font-family: "Font-Subheadings", sans-serif;
+    font-size: 16px;
 }
 
 .description {

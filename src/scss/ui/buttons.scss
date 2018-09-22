@@ -5,8 +5,10 @@ $checkbox-switch-height-small: 16px;
 $checkbox-switch-thumb-size: 16px;
 $checkbox-switch-thumb-size-small: 12px;
 $checkbox-switch-dot-size: 4px;
-$checkbox-check-size: 16px;
+$checkbox-check-size: 20px;
 $checkbox-check-size-small: 16px;
+$checkbox-check-size-touch: 28px;
+$checkbox-check-size-touch-small: 20px;
 $checkbox-row-padding: 6px;
 // Buttons
 $button-toolbar-color: #757575;
@@ -120,6 +122,8 @@ textarea {
 }
 
 .btn {
+    position: relative;
+
     width: 100%;
     margin: 0 auto;
     padding: $text-padding 0;
@@ -226,6 +230,31 @@ textarea {
 
     i {
         font-size: 28px;
+    }
+}
+
+.btn-message {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    margin: auto 0;
+    padding: $text-padding 0;
+
+    transition: opacity 0.1s $m-ease-in-out;
+    text-align: center;
+    text-transform: uppercase;
+
+    opacity: 0;
+    color: $foreground-color;
+    border-radius: $border-radius;
+    background-color: $primary-color;
+
+    &.visible {
+        opacity: 1;
+        background-color: $success-color;
     }
 }
 
@@ -351,6 +380,7 @@ textarea {
 
     &.small {
         p {
+            padding-top: 2px;
             padding-right: $checkbox-check-size + $text-padding;
 
             text-align: right;
@@ -364,6 +394,8 @@ textarea {
     }
 
     p {
+        padding-top: 4px;
+
         vertical-align: middle;
 
         font-size: 13px;
@@ -393,14 +425,15 @@ textarea {
         border: 2px solid $primary-color;
         border-radius: $border-radius;
         background-color: $foreground-color;
+        box-shadow: $shadow-button;
 
         &:after {
             position: absolute;
-            left: 2px;
-            top: 3px;
+            left: calc(25% - 1px);
+            top: 25%;
 
-            width: 10px;
-            height: 5px;
+            width: 50%;
+            height: 25%;
 
             content: "";
             transition: opacity 0.1s ease, transform 0.1s $m-ease-in;
@@ -411,6 +444,14 @@ textarea {
             border-top: none;
             border-right: none;
             background: transparent;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        &:active {
+            background-color: rgba(0, 0, 0, 0.1);
         }
     }
 
@@ -433,6 +474,25 @@ textarea {
             &:active {
                 background-color: $foreground-color;
             }
+        }
+    }
+
+    @media screen and (max-width: $screen-large) {
+        height: $checkbox-check-size-touch;
+
+        &.small {
+            p {
+                padding-right: $checkbox-check-size-touch + $text-padding;
+            }
+
+            label {
+                height: $checkbox-check-size-touch-small;
+            }
+        }
+
+        label {
+            width: $checkbox-check-size-touch;
+            height: $checkbox-check-size-touch;
         }
     }
 }
