@@ -6,6 +6,6 @@ github_username: YtnomSnrub
 
 # Build settings
 markdown: kramdown
-source: app
+source: ./app
 
 github: [metadata]
