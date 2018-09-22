@@ -32,6 +32,15 @@ var totalSets = {
     "Empires": 10
 };
 
+$(window).bind('hashchange', function (e) {
+    var code = window.location.hash;
+    if (code != undefined && code != null && code != "") {
+        loadKingdomFromCode(code.substring(1));
+    } else {
+        animateCardsOut();
+    }
+});
+
 $(function () {
     // Generate from code (if available)
     var code = window.location.hash;
