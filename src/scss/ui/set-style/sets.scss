@@ -1,0 +1,154 @@
+// Set colors
+$set-color-dominion: #70563d;
+$set-color-intrigue: #888282;
+$set-color-seaside: #00a0ce;
+$set-color-alchemy: #9168a0;
+$set-color-prosperity: #a8a659;
+$set-color-cornucopia: #f68f4c;
+$set-color-hinterlands: #8dae5f;
+$set-color-darkages: #b0593b;
+$set-color-guilds: #e98084;
+$set-color-adventures: #7d7369;
+$set-color-empires: #cfa747;
+
+// Set-themed checkboxes
+.checkbox-switch,
+.checkbox-check {
+    label {
+        &.check-dominion {
+            border-color: $set-color-dominion;
+
+            span {
+                background-color: $set-color-dominion;
+            }
+        }
+
+        &.check-intrigue {
+            border-color: $set-color-intrigue;
+
+            span {
+                background-color: $set-color-intrigue;
+            }
+        }
+
+        &.check-seaside {
+            border-color: $set-color-seaside;
+
+            span {
+                background-color: $set-color-seaside;
+            }
+        }
+
+        &.check-alchemy {
+            border-color: $set-color-alchemy;
+
+            span {
+                background-color: $set-color-alchemy;
+            }
+        }
+
+        &.check-prosperity {
+            border-color: $set-color-prosperity;
+
+            span {
+                background-color: $set-color-prosperity;
+            }
+        }
+
+        &.check-cornucopia {
+            border-color: $set-color-cornucopia;
+
+            span {
+                background-color: $set-color-cornucopia;
+            }
+        }
+
+        &.check-hinterlands {
+            border-color: $set-color-hinterlands;
+
+            span {
+                background-color: $set-color-hinterlands;
+            }
+        }
+
+        &.check-darkages {
+            border-color: $set-color-darkages;
+
+            span {
+                background-color: $set-color-darkages;
+            }
+        }
+
+        &.check-guilds {
+            border-color: $set-color-guilds;
+
+            span {
+                background-color: $set-color-guilds;
+            }
+        }
+
+        &.check-adventures {
+            border-color: $set-color-adventures;
+
+            span {
+                background-color: $set-color-adventures;
+            }
+        }
+
+        &.check-empires {
+            border-color: $set-color-empires;
+
+            span {
+                background-color: $set-color-empires;
+            }
+        }
+    }
+
+    input[type=checkbox] {
+        &:checked + label {
+            &.check-dominion {
+                background-color: $set-color-dominion;
+            }
+
+            &.check-intrigue {
+                background-color: $set-color-intrigue;
+            }
+
+            &.check-seaside {
+                background-color: $set-color-seaside;
+            }
+
+            &.check-alchemy {
+                background-color: $set-color-alchemy;
+            }
+
+            &.check-prosperity {
+                background-color: $set-color-prosperity;
+            }
+
+            &.check-cornucopia {
+                background-color: $set-color-cornucopia;
+            }
+
+            &.check-hinterlands {
+                background-color: $set-color-hinterlands;
+            }
+
+            &.check-darkages {
+                background-color: $set-color-darkages;
+            }
+
+            &.check-guilds {
+                background-color: $set-color-guilds;
+            }
+
+            &.check-adventures {
+                background-color: $set-color-adventures;
+            }
+
+            &.check-empires {
+                background-color: $set-color-empires;
+            }
+        }
+    }
+}

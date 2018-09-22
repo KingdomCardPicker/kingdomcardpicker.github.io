@@ -1,0 +1,97 @@
+$onboarding-circle-size: calc(200vw + 200vh);
+$onboarding-circle-size-inner: $button-fab-size + 24px;
+$onboarding-circle-anim-time: 0.75s;
+
+.onboarding-circle {
+    position: fixed;
+    z-index: 10;
+    right: calc(#{$button-fab-padding + ($button-fab-size / 2)} - (#{$onboarding-circle-size} / 2));
+    bottom: calc(#{$button-fab-padding + ($button-fab-size / 2)} - (#{$onboarding-circle-size} / 2));
+
+    visibility: hidden;
+
+    width: $onboarding-circle-size;
+    height: $onboarding-circle-size;
+
+    transition: visibility 0s linear $onboarding-circle-anim-time;
+    pointer-events: all;
+
+    .onboarding-text {
+        position: absolute;
+        right: calc(50% + #{($onboarding-circle-size-inner / 2)} + 0.5vw - 6px);
+        bottom: calc(50% + #{($onboarding-circle-size-inner / 2)} + 0.5vw - 6px);
+
+        max-width: 70vw;
+        margin: auto;
+
+        transition: opacity 0.2s ease;
+        text-align: right;
+
+        opacity: 0;
+        color: $foreground-color;
+
+        font-size: 18px;
+    }
+
+    &::before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        content: "";
+        transition: transform $onboarding-circle-anim-time * 0.5 $m-ease-in, opacity $onboarding-circle-anim-time * 0.25 ease $onboarding-circle-anim-time * 0.25;
+        transform: scale(0);
+
+        opacity: 0;
+        border-radius: 50%;
+        background-color: transparentize($primary-color, 0.2);
+    }
+
+    &::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        width: $onboarding-circle-size-inner;
+        height: $onboarding-circle-size-inner;
+        margin: auto;
+
+        content: "";
+        transition: opacity 0.05s ease 0.25s;
+
+        opacity: 0;
+        border-radius: 50%;
+        background-color: $background-color;
+    }
+
+    &.open {
+        visibility: visible;
+
+        transition: visibility 0s linear 0s;
+
+        .onboarding-text {
+            transition: opacity 0.2s ease 0.25s;
+
+            opacity: 1;
+        }
+
+        &::before {
+            transition: transform $onboarding-circle-anim-time $m-ease-out, opacity 0.2s ease 0s;
+            transform: scale(1);
+
+            opacity: 1;
+        }
+
+        &::after {
+            z-index: 11;
+
+            transition: opacity 0.2s ease;
+
+            opacity: 1;
+        }
+    }
+}

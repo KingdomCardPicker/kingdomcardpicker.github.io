@@ -1,0 +1,1140 @@
+$card-padding: 12px;
+$card-padding-small: 4px;
+$card-table-supply-size: 96px;
+$card-table-supply-size-small: 64px;
+$card-table-supply-size-tiny: 48px;
+$card-table-supply-special-size: 108px;
+$card-table-supply-special-size-medium: 96px;
+$card-table-supply-special-size-small: 56px;
+$card-table-supply-card-size: 120px;
+$card-table-supply-card-size-small: 96px;
+$card-table-supply-special-card-size: 180px;
+$card-table-supply-special-card-size-medium: 120px;
+$card-table-supply-special-card-size-small: 88px;
+$card-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+$card-dialog-size: 100%;
+$card-dialog-size-small: 100%;
+$card-dialog-border-radius: 8px;
+$card-icon-offset: 37.5%;
+$card-icon-size-large: 96px;
+$card-icon-size: 48px;
+$card-icon-size-small: 36px;
+$card-icon-size-tiny: 24px;
+$shadow-state-empty: 0 1px 5px rgba(0, 0, 0, 0.4);
+$shadow-state-empty-inner: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+.cards-table-state {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    width: $screen-tiny * 0.5;
+    height: $screen-tiny * 0.5;
+    margin: auto;
+
+    transition: opacity 0.2s $m-ease-in-out 0.05s, background-color 0.2s $m-ease-in-out;
+
+    opacity: 0;
+    border-radius: 50%;
+    background-color: $background-color;
+    box-shadow: $shadow-state-empty inset;
+
+    @media (min-width: $screen-min) and (min-height: $screen-min) {
+        width: $screen-min * 0.8;
+        height: $screen-min * 0.8;
+    }
+
+    @media (min-width: $screen-tiny) and (min-height: $screen-tiny) {
+        width: $screen-tiny * 0.85;
+        height: $screen-tiny * 0.85;
+    }
+
+    @media (min-width: $screen-small) and (min-height: $screen-small) {
+        width: $screen-small * 0.8;
+        height: $screen-small * 0.8;
+    }
+
+    @media (min-width: $screen-medium) and (min-height: $screen-medium) {
+        width: $screen-medium * 0.8;
+        height: $screen-medium * 0.8;
+    }
+
+    @media (min-width: $screen-large) and (min-height: $screen-large) {
+        width: $screen-large * 0.8;
+        height: $screen-large * 0.8;
+    }
+
+    &.state-open {
+        transition: opacity 0.2s $m-ease-in-out, background-color 0.2s $m-ease-in-out 0.05s;
+
+        opacity: 1;
+        background-color: $primary-color-light;
+
+        img {
+            transition: opacity 0.2s $m-ease-in-out 0.05s;
+
+            opacity: 1;
+        }
+    }
+
+    &.state-empty {
+        span.state-text-empty {
+            transition: opacity 0.2s $m-ease-in-out;
+
+            opacity: 1;
+        }
+    }
+
+    &.state-sets {
+        background-color: $error-color-light;
+
+        span.state-text-sets {
+            transition: opacity 0.2s $m-ease-in-out;
+
+            opacity: 1;
+        }
+    }
+
+    img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -40%;
+        bottom: 0;
+
+        width: 25%;
+        height: 25%;
+        margin: auto;
+
+        transition: opacity 0.2s $m-ease-in-out 0.05s;
+
+        opacity: 0;
+
+        filter: drop-shadow($shadow-state-empty-inner);
+
+        @media (min-width: $screen-tiny) and (min-height: $screen-tiny) {
+            top: -28%;
+
+            width: 40%;
+            height: 40%;
+        }
+
+        @media (min-width: $screen-large) and (min-height: $screen-large) {
+            top: -20%;
+        }
+    }
+
+    span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 5%;
+        bottom: 0;
+
+        width: 75%;
+        height: 0;
+        margin: auto;
+        padding-top: 48px;
+
+        transition: opacity 0.2s $m-ease-in-out 0.05s;
+        text-align: center;
+
+        opacity: 0;
+        color: rgba(0, 0, 0, 0.6);
+
+        font-size: 11px;
+
+        @media (min-width: $screen-tiny) and (min-height: $screen-tiny) {
+            top: 25%;
+
+            padding-top: 48px;
+
+            font-size: 12px;
+        }
+
+        @media (min-width: $screen-small) and (min-height: $screen-small) {
+            padding-top: 56px;
+
+            font-size: 16px;
+        }
+
+        @media (min-width: $screen-medium) and (min-height: $screen-medium) {
+            top: 27%;
+
+            padding-top: 84px;
+
+            font-size: 16px;
+        }
+
+        @media (min-width: $screen-large) and (min-height: $screen-large) {
+            top: 37%;
+
+            padding-top: 84px;
+
+            font-size: 20px;
+        }
+    }
+
+    span.state-subheading {
+        width: 85%;
+        padding-top: 0;
+
+        font-family: "Font-Subheadings";
+        font-size: 16px;
+
+        @media (min-width: $screen-tiny) and (min-height: $screen-tiny) {
+            font-size: 16px;
+        }
+
+        @media (min-width: $screen-small) and (min-height: $screen-small) {
+            font-size: 18px;
+        }
+
+        @media (min-width: $screen-medium) and (min-height: $screen-medium) {
+            font-size: 24px;
+        }
+    }
+}
+
+.cards-table-landscape,
+.cards-table-portrait {
+    display: none;
+}
+
+@media (orientation: landscape) {
+    .cards-table-landscape {
+        display: table;
+    }
+}
+
+@media (orientation: portrait) {
+    .cards-table-portrait {
+        display: table;
+    }
+}
+
+.cards-table,
+.cards-table-basic,
+.cards-table-specialcards {
+    &.cards-animate-in {
+        .cards-table-card {
+            transition: opacity 0.225s $m-ease-out, transform 0.225s $m-ease-out;
+            transform: scale3d(1, 1, 1);
+
+            opacity: 1;
+        }
+    }
+}
+
+.cards-table-basic {
+    .cards-table-card {
+        transition-delay: 0.275s;
+    }
+
+    &.cards-animate-in {
+        .cards-table-card {
+            transition-delay: 0.275s;
+        }
+    }
+}
+
+.cards-table-specialcards {
+    .cards-table-card {
+        transition-delay: 0.2s;
+    }
+
+    &.cards-animate-in {
+        .cards-table-card {
+            transition-delay: 0.2s;
+        }
+    }
+}
+
+.cards-table {
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+    padding: $card-padding;
+
+    @media (max-width: $screen-small), (max-height: $screen-small), (orientation: portrait) {
+        padding: $card-padding-small;
+    }
+
+    &.cards-table-supply {
+        width: calc(100% - #{$card-table-supply-size});
+        padding-right: 0;
+
+        @media (max-width: $screen-small), (max-height: $screen-small) {
+            width: calc(100% - #{$card-table-supply-size-small});
+
+            @media (orientation: portrait) {
+                width: calc(100% - #{$card-table-supply-size-tiny});
+            }
+        }
+    }
+
+    &.cards-table-supply-special {
+        height: calc(100% - #{$card-table-supply-special-size});
+        padding-bottom: 0;
+
+        @media (orientation: portrait) {
+            height: calc(100% - #{$card-table-supply-special-size-medium});
+        }
+
+        @media (max-width: $screen-small), (max-height: $screen-small) {
+            height: calc(100% - #{$card-table-supply-special-size-small});
+        }
+    }
+
+    .cards-table-row-outer {
+        width: 100%;
+
+        .cards-table-row {
+            display: flex;
+            flex-direction: row;
+
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            margin: auto;
+        }
+    }
+}
+
+.cards-table-card {
+    z-index: 1;
+
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+    transition: opacity 0.225s $m-ease-in 0s, transform 0.225s $m-ease-in 0s;
+    transform: scale3d(0.2, 0.2, 0.2);
+    vertical-align: middle;
+
+    opacity: 0;
+    border: $card-padding solid transparent;
+
+    flex: 1 1 auto;
+
+    @media (max-width: $screen-small), (max-height: $screen-small), (orientation: portrait) {
+        border: $card-padding-small solid transparent;
+    }
+
+    @media (max-width: $screen-xl) and (max-height: $screen-xl) {
+        transition: opacity 0.15s $m-ease-in 0s, transform 0.15s $m-ease-in 0s;
+        transition-delay: 0s !important;
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    .cards-table-card-inner {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+
+    img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+        margin: auto;
+        padding: 1px;
+
+        cursor: pointer;
+        transition: filter 0.2s $m-ease-in-out;
+        transform: scale3d(1, 1, 1);
+
+        border-radius: $border-radius-card;
+        background-color: #000000;
+        box-shadow: $card-shadow;
+
+        @media (max-height: $screen-small), (max-width: $screen-small) {
+            border-radius: $border-radius-card-small;
+        }
+    }
+
+    &.card-bane,
+    &.card-obelisk {
+        &::before {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            width: 1px;
+            height: 50%;
+            margin: auto;
+
+            content: "";
+
+            background-color: $primary-color;
+            box-shadow: $shadow-button;
+        }
+
+        &::after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: calc(100% - 11px);
+
+            box-sizing: border-box;
+            width: 50%;
+            min-width: 48px;
+            max-width: 96px;
+            margin: auto;
+            padding: 4px 8px;
+
+            text-align: center;
+            text-transform: uppercase;
+
+            color: $foreground-color;
+            border-radius: 24px;
+            background-color: $primary-color;
+            box-shadow: $shadow-button-hover;
+
+            font-size: 12px;
+
+            @media (max-height: $screen-small), (max-width: $screen-small), (orientation: portrait) {
+                top: calc(100% - 7px);
+
+                padding: 2px 4px;
+
+                font-size: 8px;
+            }
+        }
+    }
+
+    &.card-bane {
+        &::before {
+            background-color: $card-color-bane;
+        }
+
+        &::after {
+            content: "Bane";
+
+            background-color: $card-color-bane;
+        }
+    }
+
+    &.card-obelisk {
+        &::before {
+            background-color: $card-color-victory;
+        }
+
+        &::after {
+            min-width: 64px;
+
+            content: "Obelisk";
+
+            background-color: $card-color-victory;
+        }
+    }
+
+    &.card-bane.card-obelisk {
+        &::before {
+            background: linear-gradient(90deg, $card-color-victory, $card-color-bane);
+        }
+
+        &::after {
+            width: 50%;
+            min-width: 108px;
+            max-width: 100%;
+
+            content: "Bane / Obelisk";
+            word-wrap: normal;
+
+            background: linear-gradient(70deg, $card-color-bane 10%, $card-color-victory 90%);
+
+            @media (max-height: $screen-small), (max-width: $screen-small), (orientation: portrait) {
+                min-width: 72px;
+            }
+        }
+    }
+
+    i {
+        position: absolute;
+        left: -$card-icon-size;
+        right: 0;
+        top: -$card-icon-size;
+        bottom: 0;
+
+        width: 0;
+        height: 0;
+        margin: auto;
+
+        cursor: pointer;
+        transition: opacity 0.2s $m-ease-in-out;
+
+        opacity: 0;
+        color: $foreground-color;
+        text-shadow: $shadow-button-hover;
+
+        font-size: $card-icon-size;
+
+        user-select: none;
+
+        @media (max-height: $screen-small), (max-width: $screen-small) {
+            left: -$card-icon-size-small;
+            top: -$card-icon-size-small;
+
+            font-size: $card-icon-size-small;
+        }
+    }
+
+    &.hover {
+        img {
+            filter: brightness(50%);
+        }
+
+        i {
+            opacity: 1;
+        }
+    }
+
+    &:active {
+        img {
+            transition: filter 0.1s $m-ease-in-out;
+
+            filter: brightness(40%);
+        }
+
+        i {
+            transition: opacity 0.1s $m-ease-in-out;
+
+            opacity: 1;
+        }
+    }
+}
+
+// Basic cards display
+.cards-table-basic {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    box-sizing: border-box;
+    width: $card-table-supply-size;
+    height: 100%;
+    padding: $card-padding;
+    padding-left: 0;
+
+    @media (max-width: $screen-small), (max-height: $screen-small) {
+        width: $card-table-supply-size-small;
+        padding: $card-padding-small;
+        padding-left: 0;
+
+        @media (orientation: portrait) {
+            width: $card-table-supply-size-tiny;
+        }
+    }
+
+    &::before,
+    &::after {
+        content: "";
+
+        flex: 1 1 auto;
+    }
+
+    .cards-table-card {
+        box-sizing: border-box;
+        margin-bottom: 1px;
+
+        flex: 0 1 $card-table-supply-card-size;
+
+        @media (max-width: $screen-small), (max-height: $screen-small) {
+            border: $card-padding-small solid transparent;
+
+            flex: 0 1 $card-table-supply-card-size-small;
+        }
+
+        img {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            margin: auto;
+
+            border-radius: 3px;
+        }
+
+        i {
+            left: -$card-icon-size-small;
+            top: -$card-icon-size-small;
+
+            font-size: $card-icon-size-small;
+
+            user-select: none;
+        }
+    }
+
+    &.cards-table-supply-special {
+        height: calc(100% - #{$card-table-supply-special-size});
+        padding-bottom: 0;
+
+        @media (orientation: portrait) {
+            height: calc(100% - #{$card-table-supply-special-size-medium});
+        }
+
+        @media (max-width: $screen-small), (max-height: $screen-small) {
+            height: calc(100% - #{$card-table-supply-special-size-small});
+        }
+    }
+}
+
+// Special cards display
+.cards-table-specialcards {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: $card-table-supply-special-size;
+    padding: 0 $card-padding;
+    padding-bottom: $card-padding-small;
+
+    @media (orientation: portrait) {
+        height: $card-table-supply-special-size-medium;
+        padding: 0 $card-padding-small;
+        padding-bottom: $card-padding-small;
+    }
+
+    @media (max-width: $screen-small), (max-height: $screen-small) {
+        height: $card-table-supply-special-size-small;
+        padding: 0 $card-padding-small;
+        padding-bottom: $card-padding-small;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+
+        flex: 1 1 auto;
+    }
+
+    .cards-table-card {
+        box-sizing: border-box;
+        margin-bottom: 1px;
+
+        border: $card-padding-small solid transparent;
+
+        flex: 0 1 $card-table-supply-special-card-size;
+
+        @media (orientation: portrait) {
+            flex: 0 1 $card-table-supply-special-card-size-medium;
+        }
+
+        @media (max-width: $screen-small), (max-height: $screen-small) {
+            flex: 0 1 $card-table-supply-special-card-size-small;
+
+            @media (orientation: portrait) {
+                flex: 0 1 $card-table-supply-special-card-size-medium;
+            }
+        }
+
+        img {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            margin: auto;
+
+            border-radius: 3px;
+        }
+
+        i {
+            left: -$card-icon-size-small;
+            top: -$card-icon-size-small;
+
+            font-size: $card-icon-size-small;
+
+            user-select: none;
+        }
+    }
+
+    &.cards-table-supply {
+        width: calc(100% - #{$card-table-supply-size});
+        padding-right: 0;
+
+        @media (max-width: $screen-small), (max-height: $screen-small) {
+            width: calc(100% - #{$card-table-supply-size-small});
+
+            @media (orientation: portrait) {
+                width: calc(100% - #{$card-table-supply-size-tiny});
+            }
+        }
+    }
+}
+
+.dialog.dialog-card-detail.dialog-card-detail-landscape {
+    .dialog-content {
+        @media (max-width: $screen-small), (max-height: $screen-small) {
+            max-width: $card-dialog-size-small;
+            max-height: $card-dialog-size-small;
+        }
+
+        @media (min-height: $screen-min) and (min-width: $screen-min + $toolbar-height) {
+            width: $screen-min - 24px + $toolbar-height;
+            height: ($screen-min - 24px) * 0.625;
+        }
+
+        @media (min-height: $screen-tiny) and (min-width: $screen-tiny + $toolbar-height) {
+            width: $screen-tiny - 24px + $toolbar-height;
+            height: ($screen-tiny - 24px) * 0.625;
+        }
+
+        @media (min-height: $screen-small) and (min-width: $screen-small + $toolbar-height) {
+            width: $screen-small - 48px + $toolbar-height;
+            height: ($screen-small - 48px) * 0.625;
+        }
+
+        @media (min-height: $screen-medium) and (min-width: $screen-medium + $toolbar-height) {
+            width: $screen-medium - 48px + $toolbar-height;
+            height: ($screen-medium - 48px) * 0.625;
+        }
+
+        @media (min-height: $screen-large) and (min-width: $screen-large + $toolbar-height) {
+            width: $screen-large - 48px + $toolbar-height;
+            height: ($screen-large - 48px) * 0.625;
+        }
+
+        @media (min-height: $screen-xl) and (min-width: $screen-xl + $toolbar-height) {
+            width: $screen-xl - 48px;
+            height: (($screen-xl - 48px) * 0.625) + $toolbar-height;
+        }
+    }
+}
+
+.dialog.dialog-card-detail {
+    .dialog-content {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+
+        box-sizing: border-box;
+        width: 100%;
+        max-width: $card-dialog-size;
+        height: 100%;
+        max-height: $card-dialog-size;
+
+        border-radius: $card-dialog-border-radius;
+        background-color: #000000;
+
+        @media (max-height: $screen-small) {
+            border-radius: 4px;
+        }
+
+        @media (max-width: $screen-small), (max-height: $screen-small) {
+            max-width: $card-dialog-size-small;
+            max-height: $card-dialog-size-small;
+        }
+
+        @media (min-height: $screen-min) and (min-width: $screen-min) {
+            width: (($screen-min - 24px) * 0.625) + $toolbar-height;
+            height: $screen-min - 24px;
+        }
+
+        @media (min-height: $screen-tiny) and (min-width: $screen-tiny) {
+            width: (($screen-tiny - 24px) * 0.625) + $toolbar-height;
+            height: $screen-tiny - 24px;
+        }
+
+        @media (min-height: $screen-small) and (min-width: $screen-small) {
+            width: (($screen-small - 48px) * 0.625) + $toolbar-height;
+            height: $screen-small - 48px;
+        }
+
+        @media (min-height: $screen-medium) and (min-width: $screen-medium) {
+            width: (($screen-medium - 48px) * 0.625) + $toolbar-height;
+            height: $screen-medium - 48px;
+        }
+
+        @media (min-height: $screen-large) and (min-width: $screen-large) {
+            width: (($screen-large - 48px) * 0.625) + $toolbar-height;
+            height: $screen-large - 48px;
+        }
+
+        @media (min-height: $screen-xl) and (min-width: $screen-xl) {
+            width: (($screen-xl - 48px) * 0.625) + $toolbar-height;
+            height: $screen-xl - 48px;
+        }
+
+        .dialog-content-inner {
+            display: flex;
+            flex-direction: row;
+
+            flex: auto;
+
+            .card-image-container {
+                position: relative;
+
+                margin-right: $toolbar-height;
+
+                flex: auto;
+
+                img {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    overflow-y: overlay;
+
+                    width: auto;
+                    max-width: 100%;
+                    height: auto;
+                    max-height: 100%;
+                    margin: auto;
+
+                    cursor: pointer;
+                    transition: filter 0.275s $m-ease-in-out, transform 0.25s $m-ease-in-out, opacity 0.25s $m-ease-in-out;
+                    transform: translateX(0) rotateY(0deg);
+
+                    opacity: 1;
+                    background-color: #000000;
+
+                    @media (min-height: $screen-min) and (min-width: $screen-min) {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &.card-image-loading {
+                        opacity: 0;
+                    }
+
+                    &.split-fade-out {
+                        transform: rotateY(90deg);
+
+                        opacity: 0;
+                    }
+
+                    &.multi-fade-out {
+                        transform: translateX(-10%);
+
+                        opacity: 0;
+                    }
+
+                    &.multi-fade-in {
+                        transition: none;
+                        transform: translateX(10%);
+
+                        opacity: 0;
+                    }
+                }
+
+                i {
+                    position: absolute;
+                    left: -$card-icon-size-large;
+                    right: 0;
+                    top: -$card-icon-size-large;
+                    bottom: 0;
+
+                    width: 0;
+                    height: 0;
+                    margin: auto;
+
+                    cursor: pointer;
+                    transition: opacity 0.275s $m-ease-in-out;
+
+                    opacity: 0;
+                    color: $foreground-color;
+                    text-shadow: $shadow-button-hover;
+
+                    font-size: $card-icon-size-large;
+
+                    user-select: none;
+
+                    @media (max-height: $screen-small), (max-width: $screen-small) {
+                        left: -$card-icon-size;
+                        top: -$card-icon-size;
+
+                        font-size: $card-icon-size;
+                    }
+                }
+
+                &:hover {
+                    img {
+                        filter: brightness(50%);
+                    }
+
+                    i {
+                        opacity: 1;
+                    }
+                }
+
+                &:active {
+                    img {
+                        filter: brightness(40%);
+                    }
+
+                    i {
+                        opacity: 0.9;
+                    }
+                }
+            }
+
+            .card-toolbar {
+                position: absolute;
+                right: 0;
+                top: 0;
+
+                display: flex;
+                flex-direction: column;
+
+                width: $toolbar-height;
+                height: 100%;
+
+                flex: 0 0 $toolbar-height;
+
+                .btn-icon,
+                .btn-toolbar {
+                    height: $toolbar-height;
+
+                    transition: all 0.4s $m-ease-in-out, color 0.1s $m-ease-in-out;
+
+                    opacity: 1;
+                    color: $foreground-color;
+
+                    &:hover,
+                    &:active {
+                        color: darken($foreground-color, 10%);
+                    }
+
+                    &::before {
+                        background-color: rgba(255, 255, 255, 0.2);
+                    }
+
+                    i {
+                        transition: opacity 0.2s $m-ease-in-out, transform 0.0s linear;
+                        transform: scale(1);
+                    }
+
+                    &.hidden {
+                        z-index: 0;
+
+                        height: 0;
+                        margin: 0 auto;
+                        padding-top: 0;
+                        padding-bottom: 0;
+
+                        opacity: 0;
+                        border-width: 0;
+
+                        i {
+                            transition: opacity 0.2s $m-ease-in-out, transform 0.8s linear;
+                            transform: scale(0);
+                        }
+
+                        &::before {
+                            transform: scale(0);
+                        }
+                    }
+                }
+            }
+
+            .btn-dialog-minimize {
+                z-index: 2;
+                right: 28px;
+                top: -48px;
+
+                visibility: hidden;
+
+                width: $toolbar-height;
+                height: $toolbar-height;
+
+                border-radius: 0 0 ($toolbar-height / 2) ($toolbar-height / 2);
+                background-color: $foreground-color;
+                box-shadow: $shadow-soft;
+
+                i {
+                    position: absolute;
+                    left: calc(50% - 12px);
+                    top: calc(50% - 12px);
+
+                    width: 24px;
+                    height: 24px;
+
+                    font-size: 24px;
+                }
+            }
+
+            .card-faq {
+                position: absolute;
+                z-index: 2;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+
+                visibility: hidden;
+                overflow-y: auto;
+
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+
+                transition: opacity 0.2s $m-ease-in-out;
+
+                opacity: 0;
+                background-color: $foreground-color;
+
+                -webkit-overflow-scrolling: touch;
+
+                .card-faq-loading {
+                    position: absolute;
+                    z-index: -1;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+
+                    height: 0;
+                    margin: auto;
+
+                    text-align: center;
+
+                    color: $text-color;
+
+                    .loading-indeterminate-dots {
+                        position: absolute;
+                        top: 48px;
+
+                        width: 100%;
+                    }
+
+                    .loading-heading {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: -12px;
+
+                        margin: auto;
+
+                        transition: top 0.4s $m-ease-in-out 0.5s;
+
+                        font-size: 24px;
+                    }
+
+                    .loading-text {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: -7px;
+
+                        margin: auto;
+
+                        transition: opacity 0.4s $m-ease-in-out 0.5s, bottom 0.4s $m-ease-in-out 0.5s;
+
+                        opacity: 0;
+
+                        font-size: 14px;
+                    }
+                }
+
+                iframe {
+                    position: absolute;
+                    z-index: 100;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+
+                    visibility: hidden;
+
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+
+                    transition: opacity 0.4s $m-ease-in-out;
+
+                    opacity: 0;
+                    border: none;
+                }
+            }
+        }
+
+        &.faq-visible {
+            width: $card-dialog-size;
+            max-width: 100%;
+            height: $card-dialog-size;
+            max-height: 100%;
+
+            transition: width 0.425s $m-ease-in-out 0.075s, height 0.375s $m-ease-in-out 0.0s, border-radius 0.375s $m-ease-in-out;
+
+            border-radius: 0;
+
+            @media (max-width: $screen-small), (max-height: $screen-small) {
+                width: $card-dialog-size-small;
+                height: $card-dialog-size-small;
+            }
+
+            .dialog-content-inner {
+                .card-faq {
+                    visibility: visible;
+
+                    opacity: 1;
+
+                    .card-faq-loading {
+                        .loading-heading {
+                            top: -24px;
+                        }
+
+                        .loading-text {
+                            bottom: -24px;
+
+                            opacity: 1;
+                        }
+                    }
+
+                    iframe.card-faq-animate-in {
+                        visibility: visible;
+
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .btn-dialog-minimize {
+                top: 0;
+
+                visibility: visible;
+
+                transition: top 0.2s $m-ease-out;
+            }
+        }
+    }
+}

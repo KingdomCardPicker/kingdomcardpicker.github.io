@@ -1,0 +1,423 @@
+<!-- All synergies are given a rating from 1 to 7 -->
+<synergies>
+    <!-- Actions -->
+    <s c1="Terminal" c2="+Actions">5</s>
+    <s c1="Terminal" c2="Multiplay">5</s>
+    <s c1="Soft Terminal" c2="+Actions">1</s>
+    <s c1="+Actions" c2="Terminal">1</s>
+    <s c1="+Actions" c2="+Cards">7</s>
+    <s c1="+Actions" c2="+Cards To">4</s>
+    <s c1="+Actions" c2="Deck Order">3</s>
+    <s c1="+Actions" c2="Actions Bonus">4</s>
+    <s c1="+Actions" c2="Diversity Bonus">4</s>
+    <s c1="+Actions" c2="+Buy">3</s>
+    <s c1="Cantrip" c2="Actions Bonus">5</s>
+    <s c1="Cantrip" c2="Diversity Bonus">4</s>
+    <s c1="Duration" c2="Actions Bonus">5</s>
+    <s c1="Duration" c2="Discard All">6</s>
+    <s c1="Duration" c2="Extra Turn">6</s>
+    <s c1="Traveller" c2="Sifter">6</s>
+    <s c1="Traveller" c2="Deck Cycle">3</s>
+    <!-- Hand -->
+    <s c1="+Cards" c2="+Actions">7</s>
+    <s c1="+Cards" c2="Self Synergy">5</s>
+    <s c1="+Cards" c2="Combo">4</s>
+    <s c1="+Cards" c2="Deck Order">3</s>
+    <s c1="+Cards To" c2="+Actions">4</s>
+    <s c1="+Cards To" c2="Sifter">6</s>
+    <s c1="+Cards To" c2="Discard">4</s>
+    <s c1="Discard" c2="Reaction Discard">7</s>
+    <s c1="Discard" c2="Victory">6</s>
+    <s c1="Discard" c2="+Cards To">4</s>
+    <s c1="Discard" c2="Diversity Bonus">4</s>
+    <s c1="Discard All" c2="Duration">6</s>
+    <s c1="Discard All" c2="+Coins">7</s>
+    <s c1="Discard All" c2="Treasure Penalty">4</s>
+    <s c1="Discard Penalty" c2="Deck Order">6</s>
+    <s c1="Hand Size" c2="Hand Size Bonus">6</s>
+    <s c1="Hand Size" c2="Self Synergy">6</s>
+    <s c1="Hand Size" c2="Sifter">6</s>
+    <s c1="Hand Size" c2="Combo">5</s>
+    <s c1="Hand Size" c2="Overpay">4</s>
+    <s c1="Hand Size Bonus" c2="Hand Size">6</s>
+    <s c1="Hand Size Bonus" c2="+Cards">1</s>
+    <s c1="Low Hand Size" c2="Low Hand Size Bonus">7</s>
+    <s c1="Low Hand Size" c2="+Cards To">7</s>
+    <s c1="Low Hand Size Bonus" c2="Low Hand Size">7</s>
+    <s c1="Low Hand Size Bonus" c2="+Actions">5</s>
+    <s c1="Low Hand Size Bonus" c2="Discard">5</s>
+    <s c1="Diversity" c2="Diversity Bonus">5</s>
+    <s c1="Diversity Bonus" c2="Diversity">6</s>
+    <s c1="Diversity Bonus" c2="Cantrip">6</s>
+    <s c1="Diversity Bonus" c2="Card Gain">6</s>
+    <s c1="Diversity Bonus" c2="Discard">3</s>
+    <s c1="Diversity Bonus" c2="Sifter">5</s>
+    <s c1="Diversity Bonus" c2="+Actions">5</s>
+    <s c1="Diversity Bonus" c2="Split Pile">5</s>
+    <s c1="Diversity Bonus" c2="Potion">4</s>
+    <s c1="Hand Order" c2="Self Synergy">4</s>
+    <s c1="Hand Order" c2="Combo">5</s>
+    <s c1="Sifter" c2="Traveller">4</s>
+    <s c1="Sifter" c2="Deck Size Bonus">4</s>
+    <s c1="Sifter" c2="Self Synergy">5</s>
+    <s c1="Sifter" c2="Combo">5</s>
+    <s c1="Sifter" c2="Victory">4</s>
+    <s c1="Sifter" c2="Reaction Discard">4</s>
+    <s c1="Self Synergy" c2="+Cards">4</s>
+    <s c1="Self Synergy" c2="+Buy">4</s>
+    <s c1="Self Synergy" c2="Sifter">6</s>
+    <s c1="Self Synergy" c2="Trasher">5</s>
+    <s c1="Self Synergy" c2="Deck Cleaner">5</s>
+    <s c1="Self Synergy" c2="Supply Bonus">5</s>
+    <s c1="Self Synergy" c2="Hand Size">6</s>
+    <s c1="Self Synergy" c2="Deck Order">6</s>
+    <s c1="Self Synergy" c2="Hand Order">6</s>
+    <s c1="Combo" c2="Deck Order">4</s>
+    <s c1="Combo" c2="Hand Order">6</s>
+    <s c1="Combo" c2="Hand Size">6</s>
+    <s c1="Combo" c2="Card Gain">5</s>
+    <s c1="Combo" c2="Trasher">5</s>
+    <s c1="Combo" c2="+Cards">4</s>
+    <s c1="Combo" c2="Supply Bonus">4</s>
+    <s c1="Combo" c2="Diversity Bonus">5</s>
+    <s c1="Combo" c2="Sifter">7</s>
+    <s c1="Card Swap" c2="Attack Hand Size">2</s>
+    <s c1="Multiplay" c2="Terminal">6</s>
+    <s c1="Multiplay" c2="Trasher">4</s>
+    <s c1="Multiplay" c2="Deck Cleaner">4</s>
+    <s c1="Multiplay" c2="Journey Token">5</s>
+    <s c1="Extra Turn" c2="Duration">6</s>
+    <s c1="Extra Turn" c2="+Cards">3</s>
+    <s c1="Extra Turn" c2="Deck Order">5</s>
+    <s c1="Extra Turn" c2="Deck Keeper">5</s>
+    <s c1="Extra Turn" c2="Hand Order">5</s>
+    <s c1="Extra Turn" c2="Treasure Dig">5</s>
+    <s c1="Action Phase" c2="+Cards To">6</s>
+    <s c1="Action Phase" c2="Reduce Cost">5</s>
+    <!-- Buy -->
+    <s c1="+Coins" c2="+Actions">5</s>
+    <s c1="+Coins" c2="+Buy">3</s>
+    <s c1="+Coins" c2="Hand Size">4</s>
+    <s c1="+Coins" c2="Discard All">5</s>
+    <s c1="+Coins" c2="Treasure Penalty">5</s>
+    <s c1="+Coins" c2="Overpay">6</s>
+    <s c1="Overpay" c2="+Coins">5</s>
+    <s c1="Overpay" c2="Hand Size">4</s>
+    <s c1="Overpay" c2="Reduce Cost">6</s>
+    <s c1="Overpay" c2="Treasure">5</s>
+    <s c1="+Buy" c2="+Coins">5</s>
+    <s c1="+Buy" c2="Gain Bonus">6</s>
+    <s c1="+Buy" c2="Reduce Cost">5</s>
+    <s c1="+Buy" c2="Feeder Cost">4</s>
+    <s c1="+Buy" c2="Supply Bonus">6</s>
+    <!-- Supply -->
+    <s c1="Trash Gain" c2="Trasher">7</s>
+    <s c1="Trash Gain" c2="Trash Supply">7</s>
+    <s c1="Trash Supply" c2="Trash Gain">5</s>
+    <s c1="Trash Supply" c2="Supply Bonus">6</s>
+    <s c1="Reduce Cost" c2="Reduce Cost Bonus">7</s>
+    <s c1="Reduce Cost" c2="+Actions">5</s>
+    <s c1="Reduce Cost" c2="+Cards">3</s>
+    <s c1="Reduce Cost" c2="+Coins">5</s>
+    <s c1="Reduce Cost" c2="+Buy">4</s>
+    <s c1="Reduce Cost" c2="Gain Bonus">4</s>
+    <s c1="Reduce Cost" c2="Card Duplicate">4</s>
+    <s c1="Reduce Cost" c2="Hand Size">6</s>
+    <s c1="Reduce Cost" c2="Multiplay">6</s>
+    <s c1="Reduce Cost" c2="Buy Bonus">6</s>
+    <s c1="Reduce Cost" c2="Coin Token">6</s>
+    <s c1="Reduce Cost" c2="Overpay">7</s>
+    <s c1="Reduce Cost Bonus" c2="Reduce Cost">7</s>
+    <s c1="Card Copy" c2="Obsolete">6</s>
+    <s c1="Card Copy" c2="Reduce Cost">4</s>
+    <s c1="Obsolete" c2="Card Copy">6</s>
+    <s c1="Obsolete" c2="Feeder">5</s>
+    <s c1="Obsolete" c2="Feeder Cost">6</s>
+    <s c1="Obsolete" c2="Upgrade">6</s>
+    <s c1="Buy Bonus" c2="Reduce Cost">5</s>
+    <s c1="Buy Bonus" c2="+Coins">5</s>
+    <s c1="Buy Bonus" c2="+Buy">6</s>
+    <s c1="Buy Penalty" c2="Card Gain">6</s>
+    <s c1="Buy Penalty" c2="Trasher">5</s>
+    <s c1="Buy Penalty" c2="Deck Cleaner">4</s>
+    <s c1="Supply Bonus" c2="Card Gain">5</s>
+    <s c1="Supply Bonus" c2="Combo">5</s>
+    <s c1="Supply Bonus" c2="Self Synergy">5</s>
+    <s c1="Supply Bonus" c2="Trash Supply">6</s>
+    <s c1="Supply Bonus" c2="Deck Size Bonus">4</s>
+    <s c1="Supply Bonus" c2="Reduce Cost">4</s>
+    <s c1="Split Pile" c2="Reduce Cost">5</s>
+    <s c1="Split Pile" c2="Card Gain">5</s>
+    <!-- Cards -->
+    <s c1="Upgrade" c2="+Actions">4</s>
+    <s c1="Upgrade" c2="Deck Value Bonus">6</s>
+    <s c1="Upgrade" c2="On Trash Bonus">7</s>
+    <s c1="Upgrade" c2="On Trash Hand">7</s>
+    <s c1="Upgrade" c2="Reaction Trash">7</s>
+    <s c1="Upgrade" c2="Reduce Cost">5</s>
+    <s c1="Upgrade" c2="Card Value">6</s>
+    <s c1="Upgrade" c2="On Gain Bonus">5</s>
+    <s c1="Upgrade" c2="Gain Bonus">5</s>
+    <s c1="Card Gain" c2="+Actions">4</s>
+    <s c1="Card Gain" c2="Feeder">5</s>
+    <s c1="Card Gain" c2="Feeder Cost">5</s>
+    <s c1="Card Gain" c2="Combo">4</s>
+    <s c1="Card Gain" c2="On Gain Bonus">5</s>
+    <s c1="Card Gain" c2="Gain Bonus">6</s>
+    <s c1="Card Gain" c2="Supply Bonus">5</s>
+    <s c1="Card Gain" c2="Diversity Bonus">5</s>
+    <s c1="Gain Bonus" c2="+Buy">6</s>
+    <s c1="Gain Bonus" c2="Card Gain">5</s>
+    <s c1="Gain Bonus" c2="Upgrade">5</s>
+    <s c1="Gain Bonus" c2="Treasure Gain">4</s>
+    <s c1="Gain Bonus" c2="Copper Gain">5</s>
+    <s c1="Gain Bonus" c2="Silver Gain">5</s>
+    <s c1="Gain Bonus" c2="Hand Size">4</s>
+    <s c1="On Gain Bonus" c2="Card Gain">5</s>
+    <s c1="On Gain Bonus" c2="Upgrade">5</s>
+    <s c1="Card Duplicate" c2="+Coins">5</s>
+    <s c1="Card Duplicate" c2="Duchy Bonus">4</s>
+    <s c1="Card Duplicate" c2="Victory">5</s>
+    <s c1="Card Duplicate" c2="Reduce Cost">6</s>
+    <s c1="Split Type Bonus" c2="Victory Split">7</s>
+    <s c1="Split Type Bonus" c2="Treasure Split">7</s>
+    <s c1="On Trash Bonus" c2="Trasher">6</s>
+    <s c1="On Trash Bonus" c2="Trash Supply">7</s>
+    <s c1="On Trash Bonus" c2="Upgrade">7</s>
+    <s c1="On Trash Hand" c2="Upgrade">6</s>
+    <s c1="On Trash Hand" c2="Trash Supply">6</s>
+    <s c1="On Trash Hand" c2="Reaction Trash">6</s>
+    <s c1="On Trash Hand" c2="Feeder">6</s>
+    <s c1="On Trash Hand" c2="Feeder Cost">6</s>
+    <s c1="Actions Bonus" c2="+Actions">6</s>
+    <s c1="Actions Bonus" c2="Cantrip">6</s>
+    <s c1="Actions Bonus" c2="+Buy">5</s>
+    <s c1="Actions Bonus" c2="Card Gain">6</s>
+    <s c1="Card Value" c2="Card Value Bonus">5</s>
+    <s c1="Card Value" c2="Upgrade">7</s>
+    <s c1="Card Value" c2="Feeder">3</s>
+    <s c1="Card Value" c2="Feeder Cost">6</s>
+    <s c1="Card Value Bonus" c2="Card Value">7</s>
+    <s c1="Feeder" c2="Card Gain">5</s>
+    <s c1="Feeder" c2="Copper Gain">4</s>
+    <s c1="Feeder" c2="+Buy">5</s>
+    <s c1="Feeder" c2="On Trash Bonus">5</s>
+    <s c1="Feeder" c2="On Trash Hand">6</s>
+    <s c1="Feeder" c2="Attack Junker">2</s>
+    <s c1="Feeder" c2="Treasure Penalty">2</s>
+    <s c1="Feeder" c2="Low Deck Size Bonus">5</s>
+    <s c1="Feeder" c2="Obsolete">5</s>
+    <s c1="Feeder Cost" c2="Card Value">6</s>
+    <s c1="Feeder Cost" c2="Card Gain">4</s>
+    <s c1="Feeder Cost" c2="+Buy">5</s>
+    <s c1="Feeder Cost" c2="On Trash Bonus">5</s>
+    <s c1="Feeder Cost" c2="On Trash Hand">5</s>
+    <s c1="Feeder Cost" c2="Low Deck Size Bonus">5</s>
+    <s c1="Feeder Cost" c2="Obsolete">5</s>
+    <!-- Reactions -->
+    <s c1="Reaction Attack" c2="Attack">2</s>
+    <s c1="Reaction Discard" c2="Sifter">6</s>
+    <s c1="Reaction Discard" c2="Discard">6</s>
+    <s c1="Reaction Trash" c2="Trasher">5</s>
+    <s c1="Reaction Trash" c2="Upgrade">6</s>
+    <s c1="Reaction Trash" c2="On Trash Bonus">7</s>
+    <s c1="Reaction Trash" c2="On Trash Hand">7</s>
+    <s c1="Reaction Trash" c2="Reaction Gain Trash">6</s>
+    <s c1="Reaction Gain Trash" c2="Reaction Trash">6</s>
+    <!-- Tokens -->
+    <s c1="Journey Token" c2="Multiplay">5</s>
+    <!-- Deck -->
+    <s c1="Deck Order" c2="Deck Order Bonus">6</s>
+    <s c1="Deck Order" c2="+Cards">5</s>
+    <s c1="Deck Order" c2="Combo">5</s>
+    <s c1="Deck Order" c2="Reaction">5</s>
+    <s c1="Deck Order Bonus" c2="Deck Order">6</s>
+    <s c1="Deck Size Bonus" c2="Deck Cycle">4</s>
+    <s c1="Deck Size Bonus" c2="Sifter">5</s>
+    <s c1="Deck Size Bonus" c2="Card Gain">6</s>
+    <s c1="Deck Size Bonus" c2="Estate Gain">5</s>
+    <s c1="Deck Size Bonus" c2="+Buy">6</s>
+    <s c1="Deck Size Bonus" c2="Attack">4</s>
+    <s c1="Deck Size Bonus" c2="Attack Junker">5</s>
+    <s c1="Deck Size Bonus" c2="Copper Gain">5</s>
+    <s c1="Deck Size Bonus" c2="Supply Bonus">6</s>
+    <s c1="Deck Size Bonus" c2="Attack Curser">1</s>
+    <s c1="Deck Size Bonus" c2="Attack Junker">1</s>
+    <s c1="Low Deck Size Bonus" c2="Trasher">6</s>
+    <s c1="Low Deck Size Bonus" c2="Feeder">5</s>
+    <s c1="Low Deck Size Bonus" c2="Feeder Cost">5</s>
+    <s c1="Deck Value Bonus" c2="Upgrade">5</s>
+    <s c1="Deck Value Bonus" c2="Treasure Upgrade">5</s>
+    <s c1="Deck Cleaner" c2="Self Synergy">2</s>
+    <s c1="Deck Cleaner" c2="Combo">3</s>
+    <s c1="Deck Keeper" c2="Victory">6</s>
+    <s c1="Trasher" c2="On Trash Bonus">5</s>
+    <s c1="Trasher" c2="Trash Gain">5</s>
+    <s c1="Trasher" c2="Reaction Trash">6</s>
+    <s c1="Trasher" c2="Self Synergy">5</s>
+    <s c1="Trasher" c2="+Actions">3</s>
+    <s c1="Trasher" c2="+Cards">6</s>
+    <s c1="Trasher" c2="Low Deck Size Bonus">5</s>
+    <!-- Victory -->
+    <s c1="Victory" c2="Card Duplicate">4</s>
+    <s c1="Victory" c2="Silver Gain">3</s>
+    <s c1="Victory" c2="Gold Gain">4</s>
+    <s c1="Victory" c2="Treasure Gain">4</s>
+    <s c1="Victory" c2="Sifter">5</s>
+    <s c1="Victory" c2="Deck Keeper">4</s>
+    <s c1="Victory" c2="Victory Bonus">6</s>
+    <s c1="Victory" c2="Victory Token">4</s>
+    <s c1="Victory" c2="Junk Draw">5</s>
+    <s c1="Victory Split" c2="Split Type Bonus">6</s>
+    <s c1="Victory Split" c2="Victory Dig">6</s>
+    <s c1="Victory Split" c2="Victory Bonus">5</s>
+    <s c1="Victory Dig" c2="Victory Split">6</s>
+    <s c1="Victory Dig" c2="Victory">4</s>
+    <s c1="Victory Bonus" c2="Victory">5</s>
+    <s c1="Victory Bonus" c2="Province Gain">5</s>
+    <s c1="Victory Bonus" c2="Victory Dig">3</s>
+    <s c1="Victory Bonus" c2="Victory Split">5</s>
+    <s c1="Victory Token" c2="Victory">4</s>
+    <s c1="Victory Token" c2="Deck Size Bonus">4</s>
+    <s c1="Estate Gain" c2="Estate Bonus">5</s>
+    <s c1="Estate Gain" c2="Deck Size Bonus">5</s>
+    <s c1="Estate Gain" c2="Victory Bonus">6</s>
+    <s c1="Estate Bonus" c2="Estate Gain">6</s>
+    <s c1="Estate Bonus" c2="Card Gain">5</s>
+    <s c1="Duchy Gain" c2="Duchy Bonus">7</s>
+    <s c1="Duchy Bonus" c2="Duchy Gain">6</s>
+    <s c1="Duchy Bonus" c2="Treasure">4</s>
+    <s c1="Duchy Bonus" c2="Silver Gain">5</s>
+    <s c1="Duchy Bonus" c2="Card Duplicate">5</s>
+    <s c1="Province Gain" c2="Victory Bonus">5</s>
+    <s c1="Province Gain" c2="Treasure">5</s>
+    <s c1="Province Gain" c2="+Coins">6</s>
+    <!-- Treasure -->
+    <s c1="Potion" c2="Diversity Bonus">6</s>
+    <s c1="Potion" c2="Treasure Upgrade">5</s>
+    <s c1="Treasure" c2="Treasure Bonus">6</s>
+    <s c1="Treasure" c2="Treasure Upgrade">5</s>
+    <s c1="Treasure" c2="Treasure Dig">6</s>
+    <s c1="Treasure" c2="Treasure Gain">6</s>
+    <s c1="Treasure" c2="Multiplay Treasure">6</s>
+    <s c1="Treasure" c2="Duchy Bonus">3</s>
+    <s c1="Treasure Bonus" c2="Treasure">6</s>
+    <s c1="Treasure Bonus" c2="Treasure Gain">4</s>
+    <s c1="Treasure Bonus" c2="Treasure Dig">6</s>
+    <s c1="Treasure Gain Bonus" c2="Treasure">6</s>
+    <s c1="Treasure Gain Bonus" c2="Potion">4</s>
+    <s c1="Treasure Gain Bonus" c2="Treasure Split">4</s>
+    <s c1="Treasure Gain Bonus" c2="Copper Gain">5</s>
+    <s c1="Treasure Gain Bonus" c2="Silver Gain">6</s>
+    <s c1="Treasure Gain Bonus" c2="Gold Gain">4</s>
+    <s c1="Treasure Gain Bonus" c2="Treasure Gain">4</s>
+    <s c1="Treasure Gain Bonus" c2="Treasure Upgrade">4</s>
+    <s c1="Treasure Gain Bonus" c2="Card Gain">4</s>
+    <s c1="Treasure Split" c2="Split Type Bonus">7</s>
+    <s c1="Treasure Split" c2="Treasure Dig">7</s>
+    <s c1="Treasure Dig" c2="Treasure">5</s>
+    <s c1="Treasure Dig" c2="Treasure Gain">4</s>
+    <s c1="Treasure Dig" c2="Treasure Bonus">6</s>
+    <s c1="Copper Bonus" c2="Copper Gain">3</s>
+    <s c1="Copper Bonus" c2="Treasure Dig">3</s>
+    <s c1="Copper Gain" c2="Treasure Bonus">5</s>
+    <s c1="Copper Gain" c2="Treasure Gain Bonus">5</s>
+    <s c1="Copper Gain" c2="Copper Bonus">5</s>
+    <s c1="Copper Gain" c2="Copper Trash">5</s>
+    <s c1="Copper Gain" c2="Feeder">5</s>
+    <s c1="Copper Gain" c2="Treasure Upgrade">4</s>
+    <s c1="Copper Gain" c2="Reaction Gain">5</s>
+    <s c1="Copper Gain" c2="Deck Size Bonus">5</s>
+    <s c1="Copper Trash" c2="Copper Gain">4</s>
+    <s c1="Copper Penalty" c2="Copper Trash">6</s>
+    <s c1="Copper Penalty" c2="Trasher">4</s>
+    <s c1="Copper Penalty" c2="Feeder">4</s>
+    <s c1="Silver Bonus" c2="Silver Gain">5</s>
+    <s c1="Silver Bonus" c2="Treasure Dig">4</s>
+    <s c1="Silver Gain" c2="Silver Bonus">4</s>
+    <s c1="Silver Gain" c2="Treasure Gain Bonus">6</s>
+    <s c1="Silver Gain" c2="Treasure Upgrade">3</s>
+    <s c1="Silver Gain" c2="Victory">5</s>
+    <s c1="Gold Gain" c2="Victory">3</s>
+    <s c1="Gold Gain" c2="Treasure Gain Bonus">5</s>
+    <s c1="Gold Gain" c2="Gold Bonus">6</s>
+    <s c1="Gold Bonus" c2="Gold Gain">6</s>
+    <s c1="Treasure Gain" c2="Treasure">6</s>
+    <s c1="Treasure Gain" c2="Treasure Bonus">6</s>
+    <s c1="Treasure Gain" c2="Treasure Gain Bonus">6</s>
+    <s c1="Treasure Gain" c2="Gain Bonus">6</s>
+    <s c1="Treasure Gain" c2="Multiplay Treasure">5</s>
+    <s c1="Treasure Upgrade" c2="Potion">5</s>
+    <s c1="Treasure Upgrade" c2="Treasure">5</s>
+    <s c1="Treasure Upgrade" c2="Treasure Gain Bonus">5</s>
+    <s c1="Treasure Upgrade" c2="Treasure Split">5</s>
+    <s c1="Treasure Upgrade" c2="Sifter">5</s>
+    <s c1="Treasure Upgrade" c2="Deck Cycle">3</s>
+    <s c1="Treasure Upgrade" c2="Copper Gain">3</s>
+    <s c1="Treasure Upgrade" c2="Silver Gain">3</s>
+    <s c1="Treasure Upgrade" c2="Hand Size">5</s>
+    <s c1="Treasure Upgrade" c2="Upgrade">3</s>
+    <s c1="Treasure Penalty" c2="Trasher">5</s>
+    <s c1="Treasure Penalty" c2="Feeder">5</s>
+    <s c1="Treasure Penalty" c2="Feeder Cost">6</s>
+    <s c1="Treasure Penalty" c2="+Coins">6</s>
+    <s c1="Treasure Penalty" c2="+Actions">6</s>
+    <s c1="Treasure Penalty" c2="Discard All">5</s>
+    <s c1="Multiplay Treasure" c2="Treasure">6</s>
+    <s c1="Multiplay Treasure" c2="Spoils Gain">7</s>
+    <s c1="Spoils Gain" c2="Multiplay Treasure">7</s>
+    <s c1="Coin Token" c2="Victory">3</s>
+    <s c1="Coin Token" c2="Reduce Cost">7</s>
+    <!-- Attack -->
+    <s c1="Attack" c2="Reaction Attack">4</s>
+    <s c1="Attack" c2="Attack Bonus">2</s>
+    <s c1="Attack Bonus" c2="Attack">1</s>
+    <s c1="Attack Deck Order" c2="Reaction Attack">1</s>
+    <s c1="Attack Deck Order" c2="Deck Cycle">4</s>
+    <s c1="Attack Deck Order" c2="Sifter">6</s>
+    <s c1="Attack Deck Order" c2="Reserve">6</s>
+    <s c1="Attack Deck Order" c2="Treasure Dig">5</s>
+    <s c1="Attack Deck Order" c2="Deck Order Bonus">5</s>
+    <s c1="Attack Hand Size" c2="Reaction Attack">5</s>
+    <s c1="Attack Hand Size" c2="Upgrade">4</s>
+    <s c1="Attack Hand Size" c2="Treasure Upgrade">5</s>
+    <s c1="Attack Hand Size" c2="+Cards To">7</s>
+    <s c1="Attack Hand Size" c2="Reaction Discard">7</s>
+    <s c1="Attack Hand Size" c2="Low Hand Size Bonus">6</s>
+    <s c1="Attack Hand Size" c2="Reaction Attack">6</s>
+    <s c1="Attack Trashing" c2="Reaction Trash">7</s>
+    <s c1="Attack Trashing" c2="Trash Gain">6</s>
+    <s c1="Attack Trashing Treasure" c2="Reaction Attack">6</s>
+    <s c1="Attack Trashing Treasure" c2="+Actions">6</s>
+    <s c1="Attack Trashing Treasure" c2="Upgrade">4</s>
+    <s c1="Attack Trashing Treasure" c2="+Coins">7</s>
+    <s c1="Attack Curser" c2="Reaction Attack">5</s>
+    <s c1="Attack Curser" c2="Trasher">6</s>
+    <s c1="Attack Curser" c2="Sifter">6</s>
+    <s c1="Attack Curser" c2="Reserve">6</s>
+    <s c1="Attack Curser" c2="Deck Cycle">5</s>
+    <s c1="Attack Curser" c2="Deck Cleaner">6</s>
+    <s c1="Attack Curser" c2="Deck Size Bonus">6</s>
+    <s c1="Attack Curser" c2="Card Swap">6</s>
+    <s c1="Attack Curser" c2="Upgrade">5</s>
+    <s c1="Attack Curser" c2="Feeder">7</s>
+    <s c1="Attack Curser" c2="Reaction Gain">7</s>
+    <s c1="Attack Curser" c2="Victory Token">6</s>
+    <s c1="Attack Curser" c2="Junk Draw">5</s>
+    <s c1="Attack Looter" c2="Trasher">4</s>
+    <s c1="Attack Looter" c2="Sifter">5</s>
+    <s c1="Attack Looter" c2="Feeder">6</s>
+    <s c1="Attack Looter" c2="Junk Draw">5</s>
+    <s c1="Attack Junker" c2="Reaction Attack">6</s>
+    <s c1="Attack Junker" c2="Card Swap">6</s>
+    <s c1="Attack Junker" c2="Sifter">7</s>
+    <s c1="Attack Junker" c2="Reserve">6</s>
+    <s c1="Attack Junker" c2="Trasher">6</s>
+    <s c1="Attack Junker" c2="Deck Cleaner">6</s>
+    <s c1="Attack Junker" c2="Deck Size Bonus">6</s>
+    <s c1="Attack Junker" c2="Upgrade">5</s>
+    <s c1="Attack Junker" c2="Feeder">7</s>
+    <s c1="Attack Junker" c2="Reaction Gain">7</s>
+    <s c1="Attack Junker" c2="Victory Token">6</s>
+    <s c1="Attack Junker" c2="Junk Draw">5</s>
+</synergies>

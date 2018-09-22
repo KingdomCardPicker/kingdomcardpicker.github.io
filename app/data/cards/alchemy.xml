@@ -1,0 +1,72 @@
+<base name="Alchemy">
+    <set>
+        <card name="Transmute" cardType="Action" n="0" cost="0" altCost="potion">
+            <type>Potion</type>
+            <type>Terminal</type>
+            <type>Feeder</type>
+            <type>Combo</type>
+            <type>Trasher</type>
+            <type>Split Type Bonus</type>
+        </card>
+        <card name="Vineyard" cardType="Victory" n="1" cost="0" altCost="potion">
+            <type>Potion</type>
+            <type>Victory</type>
+            <type>Actions Bonus</type>
+        </card>
+        <card name="Herbalist" cardType="Action" n="2" cost="2">
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Apothecary" cardType="Action" n="3" cost="2" altCost="potion">
+            <type>Potion</type>
+            <type>Cantrip</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Scrying Pool" cardType="Action" n="4" cost="2" altCost="potion">
+            <type>Potion</type>
+            <type>Attack</type>
+            <type>Attack Deck Order</type>
+            <type>Actions Bonus</type>
+            <type>Split Type Bonus</type>
+        </card>
+        <card name="University" cardType="Action" n="5" cost="2" altCost="potion">
+            <type>Potion</type>
+            <type>+Actions</type>
+            <type>Card Gain</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Alchemist" cardType="Action" n="6" cost="3" altCost="potion">
+            <type>Potion</type>
+            <type>Cantrip</type>
+            <type>+Cards</type>
+            <type>Hand Size</type>
+        </card>
+        <card name="Familiar" cardType="Action" n="7" cost="3" altCost="potion">
+            <type>Potion</type>
+            <type>Attack</type>
+            <type>Attack Curser</type>
+            <type>Attack Junker</type>
+            <type>Cantrip</type>
+        </card>
+        <card name="Philosopher's Stone" cardType="Treasure" n="8" cost="3" altCost="potion">
+            <type>Potion</type>
+            <type>Treasure</type>
+            <type>Deck Size Bonus</type>
+        </card>
+        <card name="Golem" cardType="Action" n="9" cost="4" altCost="potion">
+            <type>Terminal</type>
+            <type>Potion</type>
+            <type>Sifter</type>
+        </card>
+        <card name="Apprentice" cardType="Action" n="10" cost="5">
+            <type>Feeder Cost</type>
+            <type>+Cards</type>
+            <type>Card Value Bonus</type>
+        </card>
+        <card name="Possession" cardType="Action" n="11" cost="6" altCost="potion">
+            <type>Potion</type>
+        </card>
+    </set>
+</base>

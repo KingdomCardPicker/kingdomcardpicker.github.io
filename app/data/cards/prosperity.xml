@@ -1,0 +1,139 @@
+<base name="Prosperity">
+    <set>
+        <card name="Loan" cardType="Treasure" n="0" cost="3">
+            <type>Treasure</type>
+            <type>Copper Trash</type>
+            <type>Obsolete</type>
+        </card>
+        <card name="Trade Route" cardType="Action" n="1" cost="3">
+            <type>Soft Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Feeder</type>
+            <type>Victory Bonus</type>
+        </card>
+        <card name="Watchtower" cardType="Action/Reaction" n="2" cost="3">
+            <type>Terminal</type>
+            <type>Reaction</type>
+            <type>Reaction Gain</type>
+            <type>Reaction Gain Trash</type>
+            <type>+Cards To</type>
+        </card>
+        <card name="Bishop" cardType="Action" n="3" cost="4">
+            <type>Soft Terminal</type>
+            <type>+Coins</type>
+            <type>Victory Token</type>
+            <type>Trasher</type>
+            <type>Feeder</type>
+            <type>Feeder Cost</type>
+            <type>Card Value Bonus</type>
+        </card>
+        <card name="Monument" cardType="Action" n="4" cost="4">
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Quarry" cardType="Treasure" n="5" cost="4">
+            <type>Treasure</type>
+            <type>Reduce Cost</type>
+        </card>
+        <card name="Talisman" cardType="Treasure" n="6" cost="4">
+            <type>Treasure</type>
+            <type>Card Gain</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Worker's Village" cardType="Action" n="7" cost="4">
+            <type>+Actions</type>
+            <type>+Buy</type>
+        </card>
+        <card name="City" cardType="Action" n="8" cost="5">
+            <type>+Actions</type>
+            <type>+Cards</type>
+            <type>Supply Bonus</type>
+        </card>
+        <card name="Contraband" cardType="Treasure" n="9" cost="5">
+            <type>Treasure</type>
+            <type>+Buy</type>
+        </card>
+        <card name="Counting House" cardType="Action" n="10" cost="5">
+            <type>Terminal</type>
+            <type>Copper Bonus</type>
+            <type>Deck Size Bonus</type>
+        </card>
+        <card name="Mint" cardType="Action" n="11" cost="5">
+            <type>Terminal</type>
+            <type>Treasure Gain</type>
+            <type>Copper Trash</type>
+        </card>
+        <card name="Mountebank" cardType="Action" n="12" cost="5">
+            <type>Attack</type>
+            <type>+Coins</type>
+            <type>Attack Curser</type>
+            <type>Attack Junker</type>
+            <type>Copper Gain</type>
+        </card>
+        <card name="Rabble" cardType="Action" n="13" cost="5">
+            <type>Attack</type>
+            <type>+Cards</type>
+            <type>Attack Deck Order</type>
+        </card>
+        <card name="Royal Seal" cardType="Treasure" n="14" cost="5">
+            <type>Treasure</type>
+            <type>Buy Bonus</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Vault" cardType="Action" n="15" cost="5">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>+Coins</type>
+            <type>Hand Size Bonus</type>
+        </card>
+        <card name="Venture" cardType="Treasure" n="16" cost="5">
+            <type>Treasure</type>
+            <type>Treasure Dig</type>
+        </card>
+        <card name="Goons" cardType="Action" n="17" cost="6">
+            <type>Attack</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Attack Hand Size</type>
+            <type>Buy Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Grand Market" cardType="Action" n="18" cost="6">
+            <type>Cantrip</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Copper Penalty</type>
+        </card>
+        <card name="Hoard" cardType="Treasure" n="19" cost="6">
+            <type>Treasure</type>
+            <type>Buy Bonus</type>
+            <type>Victory Bonus</type>
+            <type>Gold Gain</type>
+        </card>
+        <card name="Bank" cardType="Treasure" n="20" cost="7">
+            <type>Treasure</type>
+            <type>Treasure Bonus</type>
+        </card>
+        <card name="Expand" cardType="Action" n="21" cost="7">
+            <type>Soft Terminal</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Forge" cardType="Action" n="22" cost="7">
+            <type>Soft Terminal</type>
+            <type>Upgrade</type>
+            <type>Feeder</type>
+        </card>
+        <card name="King's Court" cardType="Action" n="23" cost="7">
+            <type>Soft Terminal</type>
+            <type>Multiplay</type>
+        </card>
+        <card name="Peddler" cardType="Action" n="24" cost="8">
+            <type>Cantrip</type>
+            <type>+Coins</type>
+            <type>Actions Bonus</type>
+            <type>Card Value</type>
+        </card>
+    </set>
+</base>

@@ -1,0 +1,224 @@
+$drawer-width: 240px;
+$drawer-width-landscape: 400px;
+$drawer-wide-breakpoint: $screen-small;
+$drawer-padding: 14px;
+// Shadow
+$drawer-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+$drawer-transition: box-shadow 0.275s $m-ease-in-out;
+
+.drawer {
+    position: fixed;
+    z-index: 16;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    width: $drawer-width;
+    height: 100%;
+
+    transition: transform 0.375s $m-ease-in-out, opacity 0.1s $m-ease-in-out 0.275s;
+    transform: translateX(0) translateZ(0);
+
+    opacity: 0;
+    background-color: $foreground-color;
+    box-shadow: $drawer-shadow;
+
+    &.drawer-open {
+        transition: transform 0.375s $m-ease-in-out, opacity 0.1s $m-ease-in-out;
+
+        opacity: 1;
+    }
+
+    .drawer-subheading {
+        padding: 4px 0;
+
+        text-transform: uppercase;
+
+        color: $primary-color;
+
+        font-size: 13px;
+    }
+
+    .btn-drawer-minimize {
+        position: absolute;
+        z-index: 1;
+        right: 12px;
+        top: 12px;
+
+        height: 24px;
+        padding: 0;
+    }
+
+    .drawer-header {
+        box-sizing: border-box;
+        height: $toolbar-height;
+        padding: 10px $drawer-padding 0;
+
+        flex: 0 0 auto;
+    }
+
+    .drawer-inner {
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden;
+
+        border-top: 1px solid $divider-color;
+
+        flex: 1 1 auto;
+
+        .drawer-inner-panel {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            flex: 1 1 auto;
+        }
+
+        .drawer-inner-flex {
+            padding: 0 $drawer-padding;
+
+            flex: 1 1 auto;
+        }
+
+        .drawer-inner-scroll {
+            overflow-x: hidden;
+            overflow-y: auto;
+            overflow-y: overlay;
+
+            padding: 6px $drawer-padding;
+
+            flex: 0 1 auto;
+        }
+
+        .drawer-inner-fixed {
+            overflow-y: auto;
+
+            padding: 6px $drawer-padding;
+
+            border-top: 1px solid $divider-color;
+
+            flex: 0 0 auto;
+        }
+
+        .drawer-checkbox {
+            padding-bottom: 12px;
+
+            &:last-child {
+                padding: 0;
+            }
+        }
+    }
+
+    .drawer-footer {
+        padding: 12px $drawer-padding;
+    }
+
+    .drawer-randomize {
+        display: flex;
+        flex-direction: row;
+
+        padding-bottom: 6px;
+
+        .btn-icon {
+            height: 24px;
+            padding: 6px;
+        }
+
+        .input-number {
+            padding-right: 8px;
+
+            border-right: 1px solid $divider-color;
+        }
+
+        .btn-randomize {
+            margin-left: 8px;
+        }
+    }
+
+    @media (orientation: landscape) and (max-height: $drawer-wide-breakpoint) {
+        width: $drawer-width-landscape;
+
+        .drawer-inner {
+            flex-direction: row-reverse;
+
+            .drawer-inner-flex {
+                padding: 0;
+
+                flex: 0 0 auto;
+            }
+
+            .drawer-inner-panel {
+                border-left: 1px solid $divider-color;
+
+                flex: 1 1 100%;
+            }
+
+            .drawer-inner-scroll {
+                overflow-y: auto;
+
+                padding: 6px $drawer-padding;
+            }
+
+            .drawer-inner-fixed {
+                padding: 6px $drawer-padding;
+
+                border-top: none;
+
+                flex: 1 1 100%;
+            }
+        }
+
+        .drawer-footer {
+            border-top: 1px solid $divider-color;
+        }
+    }
+}
+
+.drawer-right {
+    right: 0;
+
+    transform: translateX(#{$drawer-width});
+
+    @media (orientation: landscape) and (max-height: $drawer-wide-breakpoint) {
+        transform: translateX(#{$drawer-width-landscape});
+    }
+
+    &.drawer-open {
+        transform: translateX(0);
+    }
+}
+
+.drawer-left {
+    left: 0;
+
+    transform: translateX(-#{$drawer-width});
+
+    &.drawer-open {
+        transform: translateX(0);
+    }
+}
+
+.drawer-fade {
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    transition: opacity 0.375s $m-ease-in-out, z-index 1.0s linear;
+
+    opacity: 0;
+    background-color: #000000;
+
+    &.fade {
+        z-index: 11;
+
+        transition: opacity 0.375s $m-ease-in-out, z-index 0.0s linear;
+
+        opacity: 0.65;
+    }
+}

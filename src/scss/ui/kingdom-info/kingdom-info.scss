@@ -1,0 +1,66 @@
+.dialog.dialog-info .dialog-middle {
+    .dialog-content {
+        overflow: hidden;
+
+        box-sizing: border-box;
+        width: 80vw;
+        max-width: 420px;
+
+        transition: height 0.1s $m-ease-in-out;
+
+        @media (max-width: 480px) {
+            width: calc(100% - 24px);
+        }
+
+        .dialog-content-inner {
+            display: flex;
+            flex-direction: column;
+
+            h1 {
+                padding: 16px 18px 0;
+            }
+
+            .dialog-content-text {
+                overflow-x: hidden;
+                overflow-y: auto;
+                overflow-y: overlay;
+
+                box-sizing: border-box;
+                width: 100%;
+                margin: 12px 0 0;
+                padding: 0 18px 4px;
+
+                border-top: 1px solid $divider-color;
+
+                flex: auto;
+
+                .legal-info {
+                    padding: 16px;
+
+                    text-align: center;
+
+                    color: $text-color-detail;
+
+                    font-size: 12px;
+                }
+
+                .subheading {
+                    padding-top: 16px;
+                    padding-bottom: 6px;
+
+                    text-transform: uppercase;
+
+                    color: $primary-color;
+
+                    font-size: 16px;
+                }
+            }
+
+            .btn {
+                box-sizing: border-box;
+                width: calc(100% - 36px);
+                margin: 12px 18px;
+            }
+        }
+    }
+}

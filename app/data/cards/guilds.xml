@@ -1,0 +1,77 @@
+<base name="Guilds">
+    <set>
+        <card name="Candlestick Maker" cardType="Action" n="0" cost="2">
+            <type>+Buy</type>
+            <type>Coin Token</type>
+        </card>
+        <card name="Stonemason" cardType="Action" n="1" cost="2">
+            <type>Overpay</type>
+            <type>Terminal</type>
+            <type>Feeder Cost</type>
+            <type>Card Value Bonus</type>
+            <type>Card Gain</type>
+        </card>
+        <card name="Doctor" cardType="Action" n="2" cost="3">
+            <type>Overpay</type>
+            <type>Terminal</type>
+            <type>Trasher</type>
+            <type>Sifter</type>
+            <type>Deck Order Bonus</type>
+        </card>
+        <card name="Masterpiece" cardType="Action" n="3" cost="3">
+            <type>Treasure</type>
+            <type>Overpay</type>
+            <type>Silver Gain</type>
+            <type>Card Value</type>
+        </card>
+        <card name="Advisor" cardType="Action" n="4" cost="4">
+            <type>+Cards</type>
+            <type>Deck Order Bonus</type>
+        </card>
+        <card name="Plaza" cardType="Action" n="5" cost="4">
+            <type>+Actions</type>
+            <type>Copper Bonus</type>
+            <type>Coin Token</type>
+        </card>
+        <card name="Taxman" cardType="Action" n="6" cost="4">
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>Terminal</type>
+            <type>Copper Trash</type>
+            <type>Treasure Upgrade</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Herald" cardType="Action" n="7" cost="4">
+            <type>Overpay</type>
+            <type>Cantrip</type>
+            <type>Actions Bonus</type>
+        </card>
+        <card name="Baker" cardType="Action" n="8" cost="5">
+            <type>Cantrip</type>
+            <type>Coin Token</type>
+        </card>
+        <card name="Butcher" cardType="Action" n="9" cost="5">
+            <type>Terminal</type>
+            <type>Coin Token</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Journeyman" cardType="Action" n="10" cost="5">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>Sifter</type>
+        </card>
+        <card name="Merchant Guild" cardType="Action" n="11" cost="5">
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Buy Bonus</type>
+            <type>Coin Token</type>
+        </card>
+        <card name="Soothsayer" cardType="Action" n="12" cost="5">
+            <type>Terminal</type>
+            <type>Attack</type>
+            <type>Attack Curser</type>
+            <type>Gold Gain</type>
+        </card>
+    </set>
+</base>

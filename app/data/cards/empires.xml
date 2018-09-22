@@ -1,0 +1,314 @@
+<base name="Empires">
+    <set>
+        <card name="Engineer" cardType="Action" n="0" cost="0" costDebt="4">
+            <type>Terminal</type>
+            <type>Card Gain</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="City Quarter" cardType="Action" n="1" cost="0" costDebt="8">
+            <type>+Actions</type>
+            <type>+Cards</type>
+            <type>Actions Bonus</type>
+            <type>Hand Size Bonus</type>
+        </card>
+        <card name="Overlord" cardType="Action" n="2" cost="0" costDebt="8">
+            <type>Card Copy</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Royal Blacksmith" cardType="Action" n="3" cost="0" costDebt="8">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>Hand Size</type>
+            <type>Copper Penalty</type>
+        </card>
+        <card name="Encampment/Plunder" cardType="Split Pile" n="4" cost="2">
+            <type>Split Pile</type>
+            <!-- Encampment -->
+            <type>+Cards</type>
+            <type>+Actions</type>
+            <type>Combo</type>
+            <!-- Plunder -->
+            <type>Treasure</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Patrician/Emporium" cardType="Split Pile" n="5" cost="2">
+            <type>Split Pile</type>
+            <!-- Patrician -->
+            <type>Cantrip</type>
+            <type>Deck Order Bonus</type>
+            <type>Card Value Bonus</type>
+            <!-- Emporium -->
+            <type>+Coins</type>
+            <type>Actions Bonus</type>
+        </card>
+        <card name="Settlers/Bustling Village" cardType="Split Pile" n="6" cost="2">
+            <type>Split Pile</type>
+            <!-- Settlers -->
+            <type>Cantrip</type>
+            <type>Copper Bonus</type>
+            <!-- Bustling Village -->
+            <type>+Actions</type>
+        </card>
+        <card name="Castles" cardType="Split Pile" n="7" cost="3">
+            <type>Split Pile</type>
+            <type>Victory</type>
+            <type>Victory Token</type>
+            <type>Victory Split</type>
+            <type>On Gain Bonus</type>
+            <type>On Trash Bonus</type>
+            <type>Discard</type>
+            <type>Hand Size Bonus</type>
+            <type>Estate Gain</type>
+            <type>Duchy Gain</type>
+            <type>Victory Bonus</type>
+            <!-- Castles -->
+            <splitcards>
+                <splitcard name="Humble Castle"/>
+                <splitcard name="Crumbling Castle"/>
+                <splitcard name="Small Castle"/>
+                <splitcard name="Haunted Castle"/>
+                <splitcard name="Opulent Castle"/>
+                <splitcard name="Sprawling Castle"/>
+                <splitcard name="Grand Castle"/>
+                <splitcard name="King's Castle"/>
+            </splitcards>
+        </card>
+        <card name="Catapult/Rocks" cardType="Split Pile" n="8" cost="3">
+            <type>Split Pile</type>
+            <!-- Catapult -->
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>Attack Curser</type>
+            <type>Terminal</type>
+            <type>Trasher</type>
+            <type>Silver Bonus</type>
+            <!-- Rocks -->
+            <type>Treasure</type>
+            <type>Silver Gain</type>
+        </card>
+        <card name="Chariot Race" cardType="Action" n="9" cost="3">
+            <type>Cantrip</type>
+            <type>Deck Value Bonus</type>
+            <type>Deck Order Bonus</type>
+            <type>+Coins</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Enchantress" cardType="Action" n="10" cost="3">
+            <type>Attack</type>
+            <type>Duration</type>
+            <type>Terminal</type>
+            <type>+Cards</type>
+        </card>
+        <card name="Farmers' Market" cardType="Action" n="11" cost="3">
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Gladiator/Fortune" cardType="Split Pile" n="12" cost="3">
+            <type>Split Pile</type>
+            <!-- Gladiator -->
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <!-- Fortune -->
+            <type>Treasure</type>
+            <type>+Buy</type>
+            <type>Treasure Bonus</type>
+            <type>Gold Gain</type>
+            <type>Combo</type>
+        </card>
+        <card name="Sacrifice" cardType="Action" n="13" cost="4">
+            <type>Feeder</type>
+            <type>+Coins</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Temple" cardType="Action" n="14" cost="4">
+            <type>Terminal</type>
+            <type>Trasher</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Villa" cardType="Action" n="15" cost="4">
+            <type>+Actions</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Action Phase</type>
+            <type>On Gain Bonus</type>
+        </card>
+        <card name="Archive" cardType="Action" n="16" cost="5">
+            <type>Duration</type>
+            <type>Hand Order</type>
+        </card>
+        <card name="Capital" cardType="Treasure" n="17" cost="5">
+            <type>Treasure</type>
+            <type>+Buy</type>
+            <type>Discard Penalty</type>
+        </card>
+        <card name="Charm" cardType="Treasure" n="18" cost="5">
+            <type>Treasure</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Card Gain</type>
+        </card>
+        <card name="Crown" cardType="Action/Treasure" n="19" cost="5">
+            <type>Treasure</type>
+            <type>Treasure Split</type>
+            <type>Terminal</type>
+            <type>Multiplay</type>
+            <type>Multiplay Treasure</type>
+        </card>
+        <card name="Forum" cardType="Action" n="20" cost="5">
+            <type>Sifter</type>
+        </card>
+        <card name="Groundskeeper" cardType="Action" n="21" cost="5">
+            <type>Cantrip</type>
+            <type>Gain Bonus</type>
+            <type>Victory Bonus</type>
+        </card>
+        <card name="Legionary" cardType="Action" n="22" cost="5">
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>+Coins</type>
+            <type>Combo</type>
+            <type>Gold Bonus</type>
+        </card>
+        <card name="Wild Hunt" cardType="Action" n="23" cost="5">
+            <type>+Cards</type>
+            <type>Estate Gain</type>
+            <type>Victory Token</type>
+        </card>
+    </set>
+    <events>
+        <card name="Triumph" cardType="Event" n="24" cost="0" costDebt="5">
+            <type>Estate Gain</type>
+            <type>Gain Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Annex" cardType="Event" n="25" cost="0" costDebt="8">
+            <type>Duchy Gain</type>
+            <type>Deck Cycle</type>
+        </card>
+        <card name="Donate" cardType="Event" n="26" cost="0" costDebt="8">
+            <type>Trasher</type>
+            <type>Deck Cycle</type>
+        </card>
+        <card name="Advance" cardType="Event" n="27" cost="0">
+            <type>Upgrade</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Delve" cardType="Event" n="28" cost="2">
+            <type>+Buy</type>
+            <type>Silver Gain</type>
+        </card>
+        <card name="Tax" cardType="Event" n="29" cost="2">
+            <type>Buy Penalty</type>
+        </card>
+        <card name="Banquet" cardType="Event" n="30" cost="3">
+            <type>Copper Gain</type>
+            <type>Card Gain</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Ritual" cardType="Event" n="31" cost="4">
+            <type>Victory Token</type>
+            <type>Feeder Cost</type>
+            <type>Card Value Bonus</type>
+        </card>
+        <card name="Salt the Earth" cardType="Event" n="32" cost="4">
+            <type>Victory Token</type>
+            <type>Trasher Supply</type>
+        </card>
+        <card name="Wedding" cardType="Event" n="33" cost="4" costDebt="3">
+            <type>Victory Token</type>
+            <type>Gold Gain</type>
+        </card>
+        <card name="Windfall" cardType="Event" n="34" cost="5">
+            <type>Hand Size Bonus</type>
+            <type>Low Deck Size Bonus</type>
+            <type>Gold Gain</type>
+        </card>
+        <card name="Conquest" cardType="Event" n="35" cost="6">
+            <type>Silver Gain</type>
+            <type>Gain Bonus</type>
+            <type>Silver Bonus</type>
+        </card>
+        <card name="Dominate" cardType="Event" n="36" cost="14">
+            <type>Province Gain</type>
+            <type>Victory Token</type>
+        </card>
+    </events>
+    <landmarks>
+        <card name="Aqueduct" cardType="Landmark" n="37">
+            <type>Treasure Gain Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Arena" cardType="Landmark" n="38">
+            <type>Actions Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Bandit Fort" cardType="Landmark" n="39">
+            <type>Treasure Penalty</type>
+        </card>
+        <card name="Basilica" cardType="Landmark" n="40">
+            <type>Treasure Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Baths" cardType="Landmark" n="41">
+            <type>Deck Size Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Battlefield" cardType="Landmark" n="42">
+            <type>Victory Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Colonnade" cardType="Landmark" n="43">
+            <type>Actions Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Defiled Shrine" cardType="Landmark" n="44">
+            <type>Actions Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Fountain" cardType="Landmark" n="45">
+            <type>Copper Bonus</type>
+        </card>
+        <card name="Keep" cardType="Landmark" n="46">
+            <type>Treasure Bonus</type>
+        </card>
+        <card name="Labyrinth" cardType="Landmark" n="47">
+            <type>Gain Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Mountain Pass" cardType="Landmark" n="48">
+            <type>Victory Bonus</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Museum" cardType="Landmark" n="49">
+            <type>Diversity Bonus</type>
+        </card>
+        <card name="Obelisk" cardType="Landmark" n="50">
+            <type>Actions Bonus</type>
+        </card>
+        <card name="Orchard" cardType="Landmark" n="51">
+            <type>Diversity Bonus</type>
+        </card>
+        <card name="Palace" cardType="Landmark" n="52">
+            <type>Treasure Bonus</type>
+        </card>
+        <card name="Tomb" cardType="Landmark" n="53">
+            <type>Reaction Trash</type>
+            <type>Victory Token</type>
+        </card>
+        <card name="Tower" cardType="Landmark" n="54">
+            <type>Supply Bonus</type>
+        </card>
+        <card name="Triumphal Arch" cardType="Landmark" n="55">
+            <type>Diversity Bonus</type>
+            <type>Actions Bonus</type>
+        </card>
+        <card name="Wall" cardType="Landmark" n="56">
+            <type>Low Deck Size Bonus</type>
+        </card>
+        <card name="Wolf Den" cardType="Landmark" n="57">
+            <type>Actions Bonus</type>
+        </card>
+    </landmarks>
+</base>

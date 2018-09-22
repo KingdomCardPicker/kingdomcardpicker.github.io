@@ -1,0 +1,149 @@
+<base name="Hinterlands">
+    <set>
+        <card name="Crossroads" cardType="Action" n="0" cost="2">
+            <type>Victory Bonus</type>
+            <type>Hand Size</type>
+            <type>Hand Size Bonus</type>
+            <type>+Actions</type>
+        </card>
+        <card name="Duchess" cardType="Action" n="1" cost="2">
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <type>Duchy Bonus</type>
+        </card>
+        <card name="Fool's Gold" cardType="Treasure/Reaction" n="2" cost="2">
+            <type>Treasure</type>
+            <type>Reaction</type>
+            <type>Self Synergy</type>
+            <type>Combo</type>
+            <type>Gold Gain</type>
+        </card>
+        <card name="Develop" cardType="Action" n="3" cost="3">
+            <type>Soft Terminal</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Oasis" cardType="Action" n="4" cost="3">
+            <type>Cantrip</type>
+            <type>+Coins</type>
+            <type>Discard</type>
+        </card>
+        <card name="Oracle" cardType="Action" n="5" cost="3">
+            <type>Attack</type>
+            <type>Attack Deck Order</type>
+            <type>Sifter</type>
+            <type>+Cards</type>
+        </card>
+        <card name="Scheme" cardType="Action" n="6" cost="3">
+            <type>Cantrip</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Tunnel" cardType="Victory/Reaction" n="7" cost="3">
+            <type>Victory</type>
+            <type>Victory Split</type>
+            <type>Reaction</type>
+            <type>Reaction Discard</type>
+            <type>Gold Gain</type>
+        </card>
+        <card name="Jack of all Trades" cardType="Action" n="8" cost="4">
+            <type>Terminal</type>
+            <type>Silver Gain</type>
+            <type>Sifter</type>
+            <type>+Cards To</type>
+            <type>Trasher</type>
+        </card>
+        <card name="Noble Brigand" cardType="Action" n="9" cost="4">
+            <type>Attack</type>
+            <type>Attack Trashing Treasure</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Nomad Camp" cardType="Action" n="10" cost="4">
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>On Gain Bonus</type>
+        </card>
+        <card name="Silk Road" cardType="Victory" n="11" cost="4">
+            <type>Victory</type>
+            <type>Victory Bonus</type>
+            <type>Deck Size Bonus</type>
+        </card>
+        <card name="Spice Merchant" cardType="Action" n="12" cost="4">
+            <type>+Cards</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Copper Trash</type>
+        </card>
+        <card name="Trader" cardType="Reaction" n="13" cost="4">
+            <type>Reaction</type>
+            <type>Reaction Gain</type>
+            <type>Terminal</type>
+            <type>Silver Gain</type>
+            <type>Card Value Bonus</type>
+        </card>
+        <card name="Cache" cardType="Treasure" n="14" cost="5">
+            <type>Treasure</type>
+            <type>Copper Gain</type>
+        </card>
+        <card name="Cartographer" cardType="Action" n="15" cost="5">
+            <type>Cantrip</type>
+            <type>Sifter</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Embassy" cardType="Action" n="16" cost="5">
+            <type>Soft Terminal</type>
+            <type>+Cards</type>
+            <type>Sifter</type>
+            <type>Silver Gain</type>
+        </card>
+        <card name="Haggler" cardType="Action" n="17" cost="5">
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <type>Buy Bonus</type>
+        </card>
+        <card name="Highway" cardType="Action" n="18" cost="5">
+            <type>Cantrip</type>
+            <type>Reduce Cost</type>
+        </card>
+        <card name="Ill-Gotten Gains" cardType="Treasure" n="19" cost="5">
+            <type>Treasure</type>
+            <type>On Gain Bonus</type>
+            <type>Copper Gain</type>
+            <type>Card Value</type>
+        </card>
+        <card name="Inn" cardType="Action" n="20" cost="5">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>+Actions</type>
+            <type>Discard</type>
+            <type>On Gain Bonus</type>
+        </card>
+        <card name="Mandarin" cardType="Action" n="21" cost="5">
+            <type>Soft Terminal</type>
+            <type>+Coins</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Margrave" cardType="Action" n="22" cost="5">
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>+Cards</type>
+            <type>+Buy</type>
+        </card>
+        <card name="Stables" cardType="Action" n="23" cost="5">
+            <type>+Cards</type>
+            <type>+Cantrip</type>
+            <type>Copper Bonus</type>
+        </card>
+        <card name="Border Village" cardType="Action" n="24" cost="6">
+            <type>+Actions</type>
+            <type>Card Gain</type>
+            <type>On Gain Bonus</type>
+            <type>Card Value</type>
+        </card>
+        <card name="Farmland" cardType="Victory" n="25" cost="6">
+            <type>Victory</type>
+            <type>Upgrade</type>
+            <type>On Gain Bonus</type>
+            <type>Card Value</type>
+        </card>
+    </set>
+</base>

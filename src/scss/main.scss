@@ -1,0 +1,274 @@
+$toolbar-height: 48px;
+$toolbar-padding: 4px;
+
+// Core
+@import "./ui/_core";
+@import "bootstrap";
+
+// Import material icons
+@import "material-icons";
+// Import UI styling
+@import "./ui/buttons";
+@import "./ui/dialogs";
+@import "./ui/drawers";
+@import "./ui/loading-indicator";
+@import "./ui/tooltips";
+
+@import "./ui/cards";
+@import "./ui/onboarding";
+
+// Import body font
+@font-face {
+    font-family: "Font-Main";
+
+    src: url("../fonts/Font-Main.ttf") format("truetype");
+}
+
+// Import headings font
+@font-face {
+    font-family: "Font-Headings";
+
+    src: url("../fonts/Font-Headings.ttf") format("truetype");
+}
+
+// Import headings font
+@font-face {
+    font-family: "Font-Subheadings";
+
+    src: url("../fonts/Font-Subheadings.ttf") format("truetype");
+}
+
+// Keyframes for the application startup animation
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// Keyframes for a fab entering
+@keyframes fab-in {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+body,
+html {
+    position: relative;
+
+    overflow: hidden;
+
+    width: $size-width;
+    height: $size-height;
+    margin: 0;
+    padding: 0;
+}
+
+// Text
+body {
+    width: $size-width;
+    height: $size-height;
+
+    animation: fade-in 0.5s $m-ease-out;
+
+    color: $text-color;
+    background-color: $background-color;
+
+    font-family: "Font-Main", sans-serif;
+    font-size: 12px;
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    text-rendering: optimizeLegibility;
+    user-select: none !important;
+    will-change: transform;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+
+    color: $text-color;
+
+    font-family: "Font-Main", sans-serif;
+    font-size: 14px;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+
+    font-family: "Font-Headings", sans-serif;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    color: $primary-color;
+
+    font-size: 24px;
+}
+
+.description {
+    color: $text-color-detail;
+
+    font-size: 12px;
+}
+
+// Layout
+caption,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    margin: 0;
+    padding: 0;
+
+    vertical-align: baseline;
+
+    border: 0;
+    outline: 0;
+    background: transparent;
+
+    font-size: 100%;
+}
+
+hr {
+    margin: 0;
+
+    border-style: none;
+    border-top: 1px solid $divider-color;
+}
+
+// Layout
+.main {
+    position: relative;
+
+    overflow: hidden;
+
+    width: $size-width;
+    height: $size-height;
+}
+
+.toolbar {
+    position: fixed;
+    z-index: 8;
+    left: 0;
+    top: 0;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: $toolbar-height;
+    padding: 0 $toolbar-padding;
+
+    background-color: $foreground-color;
+    box-shadow: $shadow-soft;
+
+    .toolbar-buttons {
+        display: flex;
+
+        width: 100%;
+        height: $toolbar-height;
+
+        .toolbar-divider {
+            width: 0;
+            height: 32px;
+            margin: auto $toolbar-padding;
+
+            border-right: 1px solid $divider-color;
+
+            flex: 0 1 0;
+        }
+
+        .btn-toolbar {
+            z-index: 1;
+        }
+
+        .toolbar-cards,
+        .toolbar-shuffle {
+            transition: all 0.4s $m-ease-in-out, color 0.1s $m-ease-in-out;
+
+            opacity: 1;
+
+            i {
+                transition: opacity 0.2s $m-ease-in-out, transform 0.0s linear;
+                transform: scale(1);
+            }
+
+            &.hidden {
+                z-index: 0;
+
+                width: 0;
+                margin: auto 0;
+                padding: $text-padding 0 ($text-padding - 3px);
+
+                opacity: 0;
+                border-width: 0;
+
+                i {
+                    transition: opacity 0.2s $m-ease-in-out, transform 0.8s linear;
+                    transform: scale(0);
+                }
+
+                &::before {
+                    transform: scale(0);
+                }
+            }
+        }
+
+        .toolbar-fill {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+.content {
+    position: absolute;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+    width: $size-width;
+    height: $size-height;
+
+    border-top: $toolbar-height solid transparent;
+}
+
+// Scrollbars
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 4px solid $foreground-color;
+    border-radius: 5px;
+    background-color: $scrollbar-color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: $scrollbar-color-hover;
+}
+
+::-webkit-scrollbar-track {
+    border: 4px solid $foreground-color;
+    background-color: rgba(0, 0, 0, 0.1);
+}

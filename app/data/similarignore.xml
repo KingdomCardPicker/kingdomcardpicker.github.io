@@ -1,0 +1,9 @@
+<!-- These are card types which will be ignored
+     by the penalty for similar cards in a kingdom -->
+<ignore>
+    <type>Terminal</type>
+    <type>Soft Terminal</type>
+    <type>Cantrip</type>
+    <type>Duration</type>
+    <type>Potion</type>
+</ignore>

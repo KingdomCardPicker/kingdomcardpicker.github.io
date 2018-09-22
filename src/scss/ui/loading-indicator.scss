@@ -1,0 +1,220 @@
+$loading-indicator-size: 64px;
+$loading-indicator-spinner-size: 6px;
+$loading-indicator-spinner-size-long: 28px;
+$loading-indicator-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+// Progress
+$loading-steps: 17;
+$loading-progress-background: #e0e0e0;
+$loading-inset-size: 8px;
+$increment: 180deg / $loading-steps;
+// Dots
+$loading-dot-width: 12px;
+$loading-dot-height: 12px;
+$loading-dot-margin: 12px;
+$loading-dot-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+
+// Spinner animation
+@keyframes loading-indicator-spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+// Dot animation
+@keyframes loading-indicator-dot {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.loading-indicator {
+    position: absolute;
+    z-index: 12;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    overflow: hidden;
+
+    width: $loading-indicator-size;
+    height: $loading-indicator-size;
+    margin: auto;
+
+    transition: box-shadow 0.2s $m-ease-in, transform 0.2s $m-ease-in, opacity 0.2s $m-ease-in;
+    transform: scale3d(0.1, 0.1, 0.1);
+
+    opacity: 0;
+    border-radius: $loading-indicator-size / 2;
+    background-color: $loading-progress-background;
+    box-shadow: none;
+
+    &.loading {
+        transition: box-shadow 0.15s $m-ease-out 0.2s, transform 0.15s $m-ease-out 0.2s, opacity 0.15s $m-ease-out 0.2s;
+        transform: scale3d(1, 1, 1);
+
+        opacity: 1;
+        box-shadow: $loading-indicator-shadow;
+    }
+
+    &.animating {
+        &::after,
+        &::before {
+            animation: loading-indicator-spinner 0.75s $m-ease-in-out 0.35s infinite;
+        }
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        width: $loading-indicator-spinner-size;
+        height: $loading-indicator-spinner-size;
+        margin: auto;
+
+        content: "";
+
+        border-radius: $loading-indicator-spinner-size / 2;
+        background-color: $primary-color;
+    }
+
+    &::before {
+        width: $loading-indicator-spinner-size-long;
+    }
+
+    &::after {
+        height: $loading-indicator-spinner-size-long;
+    }
+
+    .circle {
+        .mask,
+        .fill {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 50%;
+        }
+
+        .mask,
+        .fill {
+            transition: transform 0.75s $m-ease-in-out; //0.8s
+
+            border-radius: 50%;
+        }
+
+        .mask {
+            clip: rect(-$loading-indicator-size / 2, $loading-indicator-size, $loading-indicator-size * 2, $loading-indicator-size / 2);
+
+            .fill {
+                clip: rect(0px, $loading-indicator-size / 2, $loading-indicator-size, 0px);
+
+                background-color: $primary-color;
+            }
+        }
+    }
+
+    .inset {
+        position: absolute;
+
+        width: $loading-indicator-size - $loading-inset-size;
+        height: $loading-indicator-size - $loading-inset-size;
+        margin-top: $loading-inset-size / 2;
+        margin-left: $loading-inset-size / 2;
+
+        border-radius: 50%;
+        background-color: $foreground-color;
+    }
+
+    &[data-progress="0"] {
+        .circle {
+            .mask,
+            .fill {
+                transition: transform 0.0s linear;
+            }
+        }
+    }
+
+    @for $i from 0 through $loading-steps {
+        &[data-progress="#{$i}"] {
+            .circle {
+                .mask.full,
+                .fill {
+                    transform: rotate($increment * $i);
+                }
+
+                .fill.fix {
+                    transform: rotate($increment * $i * 2);
+                }
+            }
+        }
+    }
+}
+
+.error-msg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: table;
+
+    width: calc(40% + 96px);
+    max-width: 80%;
+    margin: auto;
+
+    transition: opacity 0.1s $m-ease-in 0s;
+    text-align: center;
+
+    opacity: 0;
+    color: $error-color;
+
+    font-size: 16px;
+
+    &.error-visible {
+        transition: opacity 0.2s $m-ease-out 0.4s;
+
+        opacity: 1;
+    }
+}
+
+.loading-indeterminate-dots {
+    span {
+        display: inline-block;
+
+        width: $loading-dot-width;
+        height: $loading-dot-height;
+        margin: 0 $loading-dot-margin;
+
+        animation: loading-indicator-dot 1.5s $m-ease-out infinite alternate both;
+
+        border-radius: $loading-dot-width;
+        background-color: $primary-color;
+        box-shadow: $loading-dot-shadow;
+    }
+
+    @for $i from 0 through 10 {
+        span:nth-child(#{$i}) {
+            animation-delay: 1.0s + ($i * 0.25s);
+        }
+    }
+}

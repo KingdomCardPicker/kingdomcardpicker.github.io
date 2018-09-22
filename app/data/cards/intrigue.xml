@@ -1,0 +1,176 @@
+<base name="Intrigue">
+    <set>
+        <card name="Courtyard" cardType="Action" n="0" cost="2">
+            <type>Soft Terminal</type>
+            <type>+Cards</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Pawn" cardType="Action" n="1" cost="2">
+            <type>Cantrip</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Masquerade" cardType="Action" n="2" cost="3">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>Card Swap</type>
+            <type>Trasher</type>
+        </card>
+        <card name="Shanty Town" cardType="Action" n="3" cost="3">
+            <type>+Actions</type>
+            <type>+Cards</type>
+            <type>Low Hand Size Bonus</type>
+        </card>
+        <card name="Steward" cardType="Action" n="4" cost="3">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>+Coins</type>
+            <type>Trasher</type>
+        </card>
+        <card name="Swindler" cardType="Action" n="5" cost="3">
+            <type>+Attack</type>
+            <type>Attack Trasher</type>
+            <type>Attack Junker</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Wishing Well" cardType="Action" n="6" cost="3">
+            <type>Cantrip</type>
+            <type>Deck Order Bonus</type>
+        </card>
+        <card name="Baron" cardType="Action" n="7" cost="4">
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>Estate Bonus</type>
+            <type>Combo</type>
+        </card>
+        <card name="Bridge" cardType="Action" n="8" cost="4">
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Reduce Cost</type>
+        </card>
+        <card name="Conspirator" cardType="Action" n="9" cost="4">
+            <type>+Coins</type>
+            <type>Hand Size Bonus</type>
+            <type>Actions Bonus</type>
+        </card>
+        <card name="Ironworks" cardType="Action" n="10" cost="4">
+            <type>Card Gain</type>
+            <type>Split Type Bonus</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Mining Village" cardType="Action" n="11" cost="4">
+            <type>+Actions</type>
+        </card>
+        <card name="Duke" cardType="Victory" n="12" cost="5">
+            <type>Victory</type>
+            <type>Duchy Bonus</type>
+            <type>Deck Size Bonus</type>
+        </card>
+        <card name="Minion" cardType="Action" n="13" cost="5">
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>+Coins</type>
+            <type>Discard</type>
+            <type>Low Hand Size Bonus</type>
+            <type>Self Synergy</type>
+        </card>
+        <card name="Torturer" cardType="Action" n="14" cost="5">
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>Attack Curser</type>
+            <type>+Cards</type>
+        </card>
+        <card name="Trading Post" cardType="Action" n="15" cost="5">
+            <type>Soft Terminal</type>
+            <type>Trasher</type>
+            <type>Silver Gain</type>
+        </card>
+        <card name="Upgrade" cardType="Action" n="16" cost="5">
+            <type>Cantrip</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Harem" cardType="Treasure/Victory" n="17" cost="6">
+            <type>Victory</type>
+            <type>Treasure</type>
+            <type>Victory Split</type>
+            <type>Treasure Split</type>
+        </card>
+        <card name="Nobles" cardType="Action/Victory" n="18" cost="6">
+            <type>Victory</type>
+            <type>Victory Split</type>
+            <type>+Cards</type>
+            <type>+Actions</type>
+            <type>Self Synergy</type>
+        </card>
+    </set>
+    <set version="1st Edition">
+        <card name="Secret Chamber" cardType="Action/Reaction" n="19" cost="2">
+            <type>Soft Terminal</type>
+            <type>Reaction</type>
+            <type>Reaction Attack</type>
+            <type>+Coins</type>
+            <type>Discard</type>
+            <type>Hand Size Bonus</type>
+        </card>
+        <card name="Great Hall" cardType="Action/Victory" n="20" cost="3">
+            <type>Victory</type>
+            <type>Victory Split</type>
+            <type>Cantrip</type>
+        </card>
+        <card name="Coppersmith" cardType="Action" n="21" cost="4">
+            <type>Terminal</type>
+            <type>Copper Bonus</type>
+        </card>
+        <card name="Scout" cardType="Action" n="22" cost="4">
+            <type>Victory Dig</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Saboteur" cardType="Action" n="23" cost="5">
+            <type>Attack</type>
+            <type>Attack Trashing</type>
+        </card>
+        <card name="Tribute" cardType="Action" n="24" cost="5">
+            <type>Split Type Bonus</type>
+        </card>
+    </set>
+    <set version="2nd Edition">
+        <card name="Lurker" cardType="Action" n="25" cost="2">
+            <type>Trasher Supply</type>
+            <type>Trash Gain</type>
+        </card>
+        <card name="Diplomat" cardType="Action/Reaction" n="26" cost="4">
+            <type>Reaction</type>
+            <type>Reaction Attack</type>
+            <type>+Cards</type>
+            <type>Low Hand Size Bonus</type>
+        </card>
+        <card name="Mill" cardType="Action/Victory" n="27" cost="4">
+            <type>Victory</type>
+            <type>Victory Split</type>
+            <type>Cantrip</type>
+            <type>Discard</type>
+        </card>
+        <card name="Secret Passage" cardType="Action" n="28" cost="4">
+            <type>+Cards</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Courtier" cardType="Action" n="29" cost="5">
+            <type>+Coins</type>
+            <type>Treasure Gain</type>
+            <type>Split Type Bonus</type>
+        </card>
+        <card name="Patrol" cardType="Action" n="30" cost="5">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>Victory Dig</type>
+            <type>Sifter</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Replace" cardType="Action" n="31" cost="5">
+            <type>Attack</type>
+            <type>Upgrade</type>
+            <type>Split Type Bonus</type>
+        </card>
+    </set>
+</base>

@@ -1,0 +1,290 @@
+<base name="Adventures">
+    <set>
+        <card name="Coin of the Realm" cardType="Treasure/Reserve" n="0" cost="2">
+            <type>Treasure</type>
+            <type>Reserve</type>
+            <type>Treasure Split</type>
+            <type>+Actions</type>
+            <type>Actions Bonus</type>
+        </card>
+        <card name="Page" cardType="Treasure/Traveller" n="1" cost="2">
+            <type>Traveller</type>
+            <type>Duration</type>
+            <type>Attack</type>
+            <type>+Coins</type>
+            <type>Treasure Gain</type>
+            <type>Reaction Attack</type>
+            <!-- Progression -->
+            <splitcards>
+                <splitcard name="Treasure Hunter"/>
+                <splitcard name="Warrior"/>
+                <splitcard name="Hero"/>
+                <splitcard name="Champion"/>
+            </splitcards>
+        </card>
+        <card name="Peasant" cardType="Action/Traveller" n="2" cost="2">
+            <type>Traveller</type>
+            <type>Reserve</type>
+            <type>Terminal</type>
+            <type>Attack</type>
+            <type>+Coins</type>
+            <type>+Buy</type>
+            <type>+Cards</type>
+            <type>+Actions</type>
+            <!-- Progression -->
+            <splitcards>
+                <splitcard name="Soldier"/>
+                <splitcard name="Fugitive"/>
+                <splitcard name="Disciple"/>
+                <splitcard name="Teacher"/>
+            </splitcards>
+        </card>
+        <card name="Ratcatcher" cardType="Action/Reserve" n="3" cost="2">
+            <type>Reserve</type>
+            <type>Cantrip</type>
+            <type>Trasher</type>
+        </card>
+        <card name="Raze" cardType="Action" n="4" cost="2">
+            <type>Feeder Cost</type>
+            <type>Sifter</type>
+            <type>Discard</type>
+        </card>
+        <card name="Amulet" cardType="Action" n="5" cost="3">
+            <type>Duration</type>
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <type>Trasher</type>
+            <type>Silver Gain</type>
+        </card>
+        <card name="Caravan Guard" cardType="Action/Reaction" n="6" cost="3">
+            <type>Reaction</type>
+            <type>Duration</type>
+            <type>Cantrip</type>
+            <type>+Coins</type>
+            <type>Reaction Attack</type>
+        </card>
+        <card name="Dungeon" cardType="Action" n="7" cost="3">
+            <type>Duration</type>
+            <type>Sifter</type>
+            <type>Discard</type>
+        </card>
+        <card name="Gear" cardType="Action" n="8" cost="3">
+            <type>Duration</type>
+            <type>Soft Terminal</type>
+            <type>+Cards</type>
+            <type>Hand Order</type>
+            <type>Hand Size</type>
+            <type>Deck Cleaner</type>
+        </card>
+        <card name="Guide" cardType="Action/Reserve" n="9" cost="3">
+            <type>Reserve</type>
+            <type>Cantrip</type>
+            <type>Sifter</type>
+            <type>Discard</type>
+            <type>Low Hand Size Bonus</type>
+        </card>
+        <card name="Duplicate" cardType="Action/Reserve" n="10" cost="4">
+            <type>Reserve</type>
+            <type>Terminal</type>
+            <type>Card Gain</type>
+            <type>Card Duplicate</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Magpie" cardType="Action" n="11" cost="4">
+            <type>Cantrip</type>
+            <type>Card Value</type>
+            <type>Treasure Dig</type>
+            <type>Deck Order Bonus</type>
+        </card>
+        <card name="Messenger" cardType="Action" n="12" cost="4">
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Deck Cycle</type>
+            <type>Card Gain</type>
+        </card>
+        <card name="Miser" cardType="Action" n="13" cost="4">
+            <type>Terminal</type>
+            <type>Copper Trash</type>
+            <type>Copper Bonus</type>
+        </card>
+        <card name="Port" cardType="Action" n="14" cost="4">
+            <type>+Actions</type>
+            <type>Card Gain</type>
+        </card>
+        <card name="Ranger" cardType="Action" n="15" cost="4">
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>+Cards</type>
+            <type>Hand Size</type>
+            <type>Self Synergy</type>
+            <type>Journey Token</type>
+        </card>
+        <card name="Transmogrify" cardType="Action/Reserve" n="16" cost="4">
+            <type>Reserve</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Artificer" cardType="Action" n="17" cost="5">
+            <type>Cantrip</type>
+            <type>+Coins</type>
+            <type>Discard</type>
+            <type>Card Gain</type>
+            <type>Deck Order</type>
+            <type>Deck Cycle</type>
+            <type>Deck Value</type>
+            <type>Hand Size Bonus</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Bridge Troll" cardType="Action" n="18" cost="5">
+            <type>Terminal</type>
+            <type>Attack</type>
+            <type>Duration</type>
+            <type>+Buy</type>
+            <type>Reduce Cost</type>
+        </card>
+        <card name="Distant Lands" cardType="Action/Reserve" n="19" cost="5">
+            <type>Terminal</type>
+            <type>Victory</type>
+            <type>Victory Split</type>
+            <type>Reserve</type>
+            <type>Deck Keeper</type>
+            <type>Hand Size Bonus</type>
+        </card>
+        <card name="Giant" cardType="Action" n="20" cost="5">
+            <type>Terminal</type>
+            <type>Attack</type>
+            <type>Attack Trashing</type>
+            <type>Attack Curser</type>
+            <type>Journey Token</type>
+        </card>
+        <card name="Haunted Woods" cardType="Action" n="21" cost="5">
+            <type>Terminal</type>
+            <type>Attack</type>
+            <type>Attack Deck Order</type>
+            <type>Duration</type>
+            <type>+Cards</type>
+            <type>Hand Size</type>
+        </card>
+        <card name="Lost City" cardType="Action" n="22" cost="5">
+            <type>+Actions</type>
+            <type>+Cards</type>
+        </card>
+        <card name="Relic" cardType="Treasure/Attack" n="23" cost="5">
+            <type>Treasure</type>
+            <type>Treasure Split</type>
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+        </card>
+        <card name="Royal Carriage" cardType="Action/Reserve" n="24" cost="5">
+            <type>Reserve</type>
+            <type>Multiplay</type>
+        </card>
+        <card name="Storyteller" cardType="Action" n="25" cost="5">
+            <type>+Coins</type>
+            <type>Sifter</type>
+            <type>Treasure Bonus</type>
+            <type>+Cards</type>
+            <type>Hand Size</type>
+        </card>
+        <card name="Swamp Hag" cardType="Action" n="26" cost="5">
+            <type>Terminal</type>
+            <type>Attack</type>
+            <type>Attack Curser</type>
+            <type>Buy Penalty</type>
+            <type>Duration</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Treasure Trove" cardType="Treasure" n="27" cost="5">
+            <type>Treasure</type>
+            <type>Copper Gain</type>
+            <type>Gold Gain</type>
+        </card>
+        <card name="Wine Merchant" cardType="Action/Reserve" n="28" cost="5">
+            <type>Terminal</type>
+            <type>Reserve</type>
+            <type>+Coins</type>
+            <type>+Buy</type>
+            <type>Self Synergy</type>
+        </card>
+        <card name="Hireling" cardType="Action" n="29" cost="6">
+            <type>Duration</type>
+            <type>Hand Size</type>
+        </card>
+    </set>
+    <events>
+        <card name="Alms" cardType="Event" n="30" cost="0">
+            <type>Card Gain</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Borrow" cardType="Event" n="31" cost="0">
+            <type>Low Hand Size</type>
+        </card>
+        <card name="Quest" cardType="Event" n="32" cost="0">
+            <type>Attack Bonus</type>
+            <type>Hand Size Bonus</type>
+            <type>Discard</type>
+            <type>Gold Gain</type>
+        </card>
+        <card name="Save" cardType="Event" n="33" cost="1">
+            <type>Hand Order</type>
+        </card>
+        <card name="Scouting Party" cardType="Event" n="34" cost="2">
+            <type>Sifter</type>
+        </card>
+        <card name="Travelling Fair" cardType="Event" n="35" cost="2">
+            <type>+Buy</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Bonfire" cardType="Event" n="36" cost="3">
+            <type>Copper Trash</type>
+            <type>Trasher</type>
+        </card>
+        <card name="Expedition" cardType="Event" n="37" cost="3">
+            <type>Copper Trash</type>
+            <type>Trasher</type>
+        </card>
+        <card name="Ferry" cardType="Event" n="38" cost="3">
+            <type>Reduce Cost</type>
+        </card>
+        <card name="Plan" cardType="Event" n="39" cost="3">
+            <type>Trasher</type>
+        </card>
+        <card name="Mission" cardType="Event" n="40" cost="4">
+            <type>Extra Cost</type>
+        </card>
+        <card name="Pilgrimage" cardType="Event" n="41" cost="4">
+            <type>Card Gain</type>
+        </card>
+        <card name="Ball" cardType="Event" n="42" cost="5">
+            <type>Card Gain</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Raid" cardType="Event" n="43" cost="5">
+            <type>Silver Gain</type>
+            <type>Silver Bonus</type>
+            <type>Deck Size</type>
+        </card>
+        <card name="Seaway" cardType="Event" n="44" cost="5">
+            <type>Card Gain</type>
+            <type>+Buy</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Trade" cardType="Event" n="45" cost="5">
+            <type>Trasher</type>
+            <type>Silver Gain</type>
+        </card>
+        <card name="Lost Arts" cardType="Event" n="46" cost="6">
+            <type>+Actions</type>
+        </card>
+        <card name="Training" cardType="Event" n="47" cost="6">
+            <type>+Coins</type>
+        </card>
+        <card name="Inheritance" cardType="Event" n="48" cost="7">
+            <type>Card Copy</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Pathfinding" cardType="Event" n="49" cost="8">
+            <type>+Cards</type>
+        </card>
+    </events>
+</base>

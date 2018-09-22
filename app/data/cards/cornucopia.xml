@@ -1,0 +1,78 @@
+<base name="Cornucopia">
+    <set>
+        <card name="Hamlet" cardType="Action" n="0" cost="2">
+            <type>Cantrip</type>
+            <type>Discard</type>
+            <type>Victory Bonus</type>
+            <type>Hand Size Bonus</type>
+        </card>
+        <card name="Fortune Teller" cardType="Action" n="1" cost="3">
+            <type>Attack</type>
+            <type>Attack Deck Order</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Menagerie" cardType="Action" n="2" cost="3">
+            <type>Cantrip</type>
+            <type>+Cards</type>
+            <type>Diversity Bonus</type>
+            <type>Low Hand Size Bonus</type>
+        </card>
+        <card name="Farming Village" cardType="Action" n="3" cost="4">
+            <type>+Actions</type>
+            <type>Treasure Dig</type>
+            <type>Deck Cycle</type>
+            <type>Sifter</type>
+        </card>
+        <card name="Horse Traders" cardType="Action/Reaction" n="4" cost="4">
+            <type>Reaction</type>
+            <type>Reaction Attack</type>
+            <type>Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Discard</type>
+        </card>
+        <card name="Remake" cardType="Action" n="5" cost="4">
+            <type>Soft Terminal</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Tournament" cardType="Action" n="6" cost="4">
+            <type>Combo</type>
+            <type>Victory Bonus</type>
+        </card>
+        <card name="Young Witch" cardType="Action" n="7" cost="4">
+            <type>Attack</type>
+            <type>Attack Curser</type>
+            <type>+Cards</type>
+            <type>Discard</type>
+            <type>Sifter</type>
+            <type>Diversity</type>
+        </card>
+        <card name="Harvest" cardType="Action" n="8" cost="5">
+            <type>Diversity Bonus</type>
+            <type>+Coins</type>
+            <type>Sifter</type>
+        </card>
+        <card name="Horn of Plenty" cardType="Treasure" n="9" cost="5">
+            <type>Treasure</type>
+            <type>Card Gain</type>
+            <type>Diversity Bonus</type>
+        </card>
+        <card name="Hunting Party" cardType="Action" n="10" cost="5">
+            <type>Cantrip</type>
+            <type>+Cards</type>
+            <type>Diversity Bonus</type>
+        </card>
+        <card name="Jester" cardType="Action" n="11" cost="5">
+            <type>Attack</type>
+            <type>Attack Curser</type>
+            <type>Attack Junker</type>
+            <type>+Coins</type>
+            <type>Card Gain</type>
+        </card>
+        <card name="Fairgrounds" cardType="Victory" n="12" cost="6">
+            <type>Victory</type>
+            <type>Diversity Bonus</type>
+            <type>Obsolete</type>
+        </card>
+    </set>
+</base>

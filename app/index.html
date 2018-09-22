@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Kingdom</title>
+
+        <link rel="stylesheet" href="./css/main.css" />
+
+        <script>
+            if (typeof module === 'object') {
+                window.module = module;
+                module = undefined;
+            }
+        </script>
+
+        <script src="./scripts/jquery-3.2.1.min.js"></script>
+
+        <script>
+            if (window.module) {
+                module = window.module;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="toolbar">
+                <div class="toolbar-buttons">
+                    <button id="Generate-Button-Shuffle" data-toggle="tooltip" data-placement="bottom" title="Shuffle Cards" class="btn-toolbar toolbar-shuffle hidden">
+                        <i class="material-icons">shuffle</i>
+                    </button>
+
+                    <button id="Generate-Button-Clear" data-toggle="tooltip" data-placement="bottom" title="Clear Cards" class="btn-toolbar toolbar-cards hidden">
+                        <i class="material-icons">delete_sweep</i>
+                    </button>
+
+                    <div class="toolbar-divider toolbar-cards hidden"></div>
+
+                    <button id="Generate-Button-CodeScan" data-toggle="tooltip" data-placement="bottom" title="Scan a Code" class="btn-toolbar">
+                        <i class="material-icons">camera_enhance</i>
+                    </button>
+
+                    <button id="Generate-Button-Code" data-toggle="tooltip" data-placement="bottom" title="Generate Code" class="btn-toolbar toolbar-cards hidden">
+                        <i class="material-icons">code</i>
+                    </button>
+
+                    <div class="toolbar-fill"></div>
+
+                    <button id="Kingdom-Info" data-toggle="tooltip" data-placement="bottom" title="About" class="btn-toolbar">
+                        <i class="material-icons">info</i>
+                    </button>
+
+                    <button id="SetSelection-Open" data-toggle="tooltip" data-placement="bottom" title="My Expansions" class="btn-toolbar">
+                        <i class="material-icons">extension</i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="content">
+                <table class="cards-table cards-table-landscape">
+                    <tbody>
+                        <tr>
+                            <td class="cards-table-row-outer">
+                                <div id="CardsRow1" class="cards-table-row"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cards-table-row-outer">
+                                <div id="CardsRow2" class="cards-table-row"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="cards-table cards-table-portrait">
+                    <tbody id="CardsTablePortrait"></tbody>
+                </table>
+
+                <div class='cards-table-basic'></div>
+                <div class='cards-table-specialcards'></div>
+
+                <div class="cards-table-state state-open">
+                    <img src="./img/victory.svg"></img>
+                    <span class="state-subheading state-text-sets">No Sets Selected</span>
+                    <span class="state-text state-text-sets">Select the Dominion sets that you own to start</span>
+                    <span class="state-subheading state-text-empty">Welcome to Kingdom</span>
+                    <span class="state-text state-text-empty">Scan a code or generate a Kingdom to start</span>
+                </div>
+                <div id="Generate-Button-Fab" data-toggle="tooltip" data-placement="left" title="Generate Kingdom" class="btn-fab btn-fab-drawer">
+                    <div class="btn-fab-btn">
+                        <div class="btn-fab-btn-icon">
+                            <img src="./img/victory.svg"></img>
+                        </div>
+                        <i class="material-icons btn-icon-inside">add</i>
+                    </div>
+                </div>
+                <div id="Onboarding-Generate" class="onboarding-circle fab">
+                    <span class="onboarding-text">Press the button to start<br /> generating a Kingdom</span>
+                </div>
+                <div id="Generate-Drawer" class="drawer drawer-right">
+                    <div class="btn-icon btn-drawer-minimize">
+                        <i class="material-icons">close</i>
+                    </div>
+
+                    <div class="drawer-header">
+                        <h2>New Kingdom</h2>
+                    </div>
+
+                    <div class="drawer-inner">
+                        <div class="drawer-inner-panel">
+                            <div id="Generate-Drawer-Sets" class="drawer-inner-scroll"></div>
+                        </div>
+                        <div class="drawer-inner-flex"></div>
+                        <div class="drawer-inner-fixed">
+                            <div class="drawer-subheading">Randomize Sets</div>
+                            <div class="drawer-randomize">
+                                <div id="Generate-Drawer-RandomizeInput" class="input-number">
+                                    <div class="btn-icon input-number-subtract">
+                                        <i class="material-icons">remove</i>
+                                    </div>
+                                    <div id="Generate-Drawer-RandomizeValue" class="input-number-value">2</div>
+                                    <div class="btn-icon input-number-add">
+                                        <i class="material-icons">add</i>
+                                    </div>
+                                </div>
+                                <div id="Generate-Drawer-Randomize" data-toggle="tooltip" data-placement="top" title="Randomize Sets" class="btn-icon btn-randomize">
+                                    <i class="material-icons">casino</i>
+                                </div>
+                            </div>
+
+                            <div class="drawer-subheading">Generator Options</div>
+
+                            <div class="drawer-checkbox">
+                                <div class="checkbox-switch">
+                                    <p>Potion Clustering</p>
+                                    <input type="checkbox" id="Generate-Drawer-ClusterPotions" checked/>
+                                    <label for="Generate-Drawer-ClusterPotions"></label>
+                                </div>
+                                <p class="description">
+                                    Ensures multiple Potion cards in games with Potions
+                                </p>
+                            </div>
+
+                            <div class="drawer-checkbox">
+                                <div class="checkbox-switch">
+                                    <p>Set Distribution</p>
+                                    <input type="checkbox" id="Generate-Drawer-DistributeSets" checked/>
+                                    <label for="Generate-Drawer-DistributeSets"></label>
+                                </div>
+                                <p class="description">
+                                    Tries to split the chosen cards across the selected sets
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="drawer-footer">
+                        <div id="Generate-Button-New" class="btn">Generate Kingdom</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="LoadingIndicator" class="loading-indicator" data-progress="0">
+                <div class="circle">
+                    <div class="mask full">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="mask half">
+                        <div class="fill"></div>
+                        <div class="fill fix"></div>
+                    </div>
+                </div>
+                <div class="inset"></div>
+            </div>
+            <p class="error-msg"></p>
+        </div>
+
+        <div class="drawer-fade"></div>
+
+        <script>
+            document.addEventListener(
+                "touchstart",
+                function() {}, true);
+        </script>
+
+        <script src="./scripts/tether.min.js"></script>
+        <script src="./scripts/bootstrap.min.js"></script>
+
+        <!-- QR Code Reader -->
+        <script src="./scripts/card-selection/kingdom-code/code-reader/grid.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/version.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/detector.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/formatinf.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/errorlevel.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/bitmat.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/datablock.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/bmparser.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/datamask.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/rsdecoder.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/gf256poly.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/gf256.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/decoder.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/qrcode.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/findpat.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/alignpat.js"></script>
+        <script src="./scripts/card-selection/kingdom-code/code-reader/databr.js"></script>
+
+        <!-- QR Code Generator -->
+        <script src="./scripts/card-selection/kingdom-code/jquery-qrcode.min.js"></script>
+
+        <!-- Kingdom Scripts -->
+        <script src="./scripts/set-selection/set-selector.js"></script>
+        <script src="./scripts/card-selection/card-adder.js"></script>
+        <script src="./scripts/ui/dialog-info/dialog-info.js"></script>
+
+        <!-- UI Scripts -->
+        <script src="./scripts/ui/checkbox-switch.js"></script>
+        <script src="./scripts/ui/dialog.js"></script>
+        <script src="./scripts/ui/drawer.js"></script>
+        <script src="./scripts/ui/input.js"></script>
+    </body>
+
+</html>

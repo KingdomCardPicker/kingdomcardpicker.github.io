@@ -1,0 +1,49 @@
+// Application colors
+$primary-color: #1676d8;
+$primary-color-light: #64a4ff;
+$primary-color-dark: #004ba6;
+$error-color: #f44336;
+$error-color-light: #ff7961;
+$background-color: #fafafa;
+$background-color-dark: #ececec;
+$foreground-color: #ffffff;
+// Card colors
+$card-color-bane: #ff5722;
+$card-color-victory: #498e38;
+// Text
+$text-color: rgba(0, 0, 0, 0.87);
+$text-color-detail: rgba(0, 0, 0, 0.6);
+$text-color-placeholder: rgba(0, 0, 0, 0.5);
+$text-padding: 8px;
+
+// Screen splits
+$screen-min: 240px;
+$screen-tiny: 360px;
+$screen-small: 480px;
+$screen-medium: 620px;
+$screen-large: 960px;
+$screen-xl: 1200px;
+// Screen size
+$size-width: 100%;
+$size-height: 100%;
+
+// Layout
+$divider-color: rgba(0, 0, 0, 0.15);
+// Scrollbar
+$scrollbar-color: rgba(0, 0, 0, 0.4);
+$scrollbar-color-hover: rgba(0, 0, 0, 0.5);
+
+// Borders
+$border-color: rgba(0, 0, 0, 0.15);
+$border-radius: 0;
+$border-radius-card: 5px;
+$border-radius-card-small: 2px;
+$border-radius-card-dialog: 0;
+
+// Animation Curves
+$m-ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
+$m-ease-in: cubic-bezier(0.4, 0.0, 1, 1);
+$m-ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+
+// Shadows
+$shadow-soft: 0 0 8px rgba(0, 0, 0, 0.4);

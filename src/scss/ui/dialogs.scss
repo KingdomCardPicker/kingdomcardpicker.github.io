@@ -1,0 +1,140 @@
+// Shadows
+$shadow-dialog: 0 4px 24px rgba(0, 0, 0, 0.8);
+// Colors
+$dialog-background-color: rgba(0, 0, 0, 0.5);
+
+// Animation
+@keyframes dialog-in {
+    from {
+        transform: scale3d(0.6, 0.6, 0.6);
+
+        opacity: 0;
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+
+        opacity: 1;
+    }
+}
+
+@keyframes dialog-out {
+    from {
+        transform: scale3d(1, 1, 1);
+
+        opacity: 1;
+    }
+
+    to {
+        transform: scale3d(0.85, 0.85, 0.85);
+
+        opacity: 0;
+    }
+}
+
+@keyframes dialog-background-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes dialog-background-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+// Set selection
+@import "kingdom-code/kingdom-code.scss";
+@import "kingdom-info/kingdom-info.scss";
+@import "set-selection/set-selection.scss";
+
+.dialog {
+    position: fixed;
+    z-index: 24;
+    left: 0;
+    top: 0;
+
+    overflow: hidden;
+
+    width: $size-width;
+    height: $size-height;
+    margin: auto;
+
+    .dialog-middle {
+        display: flex;
+
+        height: $size-height;
+
+        .dialog-content {
+            position: relative;
+            z-index: 24;
+
+            display: flex;
+
+            max-width: $size-width * 0.9;
+            max-height: $size-height * 0.9;
+            margin: auto;
+
+            animation: dialog-in 0.2s $m-ease-out;
+            animation-fill-mode: backwards;
+
+            border-radius: $border-radius;
+            background-color: $foreground-color;
+            box-shadow: $shadow-dialog;
+
+            .dialog-content-inner {
+                flex: auto;
+
+                h1 {
+                    margin-left: -1.5px;
+                }
+            }
+
+            .btn-dialog-minimize {
+                position: absolute;
+                z-index: 1;
+                right: 21px;
+                top: 21px;
+
+                height: 24px;
+                padding: 0;
+            }
+        }
+    }
+
+    .dialog-background {
+        position: absolute;
+        z-index: 23;
+        left: 0;
+        top: 0;
+
+        width: $size-width;
+        height: $size-height;
+
+        content: "";
+        animation: dialog-background-in 0.25s $m-ease-out;
+
+        background-color: $dialog-background-color;
+    }
+
+    &.dialog-closing {
+        .dialog-content {
+            animation: dialog-out 0.15s $m-ease-in;
+            animation-fill-mode: forwards;
+        }
+
+        .dialog-background {
+            animation: dialog-background-out 0.15s $m-ease-in;
+            animation-fill-mode: forwards;
+        }
+    }
+}

@@ -1,0 +1,153 @@
+<base name="Seaside">
+    <set>
+        <card name="Embargo" cardType="Action" n="0" cost="2">
+            <type>Buy Penalty</type>
+        </card>
+        <card name="Haven" cardType="Action" n="1" cost="2">
+            <type>Duration</type>
+            <type>Cantrip</type>
+            <type>Hand Order</type>
+        </card>
+        <card name="Lighthouse" cardType="Action" n="2" cost="2">
+            <type>Duration</type>
+            <type>Reaction Attack</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Native Village" cardType="Action" n="3" cost="2">
+            <type>+Actions</type>
+            <type>Hand Order</type>
+            <type>Hand Size</type>
+            <type>Deck Order Bonus</type>
+            <type>Deck Keeper</type>
+        </card>
+        <card name="Pearl Diver" cardType="Action" n="4" cost="2">
+            <type>Cantrip</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Ambassador" cardType="Action" n="5" cost="3">
+            <type>Attack</type>
+            <type>Attack Junker</type>
+            <type>Deck Cleaner</type>
+        </card>
+        <card name="Fishing Village" cardType="Action" n="6" cost="3">
+            <type>Duration</type>
+            <type>+Actions</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Lookout" cardType="Action" n="7" cost="3">
+            <type>Trasher</type>
+            <type>Discard</type>
+            <type>Sifter</type>
+            <type>Deck Order Bonus</type>
+            <type>Obsolete</type>
+        </card>
+        <card name="Smugglers" cardType="Action" n="8" cost="3">
+            <type>Terminal</type>
+            <type>Card Gain</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Warehouse" cardType="Action" n="9" cost="3">
+            <type>Sifter</type>
+            <type>Discard</type>
+            <type>Hand Size Bonus</type>
+            <type>Deck Cycle</type>
+        </card>
+        <card name="Caravan" cardType="Action" n="10" cost="4">
+            <type>Cantrip</type>
+            <type>+Cards</type>
+            <type>Hand Size</type>
+            <type>Self Synergy</type>
+        </card>
+        <card name="Cutpurse" cardType="Action" n="11" cost="4">
+            <type>Attack</type>
+            <type>+Coins</type>
+            <type>Copper Penalty</type>
+            <type>Obsolete</type>
+        </card>
+        <card name="Island" cardType="Action/Victory" n="12" cost="4">
+            <type>Victory</type>
+            <type>Victory Split</type>
+            <type>Deck Keeper</type>
+            <type>Obsolete</type>
+        </card>
+        <card name="Navigator" cardType="Action" n="13" cost="4">
+            <type>+Coins</type>
+            <type>Terminal</type>
+            <type>Deck Order</type>
+            <type>Deck Cycle</type>
+        </card>
+        <card name="Pirate Ship" cardType="Action" n="14" cost="4">
+            <type>Attack</type>
+            <type>Attack Trashing Treasure</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Salvager" cardType="Action" n="15" cost="4">
+            <type>Soft Terminal</type>
+            <type>+Buy</type>
+            <type>+Coins</type>
+            <type>Trasher</type>
+            <type>Feeder Cost</type>
+            <type>Card Value Bonus</type>
+        </card>
+        <card name="Sea Hag" cardType="Action" n="16" cost="4">
+            <type>Attack</type>
+            <type>Attack Curser</type>
+            <type>Attack Junker</type>
+            <type>Attack Deck Order</type>
+            <type>Obsolete</type>
+        </card>
+        <card name="Treasure Map" cardType="Action" n="17" cost="4">
+            <type>Self Synergy</type>
+            <type>Combo</type>
+            <type>Gold Gain</type>
+            <type>Obsolete</type>
+        </card>
+        <card name="Bazaar" cardType="Action" n="18" cost="5">
+            <type>Cantrip</type>
+            <type>+Actions</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Explorer" cardType="Action" n="19" cost="5">
+            <type>Combo</type>
+            <type>Silver Gain</type>
+            <type>Gold Gain</type>
+            <type>Terminal</type>
+        </card>
+        <card name="Ghost Ship" cardType="Action" n="20" cost="5">
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>+Cards</type>
+        </card>
+        <card name="Merchant Ship" cardType="Action" n="21" cost="5">
+            <type>Duration</type>
+            <type>Terminal</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Outpost" cardType="Action" n="22" cost="5">
+            <type>Duration</type>
+            <type>Terminal</type>
+            <type>Extra Turn</type>
+            <type>Low Hand Size</type>
+        </card>
+        <card name="Tactician" cardType="Action" n="23" cost="5">
+            <type>Duration</type>
+            <type>Terminal</type>
+            <type>Discard</type>
+            <type>Discard All</type>
+            <type>Hand Size</type>
+            <type>Low Hand Size Bonus</type>
+        </card>
+        <card name="Treasury" cardType="Action" n="24" cost="5">
+            <type>Cantrip</type>
+            <type>+Coins</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Wharf" cardType="Action" n="25" cost="5">
+            <type>Duration</type>
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>Hand Size</type>
+            <type>+Buy</type>
+        </card>
+    </set>
+</base>

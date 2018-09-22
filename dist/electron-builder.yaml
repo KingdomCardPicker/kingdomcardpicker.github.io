@@ -1,0 +1,6 @@
+directories:
+  output: dist
+  buildResources: build
+appId: joellaunder.kingdom
+productName: Kingdom
+electronVersion: 1.6.2

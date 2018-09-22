@@ -1,0 +1,233 @@
+<base name="Dark Ages">
+    <set>
+        <card name="Poor House" cardType="Action" n="0" cost="1">
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <type>Copper Penalty</type>
+            <type>Treasure Penalty</type>
+            <type>Low Hand Size Bonus</type>
+        </card>
+        <card name="Beggar" cardType="Action/Reaction" n="1" cost="2">
+            <type>Reaction</type>
+            <type>Reaction Attack</type>
+            <type>Terminal</type>
+            <type>Copper Gain</type>
+            <type>Silver Gain</type>
+        </card>
+        <card name="Squire" cardType="Action" n="2" cost="2">
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <type>+Actions</type>
+            <type>+Buy</type>
+            <type>Silver Gain</type>
+            <type>On Trash Bonus</type>
+        </card>
+        <card name="Vagrant" cardType="Action" n="3" cost="2">
+            <type>Cantrip</type>
+            <type>Sifter</type>
+            <type>Junk Draw</type>
+        </card>
+        <card name="Forager" cardType="Action" n="4" cost="3">
+            <type>+Buy</type>
+            <type>Trasher</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Hermit" cardType="Action" n="5" cost="3">
+            <type>Terminal</type>
+            <type>Trasher</type>
+            <type>Card Gain</type>
+            <!-- Madman -->
+            <splitcards>
+                <splitcard name="Madman"/>
+            </splitcards>
+        </card>
+        <card name="Market Square" cardType="Action/Reaction" n="6" cost="3">
+            <type>Reaction</type>
+            <type>Cantrip</type>
+            <type>+Buy</type>
+            <type>Reaction Trash</type>
+        </card>
+        <card name="Sage" cardType="Action" n="7" cost="3">
+            <type>Cantrip</type>
+            <type>Sifter</type>
+            <type>Discard</type>
+        </card>
+        <card name="Storeroom" cardType="Action" n="8" cost="3">
+            <type>Terminal</type>
+            <type>+Buy                                                
+            </card>
+            <type>Discard</type>
+            <type>Sifter</type>
+            <type>+Coins</type>
+        </card>
+        <card name="Urchin" cardType="Action" n="9" cost="3">
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>Cantrip</type>
+            <type>Attack Bonus</type>
+            <!-- Mercenary -->
+            <splitcards>
+                <splitcard name="Mercenary"/>
+            </splitcards>
+        </card>
+        <card name="Armory" cardType="Action" n="10" cost="4">
+            <type>Terminal</type>
+            <type>Card Gain</type>
+            <type>Deck Order</type>
+            <type>Reduce Cost Bonus</type>
+        </card>
+        <card name="Death Cart" cardType="Action" n="11" cost="4">
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <type>Feeder</type>
+        </card>
+        <card name="Feodum" cardType="Victory" n="12" cost="4">
+            <type>Victory</type>
+            <type>Silver Bonus</type>
+            <type>On Trash Bonus</type>
+        </card>
+        <card name="Fortress" cardType="Action" n="13" cost="4">
+            <type>+Actions</type>
+            <type>On Trash Bonus</type>
+            <type>On Trash Hand</type>
+        </card>
+        <card name="Ironmonger" cardType="Action" n="14" cost="4">
+            <type>Cantrip</type>
+            <type>Sifter</type>
+            <type>Discard</type>
+            <type>Split Type Bonus</type>
+        </card>
+        <card name="Marauder" cardType="Action/Looter" n="15" cost="4">
+            <type>Attack</type>
+            <type>Attack Junker</type>
+            <type>Spoils Gain</type>
+            <!-- Spoils -->
+            <splitcards>
+                <splitcard name="Spoils"/>
+            </splitcards>
+        </card>
+        <card name="Procession" cardType="Action" n="16" cost="4">
+            <type>Terminal</type>
+            <type>Multiplay</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Rats" cardType="Action" n="17" cost="4">
+            <type>Cantrip</type>
+            <type>Card Value</type>
+            <type>Feeder</type>
+            <type>On Trash Bonus</type>
+        </card>
+        <card name="Scavenger" cardType="Action" n="18" cost="4">
+            <type>Terminal</type>
+            <type>+Coins</type>
+            <type>Deck Cycle</type>
+            <type>Deck Order</type>
+        </card>
+        <card name="Wandering Minstrel" cardType="Action" n="19" cost="4">
+            <type>+Actions</type>
+            <type>Sifter</type>
+            <type>Actions Bonus</type>
+        </card>
+        <card name="Band of Misfits" cardType="Action" n="20" cost="5">
+            <type>Terminal</type>
+            <type>Card Copy</type>
+        </card>
+        <card name="Bandit Camp" cardType="Action" n="21" cost="5">
+            <type>+Actions</type>
+            <type>Spoils Gain</type>
+            <!-- Spoils -->
+            <splitcards>
+                <splitcard name="Spoils"/>
+            </splitcards>
+        </card>
+        <card name="Catacombs" cardType="Action" n="22" cost="5">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>Sifter</type>
+            <type>On Trash Bonus</type>
+        </card>
+        <card name="Count" cardType="Action" n="23" cost="5">
+            <type>Terminal</type>
+            <type>Discard</type>
+            <type>Deck Order</type>
+            <type>Copper Gain</type>
+            <type>+Coins</type>
+            <type>Trasher</type>
+            <type>Duchy Gain</type>
+        </card>
+        <card name="Counterfeit" cardType="Action" n="24" cost="5">
+            <type>Treasure</type>
+            <type>+Buy</type>
+            <type>Multiplay Treasure</type>
+        </card>
+        <card name="Cultist" cardType="Action/Looter" n="25" cost="5">
+            <type>Terminal</type>
+            <type>Attack</type>
+            <type>Attack Junker</type>
+            <type>+Cards</type>
+            <type>Self Synergy</type>
+            <type>On Trash Bonus</type>
+            <type>Obsolete</type>
+        </card>
+        <card name="Graverobber" cardType="Action" n="26" cost="5">
+            <type>Soft Terminal</type>
+            <type>Trash Gain</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Junk Dealer" cardType="Action" n="27" cost="5">
+            <type>Cantrip</type>
+            <type>+Coins</type>
+            <type>Trasher</type>
+            <type>Feeder</type>
+        </card>
+        <card name="Knights" cardType="Split Pile" n="28" cost="5">
+            <type>Split Pile</type>
+            <type>Attack</type>
+            <type>Attack Trashing</type>
+            <!-- Knights -->
+            <splitcards>
+                <splitcard name="Dame Anna"/>
+                <splitcard name="Dame Josephine"/>
+                <splitcard name="Dame Molly"/>
+                <splitcard name="Dame Natalie"/>
+                <splitcard name="Dame Sylvia"/>
+                <splitcard name="Sir Bailey"/>
+                <splitcard name="Sir Destry"/>
+                <splitcard name="Sir Martin"/>
+                <splitcard name="Sir Michael"/>
+                <splitcard name="Sir Vander"/>
+            </splitcards>
+        </card>
+        <card name="Mystic" cardType="Action" n="29" cost="5">
+            <type>+Coins</type>
+            <type>Deck Order Bonus</type>
+        </card>
+        <card name="Pillage" cardType="Action" n="30" cost="5">
+            <type>Attack</type>
+            <type>Attack Hand Size</type>
+            <type>Spoils Gain</type>
+        </card>
+        <card name="Rebuild" cardType="Action" n="31" cost="5">
+            <type>Victory Dig</type>
+            <type>Discard</type>
+            <type>Upgrade</type>
+        </card>
+        <card name="Rogue" cardType="Action" n="32" cost="5">
+            <type>Attack</type>
+            <type>Attack Trashing</type>
+            <type>+Coins</type>
+            <type>Trash Gain</type>
+        </card>
+        <card name="Altar" cardType="Action" n="33" cost="6">
+            <type>Terminal</type>
+            <type>Card Gain</type>
+            <type>Feeder</type>
+        </card>
+        <card name="Hunting Grounds" cardType="Action" n="34" cost="6">
+            <type>Terminal</type>
+            <type>+Cards</type>
+            <type>Hand Size</type>
+            <type>On Trash Bonus</type>
+        </card>
+    </set>
+</base>
