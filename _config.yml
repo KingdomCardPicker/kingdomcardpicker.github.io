@@ -1,0 +1,11 @@
+# Site settings
+title: Kingdom
+description: A smarter card picker for the Dominion card game.
+repository: YtnomSnrub/Kingdom
+github_username: YtnomSnrub
+
+# Build settings
+markdown: kramdown
+source: app
+
+github: [metadata]
