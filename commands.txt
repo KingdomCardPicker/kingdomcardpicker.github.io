@@ -1,3 +1,0 @@
-"electron ." will run an electron app
-"gulp serve" hosts a website
-"npm run dist" to package build files
