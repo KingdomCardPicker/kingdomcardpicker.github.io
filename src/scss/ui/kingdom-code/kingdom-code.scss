@@ -50,6 +50,7 @@
             flex-direction: column;
 
             box-sizing: border-box;
+            width: 100%;
             padding: 16px 18px;
 
             .kingdom-code-container {
@@ -80,6 +81,11 @@
 
                     animation: code-in 0.275s $m-ease-out;
                 }
+            }
+
+            a,
+            p {
+                max-width: 100%;
             }
 
             a {

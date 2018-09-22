@@ -33,9 +33,11 @@ var totalSets = {
 };
 
 $(window).bind('hashchange', function (e) {
-    var code = window.location.hash;
+    var code = window.location.hash.replace("#", "");
     if (code != undefined && code != null && code != "") {
-        loadKingdomFromCode(code.substring(1));
+        if (code != currentKingdom.kingdomCode) {
+            loadKingdomFromCode(code);
+        }
     } else {
         animateCardsOut();
     }
@@ -793,6 +795,7 @@ function updateUrlKingdomCode() {
                 var data = event.data;
                 if (data.result === "success") {
                     // Update the url search
+                    currentKingdom.kingdomCode = data.kingdomCode;
                     window.location.hash = data.kingdomCode;
                 } else if (data.result === "error") {
                     console.error("Error");
@@ -1314,64 +1317,26 @@ function openCodeDialog() {
 
         var codeContainer = $("<div class='kingdom-code-container'></div>").appendTo(codeDialogInner);
 
-        if (currentKingdom.kingdomCards) {
-            // Generate the code
-            if (typeof (Worker) !== "undefined") {
-                var codeWorker = new Worker("./scripts/card-selection/kingdom-code/kingdom-code.js");
-                var parameters = {
-                    request: 'cards-to-code',
-                    kingdomCards: currentKingdom.kingdomCards,
-                    supplyCards: currentKingdom.extraSupplyCards,
-                    obeliskCard: currentKingdom.obeliskCard,
-                    baneCard: currentKingdom.baneCard,
+        if (currentKingdom.kingdomCode) {
+            // Set the options for the new code
+            var codeOptions = {
+                text: currentKingdom.kingdomCode,
+                background: "#fff",
+                fill: "#111",
 
-                    appDir: absolutePath(window.location.href, "/"),
-                    totalSets: totalSets
-                }
+                render: 'image',
+                ecLevel: 'H',
 
-                // Start the worker
-                codeWorker.postMessage(parameters);
-                // Setup return message
-                codeWorker.onmessage = function (event) {
-                    // Terminate the worker
-                    codeWorker.terminate();
-                    codeWorker = undefined;
-                    // Find the data
-                    var data = event.data;
-                    if (data.result === "success") {
-                        // Set the options for the new code
-                        var codeOptions = {
-                            text: data.kingdomCode,
-                            background: "#fff",
-                            fill: "#111",
+                minVersion: 3,
+                maxVersion: 40,
 
-                            render: 'image',
-                            ecLevel: 'H',
+                size: 1200,
 
-                            minVersion: 3,
-                            maxVersion: 40,
-
-                            size: 1200,
-
-                            radius: 0.1
-                        }
-
-                        // Generate a code
-                        codeContainer.qrcode(codeOptions);
-                    } else if (data.result === "error") {
-                        console.error("Error");
-                    }
-                }
-
-                // Setup error message
-                codeWorker.onerror = function (err) {
-                    // Terminate the worker
-                    codeWorker.terminate();
-                    codeWorker = undefined;
-                    // Show an error
-                    console.error(err.message + "\nAt line: " + err.lineno + " in " + err.filename);
-                }
+                radius: 0.1
             }
+
+            // Generate a code
+            codeContainer.qrcode(codeOptions);
         }
 
         // Add a direct link

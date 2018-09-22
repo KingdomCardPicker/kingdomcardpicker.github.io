@@ -1152,6 +1152,7 @@ input[type="file"] {
             flex-direction: column;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+    width: 100%;
     padding: 16px 18px; }
     .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner .kingdom-code-container {
       position: relative;
@@ -1179,6 +1180,9 @@ input[type="file"] {
         margin: auto;
         -webkit-animation: code-in 0.275s cubic-bezier(0, 0, 0.2, 1);
                 animation: code-in 0.275s cubic-bezier(0, 0, 0.2, 1); }
+    .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner a,
+    .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner p {
+      max-width: 100%; }
     .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner a {
       padding-bottom: 8px;
       text-decoration: none;
