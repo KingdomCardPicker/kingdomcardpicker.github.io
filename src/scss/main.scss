@@ -62,7 +62,7 @@ $toolbar-padding: 4px;
 
 body,
 html {
-    position: relative;
+    position: fixed;
 
     overflow: hidden;
 
@@ -80,7 +80,7 @@ body {
     animation: fade-in 0.5s $m-ease-out;
 
     color: $text-color;
-    background-color: $background-color;
+    background-color: $foreground-color;
 
     font-family: "Font-Main", sans-serif;
     font-size: 12px;
@@ -262,6 +262,7 @@ hr {
     height: $size-height;
 
     border-top: $toolbar-height solid transparent;
+    background-color: $background-color;
 }
 
 // Scrollbars
