@@ -39,7 +39,7 @@ $(window).bind('hashchange', function (e) {
             loadKingdomFromCode(code);
         }
     } else {
-        animateCardsOut();
+        clearKingdom();
     }
 });
 
@@ -130,20 +130,7 @@ $(function () {
 
     $("#Generate-Button-Clear").on('click', function () {
         hideTooltips();
-        animateCardsOut();
-
-        isGenerating = false;
-        isGeneratingFromCode = false;
-        // Show the fab
-        $("#Generate-Button-Fab").removeClass("hidden");
-        // Hide the toolbar
-        $(".toolbar-cards").addClass("hidden");
-        $(".toolbar-shuffle").addClass("hidden");
-
-        window.setTimeout(function () {
-            // Show the empty state
-            $(".cards-table-state").addClass("state-open");
-        }, 500);
+        clearKingdom();
     });
 
     $("#Generate-Button-CodeScan").on('click', function () {
@@ -502,6 +489,23 @@ function showError(msg) {
     $(".error-msg").addClass("error-visible");
 }
 
+function clearKingdom() {
+    animateCardsOut();
+
+    isGenerating = false;
+    isGeneratingFromCode = false;
+    // Show the fab
+    $("#Generate-Button-Fab").removeClass("hidden");
+    // Hide the toolbar
+    $(".toolbar-cards").addClass("hidden");
+    $(".toolbar-shuffle").addClass("hidden");
+
+    window.setTimeout(function () {
+        // Show the empty state
+        $(".cards-table-state").addClass("state-open");
+    }, 500);
+}
+
 function clearCards() {
     $("#CardsRow1").empty();
     $("#CardsRow2").empty();
@@ -509,6 +513,7 @@ function clearCards() {
     $(".cards-table-basic").empty();
     $(".cards-table-specialcards").empty();
     currentKingdom = {};
+
     loadedCards = 0;
 }
 
@@ -522,9 +527,19 @@ function animateCardsOut() {
     currentKingdom = {};
     loadedCards = 0;
 
+    if (!isGenerating) {
+        removeHash();
+    }
+
     removeCardsTimeout = window.setTimeout(function () {
         clearCards();
     }, 1000);
+}
+
+function removeHash() {
+    if (window.location.hash != "") {
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
 }
 
 function setKingdomCards(kingdomData) {
