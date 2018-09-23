@@ -1303,7 +1303,11 @@ function setLoadingProgress(progress) {
         progress = 0;
     }
 
-    $("#LoadingIndicator").attr("data-progress", progress);
+    var dataProgress = $("#LoadingIndicator").attr("data-progress");
+    console.log(dataProgress, progress, progress > dataProgress);
+    if (progress > dataProgress || progress === 0) {
+        $("#LoadingIndicator").attr("data-progress", progress);
+    }
 }
 
 // The code dialog

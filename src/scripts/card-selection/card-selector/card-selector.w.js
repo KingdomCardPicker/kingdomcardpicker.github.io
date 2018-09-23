@@ -10,6 +10,8 @@ function closeWithError(msg) {
 }
 
 self.addEventListener('message', function (event) {
+    postMessage({ result: "progress", progress: 0 });
+
     var parameters = event.data;
     importScripts(parameters.appDir + "/scripts/marknote.w.js");
     importScripts(parameters.appDir + "/scripts/card-selection/xml-to-card.w.js");
