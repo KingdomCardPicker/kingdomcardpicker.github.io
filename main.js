@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const ipc = require('electron').ipcMain;
 const glob = require('glob')
 const path = require('path')
@@ -11,7 +11,7 @@ let win;
 
 function createWindow() {
     var files = glob.sync(path.join(__dirname, './app/scripts/main-process/**/*.js'));
-    files.forEach(function(file) {
+    files.forEach(function (file) {
         require(file);
     });
 
@@ -33,7 +33,7 @@ function createWindow() {
 
     // Load the index.html of the app
     win.loadURL(url.format({
-        pathname: path.join(__dirname, '/app/index.html'),
+        pathname: path.join(__dirname, '/index.html'),
         protocol: 'file:',
         slashes: true
     }));
@@ -52,7 +52,7 @@ function createWindow() {
     });
 }
 
-ipc.on('window-set-fullscreen', function(event, progressActive) {
+ipc.on('window-set-fullscreen', function (event, progressActive) {
     win.setFullScreen(true);
 });
 

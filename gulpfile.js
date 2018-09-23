@@ -13,14 +13,14 @@ gulp.task('serve', ['sass', 'scripts'], function () {
         ghostMode: false,
         notify: false,
         server: {
-            baseDir: 'app'
+            baseDir: ''
         }
     });
 
     gulp.watch("src/scss/**/*.scss", ['sass']);
     gulp.watch("src/scripts/**/*.js", ['scripts', 'scripts-worker']);
-    gulp.watch("app/index.html").on('change', browserSync.reload);
     gulp.watch("app/scripts/**/*.js").on('change', browserSync.reload);
+    gulp.watch("index.html").on('change', browserSync.reload);
 
     gulp.watch("gulpfile.js").on('change', process.exit);
 });

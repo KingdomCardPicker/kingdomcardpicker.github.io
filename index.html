@@ -6,29 +6,29 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0" />
 
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/app/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/app/favicon.ico" type="image/x-icon" />
         <meta name="theme-color" content="#1676d8" />
         <meta name="msapplication-TileColor" content="#1676d8" />
 
-        <link rel="apple-touch-icon" href="/icon-touch.png" />
-        <link rel="apple-touch-startup-image" href="/splash.png" />
+        <link rel="apple-touch-icon" href="/app/icon-touch.png" />
+        <link rel="apple-touch-startup-image" href="/app/splash.png" />
         <meta name="apple-mobile-web-app-title" content="Kingdom" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="HandheldFriendly" content="true" />
 
-        <meta name="msapplication-TileImage" content="/icon-touch.jpg" />
-        <meta name="msapplication-square70x70logo" content="/icon-touch.png" />
-        <meta name="msapplication-square150x150logo" content="/icon-touch.png" />
+        <meta name="msapplication-TileImage" content="/app/icon-touch.jpg" />
+        <meta name="msapplication-square70x70logo" content="/app/icon-touch.png" />
+        <meta name="msapplication-square150x150logo" content="/app/icon-touch.png" />
 
         <!-- Chrome -->
         <!-- https://developer.chrome.com/multidevice/android/installtohomescreen -->
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/app/manifest.json" />
 
         <title>Kingdom</title>
 
-        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./app/css/main.css" />
 
         <script>
             if (typeof module === 'object') {
@@ -37,7 +37,7 @@
             }
         </script>
 
-        <script src="./scripts/kingdom.min.js"></script>
+        <script src="./app/scripts/kingdom.min.js"></script>
 
         <script>
             if (window.module) {
@@ -50,7 +50,7 @@
             // Add service worker
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function () {
-                    navigator.serviceWorker.register('./sw.js').then(function (registration) {
+                    navigator.serviceWorker.register('./app/sw.js').then(function (registration) {
                         // Registration was successful
                         console.log('ServiceWorker registration successful with scope: ', registration.scope);
                     }, function (err) {
@@ -127,7 +127,7 @@
                 <div class='cards-table-specialcards'></div>
 
                 <div class="cards-table-state state-open">
-                    <img src="./img/victory.svg"></img>
+                    <img src="./app/img/victory.svg"></img>
                     <span class="state-subheading state-text-sets">No Sets Selected</span>
                     <span class="state-text state-text-sets">Select the Dominion sets that you own to start</span>
                     <span class="state-subheading state-text-empty">Welcome to Kingdom</span>
@@ -137,7 +137,7 @@
                     <div class="tooltip tooltip-left">Generate Kingdom</div>
                     <div class="btn-fab-btn">
                         <div class="btn-fab-btn-icon">
-                            <img src="./img/victory.svg"></img>
+                            <img src="./app/img/victory.svg"></img>
                         </div>
                         <i class="material-icons btn-icon-inside">add</i>
                     </div>
