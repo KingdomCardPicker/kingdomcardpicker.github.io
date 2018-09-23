@@ -47,7 +47,7 @@ function convertKingdomToCode(parameters) {
     var supplyCardNumbers = [];
     // Generate a number for the supply cards
     var xmlParser = new marknote.Parser();
-    var doc = xmlParser.parseURL(parameters.appDir + "/data/supply.xml", null, "GET");
+    var doc = xmlParser.parseURL(parameters.appDir + "/app/data/supply.xml", null, "GET");
     if (xmlParser.getXHRStatus() === 200) {
         var base = doc.getRootElement();
         var xmlSupplyCards = base.getChildElements("card");
@@ -161,7 +161,7 @@ function convertCodeToKingdom(parameters) {
         }
 
         var filename = setName.toLowerCase().replace(' ', '') + ".xml";
-        var fileUrl = parameters.appDir + "/data/cards/" + filename;
+        var fileUrl = parameters.appDir + "/app/data/cards/" + filename;
         var xmlParser = new marknote.Parser();
         var doc = xmlParser.parseURL(fileUrl, null, "GET");
         if (xmlParser.getXHRStatus() === 200) {
@@ -198,7 +198,7 @@ function convertCodeToKingdom(parameters) {
     supplyCards = [];
     // Parse supply cards
     var xmlParser = new marknote.Parser();
-    var doc = xmlParser.parseURL(parameters.appDir + "/data/supply.xml", null, "GET");
+    var doc = xmlParser.parseURL(parameters.appDir + "/app/data/supply.xml", null, "GET");
     if (xmlParser.getXHRStatus() === 200) {
         var base = doc.getRootElement();
         var xmlSupplyCards = base.getChildElements("card");

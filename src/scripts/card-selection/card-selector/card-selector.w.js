@@ -19,7 +19,7 @@ self.addEventListener('message', function (event) {
     postMessage({ result: "progress", progress: PROGRESS_LOAD });
 
     var synergyParser = new marknote.Parser();
-    var synergyDoc = synergyParser.parseURL(parameters.appDir + "/data/synergies.xml", null, "GET");
+    var synergyDoc = synergyParser.parseURL(parameters.appDir + "/app/data/synergies.xml", null, "GET");
     if (synergyParser.getXHRStatus() === 200) {
         var root = synergyDoc.getRootElement();
         var synergiesXml = root.getChildElements("s");
@@ -36,7 +36,7 @@ self.addEventListener('message', function (event) {
         }
 
         var similarIgnoreParser = new marknote.Parser();
-        var similarIgnoreDoc = similarIgnoreParser.parseURL(parameters.appDir + "/data/similarignore.xml", null, "GET");
+        var similarIgnoreDoc = similarIgnoreParser.parseURL(parameters.appDir + "/app/data/similarignore.xml", null, "GET");
         if (similarIgnoreParser.getXHRStatus() === 200) {
             var similarIgnoreXml = similarIgnoreDoc.getRootElement().getChildElements("type");
 
@@ -60,7 +60,7 @@ function generateCards(parameters, synergies, similarIgnore) {
     var parsedSets = 0;
     for (set of parameters.sets) {
         var filename = set.toLowerCase().replace(' ', '') + ".xml";
-        var fileUrl = parameters.appDir + "/data/cards/" + filename;
+        var fileUrl = parameters.appDir + "/app/data/cards/" + filename;
         var xmlParser = new marknote.Parser();
         var doc = xmlParser.parseURL(fileUrl, null, "GET");
         if (xmlParser.getXHRStatus() === 200) {

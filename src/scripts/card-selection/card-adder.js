@@ -868,7 +868,7 @@ function addCard(kingdomCard, cardRelationships, row, animIndex) {
         $(cardCost).addClass("card-obelisk");
     }
 
-    var imageDir = "./img/cards-small/";
+    var imageDir = "./app/img/cards-small/";
     var cardImageDir = imageDir + kingdomCard.cardSet.toLowerCase().replace(' ', '');
 
     // Find the image for the card
@@ -931,7 +931,7 @@ function addSupplyCard(cardName) {
     var card = $("<div class='cards-table-card'></div>").appendTo(basicCards);
     // Find the image for the card
     var filename = cardNameToFilename(cardName);
-    var imageDir = "./img/supply/";
+    var imageDir = "./app/img/supply/";
     var imageUrl = imageDir + filename;
     // Add the image
     var cardImage = $("<img src='" + imageUrl + "'/>").appendTo(card);
@@ -970,11 +970,11 @@ function addSpecialCard(kingdomCard) {
     // Create a card
     var card = $("<div class='cards-table-card'></div>").appendTo(specialCards);
 
-    var imageDir = "./img/cards-small/";
+    var imageDir = "./app/img/cards-small/";
     if (kingdomCard.cardType === "Event") {
-        imageDir = "./img/events/";
+        imageDir = "./app/img/events/";
     } else if (kingdomCard.cardType === "Landmark") {
-        imageDir = "./img/landmarks/";
+        imageDir = "./app/img/landmarks/";
     }
 
     var cardImageDir = imageDir + kingdomCard.cardSet.toLowerCase().replace(' ', '');
