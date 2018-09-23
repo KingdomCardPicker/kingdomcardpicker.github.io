@@ -18,7 +18,7 @@ gulp.task('serve', ['sass', 'scripts'], function () {
     });
 
     gulp.watch("src/scss/**/*.scss", ['sass']);
-    gulp.watch("src/scripts/**/*.js", ['scripts', 'scripts-worker']);
+    gulp.watch("src/scripts/**/*.js", ['scripts']);
     gulp.watch("app/scripts/**/*.js").on('change', browserSync.reload);
     gulp.watch("index.html").on('change', browserSync.reload);
 
@@ -49,14 +49,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('scripts', function () {
-    return gulp.src(["src/scripts/**/*.js", "!src/scripts/**/*.w.js"])
-        .pipe(concat('kingdom.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest("app/scripts/"));
-});
-
-gulp.task('scripts-worker', function () {
-    return gulp.src(["src/scripts/**/*.w.js"])
+    return gulp.src(["src/scripts/**/*.js"])
         .pipe(uglify())
         .pipe(gulp.dest("app/scripts/"));
 });

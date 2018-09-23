@@ -6,8 +6,8 @@ function closeWithError(msg) {
 
 self.addEventListener('message', function (event) {
     parameters = event.data;
-    importScripts("BigInteger.min.w.js");
-    importScripts("base-convert.w.js");
+    importScripts("BigInteger.min.js");
+    importScripts("base-convert.js");
 
     if (parameters.request === "cards-to-code") {
         convertKingdomToCode(parameters);
@@ -20,7 +20,7 @@ self.addEventListener('message', function (event) {
 
 // Converts the current kingdom cards to an alphaneumeric code
 function convertKingdomToCode(parameters) {
-    importScripts(parameters.appDir + "/app/scripts/marknote.w.js");
+    importScripts(parameters.appDir + "/app/scripts/marknote.js");
 
     var cardNumbers = [];
     var baneCardId = undefined;
@@ -82,8 +82,8 @@ function convertKingdomToCode(parameters) {
 }
 
 function convertCodeToKingdom(parameters) {
-    importScripts(parameters.appDir + "/app/scripts/marknote.w.js");
-    importScripts(parameters.appDir + "/app/scripts/card-selection/xml-to-card.w.js");
+    importScripts(parameters.appDir + "/app/scripts/marknote.js");
+    importScripts(parameters.appDir + "/app/scripts/card-selection/xml-to-card.js");
 
     postMessage({ result: "progress", progress: 1 });
 

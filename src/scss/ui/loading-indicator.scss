@@ -116,7 +116,7 @@ $loading-dot-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 
         .mask,
         .fill {
-            transition: transform 0.1s $m-ease-in-out;
+            transition: transform 0.05s $m-ease-in-out;
 
             border-radius: 50%;
         }

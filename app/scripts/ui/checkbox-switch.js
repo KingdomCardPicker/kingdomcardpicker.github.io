@@ -1,0 +1,1 @@
+function createCheckboxSwitch(a){var n=$(a).find("label");$("<span></span>").appendTo(n)}
