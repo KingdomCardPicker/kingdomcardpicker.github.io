@@ -1,0 +1,21 @@
+{
+    "short_name": "Kingdom",
+    "name": "Kingdom",
+    "icons": [
+        {
+            "src": "/icon-touch.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/icon-touch.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#1676d8",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#1676d8"
+}

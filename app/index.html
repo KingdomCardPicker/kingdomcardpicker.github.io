@@ -4,17 +4,27 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">
 
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <meta name="theme-color" content="#1676d8">
+        <meta name="msapplication-TileColor" content="#1676d8" />
 
         <link rel="apple-touch-icon" href="/icon-touch.png">
         <link rel="apple-touch-startup-image" href="/splash.png">
         <meta name="apple-mobile-web-app-title" content="Kingdom">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="HandheldFriendly" content="true" />
+
+        <meta name="msapplication-TileImage" content="/icon-touch.jpg">
+        <meta name="msapplication-square70x70logo" content="/icon-touch.png">
+        <meta name="msapplication-square150x150logo" content="/icon-touch.png">
+
+        <!-- Chrome -->
+        <!-- https://developer.chrome.com/multidevice/android/installtohomescreen -->
+        <link rel="manifest" href="/manifest.json">
 
         <title>Kingdom</title>
 
@@ -57,36 +67,37 @@
         <div class="main">
             <div class="toolbar">
                 <div class="toolbar-buttons">
-                    <button id="Generate-Button-Shuffle" data-toggle="tooltip" data-placement="bottom" title="Shuffle Cards"
-                        class="btn-toolbar toolbar-shuffle hidden">
+                    <button id="Generate-Button-Shuffle" class="btn-toolbar toolbar-shuffle hidden">
+                        <div class="tooltip tooltip-right">Shuffle Cards</div>
                         <i class="material-icons">shuffle</i>
                     </button>
 
-                    <button id="Generate-Button-Clear" data-toggle="tooltip" data-placement="bottom" title="Clear Cards"
-                        class="btn-toolbar toolbar-cards hidden">
+                    <button id="Generate-Button-Clear" class="btn-toolbar toolbar-cards hidden">
+                        <div class="tooltip tooltip-right">Clear Cards</div>
                         <i class="material-icons">delete_sweep</i>
                     </button>
 
                     <div class="toolbar-divider toolbar-cards hidden"></div>
 
-                    <button id="Generate-Button-CodeScan" data-toggle="tooltip" data-placement="bottom" title="Scan a Code"
-                        class="btn-toolbar">
+                    <button id="Generate-Button-CodeScan" class="btn-toolbar">
+                        <div class="tooltip tooltip-right">Scan a Code</div>
                         <i class="material-icons">camera_enhance</i>
                     </button>
 
-                    <button id="Generate-Button-Code" data-toggle="tooltip" data-placement="bottom" title="Generate Code"
-                        class="btn-toolbar toolbar-cards hidden">
+                    <button id="Generate-Button-Code" class="btn-toolbar toolbar-cards hidden">
+                        <div class="tooltip tooltip-right">Kingdom Code</div>
                         <i class="kingdom-icons">qr_code</i>
                     </button>
 
                     <div class="toolbar-fill"></div>
 
-                    <button id="Kingdom-Info" data-toggle="tooltip" data-placement="bottom" title="About" class="btn-toolbar">
+                    <button id="Kingdom-Info" class="btn-toolbar">
+                        <div class="tooltip tooltip-left">About</div>
                         <i class="material-icons">info</i>
                     </button>
 
-                    <button id="SetSelection-Open" data-toggle="tooltip" data-placement="bottom" title="My Expansions"
-                        class="btn-toolbar">
+                    <button id="SetSelection-Open" class="btn-toolbar">
+                        <div class="tooltip tooltip-left">My Expansions</div>
                         <i class="material-icons">extension</i>
                     </button>
                 </div>
@@ -122,8 +133,8 @@
                     <span class="state-subheading state-text-empty">Welcome to Kingdom</span>
                     <span class="state-text state-text-empty">Scan a code or generate a Kingdom to start</span>
                 </div>
-                <div id="Generate-Button-Fab" data-toggle="tooltip" data-placement="left" title="Generate Kingdom"
-                    class="btn-fab btn-fab-drawer">
+                <div id="Generate-Button-Fab" class="btn-fab btn-fab-drawer">
+                    <div class="tooltip tooltip-left">Generate Kingdom</div>
                     <div class="btn-fab-btn">
                         <div class="btn-fab-btn-icon">
                             <img src="./img/victory.svg"></img>
@@ -153,15 +164,17 @@
                             <div class="drawer-randomize">
                                 <div id="Generate-Drawer-RandomizeInput" class="input-number">
                                     <div class="btn-icon input-number-subtract">
+                                        <div class="tooltip tooltip-right">Decrease Sets</div>
                                         <i class="material-icons">remove</i>
                                     </div>
                                     <div id="Generate-Drawer-RandomizeValue" class="input-number-value">2</div>
                                     <div class="btn-icon input-number-add">
+                                        <div class="tooltip tooltip-left">Increase Sets</div>
                                         <i class="material-icons">add</i>
                                     </div>
                                 </div>
-                                <div id="Generate-Drawer-Randomize" data-toggle="tooltip" data-placement="top" title="Randomize Sets"
-                                    class="btn-icon btn-randomize">
+                                <div id="Generate-Drawer-Randomize" class="btn-icon btn-randomize">
+                                    <div class="tooltip tooltip-left">Randomize Sets</div>
                                     <i class="material-icons">casino</i>
                                 </div>
                             </div>

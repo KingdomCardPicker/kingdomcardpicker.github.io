@@ -1363,7 +1363,6 @@ function openCodeDialog() {
 
         // Add a direct link
         var directLink = window.location.href;
-        $("<h3>Direct Link</h3>").appendTo(codeDialogInner);
         $("<a href='" + directLink + "'>" + directLink + "</a>").appendTo(codeDialogInner);
 
         var scanButton = $("<div class='btn'>Copy Link to Clipboard</div>").appendTo(codeDialogInner);

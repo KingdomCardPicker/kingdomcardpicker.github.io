@@ -1,0 +1,111 @@
+$tooltip-color: #616161;
+$tooltip-height: 32px;
+$tooltip-margin: 12px;
+$tooltip-max-width: 380px;
+$tooltip-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+$tooltip-delay: 1s;
+
+// Base class
+.tooltip {
+    &.tooltip-top,
+    &.bs-tether-element-attached-bottom {
+        padding: 0;
+
+        .tooltip-inner::before {
+            margin-left: 0;
+
+            border: none;
+        }
+    }
+
+    &.tooltip-right,
+    &.bs-tether-element-attached-left {
+        padding: 0;
+
+        .tooltip-inner::before {
+            margin-top: 0;
+
+            border: none;
+        }
+    }
+
+    &.tooltip-bottom,
+    &.bs-tether-element-attached-top {
+        padding: 0;
+
+        .tooltip-inner::before {
+            margin-left: 0;
+
+            border: none;
+        }
+    }
+
+    &.tooltip-left,
+    &.bs-tether-element-attached-right {
+        padding: 0;
+
+        .tooltip-inner::before {
+            margin-top: 0;
+
+            border: none;
+        }
+    }
+}
+
+.tooltip {
+    pointer-events: none;
+
+    .tooltip-inner::before {
+        display: none;
+    }
+
+    &.tooltip-top,
+    &.bs-tether-element-attached-bottom {
+        .tooltip-inner {
+            transform: translateY($tooltip-margin);
+        }
+    }
+
+    &.tooltip-right,
+    &.bs-tether-element-attached-left {
+        .tooltip-inner {
+            transform: translateX(-$tooltip-margin);
+        }
+    }
+
+    &.tooltip-bottom,
+    &.bs-tether-element-attached-top {
+        .tooltip-inner {
+            transform: translateY(-$tooltip-margin);
+        }
+    }
+
+    &.tooltip-left,
+    &.bs-tether-element-attached-right {
+        .tooltip-inner {
+            transform: translateX($tooltip-margin);
+        }
+    }
+
+    .tooltip-inner {
+        max-width: $tooltip-max-width;
+        margin: $tooltip-margin;
+        padding: 6px 8px;
+
+        transition: opacity 0.2s ease, transform 0.2s $m-ease-in;
+        text-align: center;
+
+        opacity: 0;
+        color: $foreground-color;
+        border-radius: $border-radius;
+        background-color: $tooltip-color;
+        box-shadow: $tooltip-shadow;
+    }
+}
+
+.tooltip.show .tooltip-inner {
+    transition: opacity 0.2s ease $tooltip-delay, transform 0.2s $m-ease-out $tooltip-delay;
+    transform: translateX(0px) translateY(0px);
+
+    opacity: 1;
+}

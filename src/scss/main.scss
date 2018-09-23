@@ -3,7 +3,6 @@ $toolbar-padding: 4px;
 
 // Core
 @import "./ui/_core";
-@import "bootstrap";
 
 // Import material icons
 @import "material-icons";
@@ -133,7 +132,7 @@ h3 {
 
 h4 {
     font-family: "Font-Subheadings", sans-serif;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .description {

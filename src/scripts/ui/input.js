@@ -1,28 +1,28 @@
-$(function() {
-    $(".input-number").each(function() {
+$(function () {
+    $(".input-number").each(function () {
         var numberInput = $(this);
         var numberInputValue = numberInput.find(".input-number-value");
 
         var addButton = numberInput.find(".input-number-add");
         var subtractButton = numberInput.find(".input-number-subtract");
 
-        addButton.click(function() {
+        addButton.click(function () {
             numberInput.trigger("input-add");
         });
 
-        subtractButton.click(function() {
+        subtractButton.click(function () {
             numberInput.trigger("input-subtract");
         });
     });
 
-    $(".input-number").on("input-add", function() {
+    $(".input-number").on("input-add", function () {
         var numberInput = $(this);
         var numberInputValue = numberInput.find(".input-number-value");
 
         numberInputValue.removeClass("value-in-left");
         numberInputValue.removeClass("value-in-right");
         numberInputValue.addClass("value-out-left");
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             numberInputValue.removeClass("value-out-left");
             numberInputValue.addClass("value-in-right");
 
@@ -39,7 +39,7 @@ $(function() {
         }, 100);
     });
 
-    $(".input-number").on("input-subtract", function() {
+    $(".input-number").on("input-subtract", function () {
         var numberInput = $(this);
         var numberInputValue = numberInput.find(".input-number-value");
 
@@ -47,7 +47,7 @@ $(function() {
             numberInputValue.removeClass("value-in-left");
             numberInputValue.removeClass("value-in-right");
             numberInputValue.addClass("value-out-right");
-            window.setTimeout(function() {
+            window.setTimeout(function () {
                 numberInputValue.removeClass("value-out-right");
                 numberInputValue.addClass("value-in-left");
 
@@ -66,5 +66,15 @@ $(function() {
             numberInputValue.text("1");
             numberInputValue.trigger("input-value-change");
         }
+    });
+
+    $("button, .btn, .btn-icon, .btn-toolbar, .btn-fab").hover(function () {
+        $(this).addClass("tooltip-hover");
+    }, function () {
+        $(this).removeClass("tooltip-hover");
+    });
+
+    $("button, .btn, .btn-icon, .btn-toolbar, .btn-fab").on("click", function () {
+        $(this).removeClass("tooltip-hover");
     });
 });

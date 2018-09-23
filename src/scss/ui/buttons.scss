@@ -402,7 +402,7 @@ textarea {
     }
 
     p {
-        padding-top: 4px;
+        padding-top: 0;
 
         vertical-align: middle;
 
@@ -487,6 +487,11 @@ textarea {
 
     @media screen and (max-width: $screen-large) {
         height: $checkbox-check-size-touch;
+
+        p {
+            padding-top: 4px;
+            padding-right: $checkbox-check-size-touch + $text-padding;
+        }
 
         &.small {
             p {
