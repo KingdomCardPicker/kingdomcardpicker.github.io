@@ -46,7 +46,7 @@ $(window).bind('hashchange', function (e) {
 $(function () {
     // Generate from code (if available)
     var code = window.location.hash;
-    if (code != undefined && code != null && code != "") {
+    if (code !== undefined && code !== null && code !== "") {
         loadKingdomFromCode(code.substring(1));
     }
 
@@ -60,9 +60,12 @@ $(function () {
         }
 
         if (ownedSetsCount === 0) {
-            openSetDialog(true);
             $(".cards-table-state").addClass("state-sets");
             $(".cards-table-state").removeClass("state-empty");
+
+            if (code === "") {
+                openSetDialog(true);
+            }
         } else {
             $(".cards-table-state").removeClass("state-sets");
             $(".cards-table-state").addClass("state-empty");
@@ -210,7 +213,7 @@ function generateNewKingdom() {
 
         if (typeof (Worker) !== "undefined") {
             if (cardWorker === undefined) {
-                cardWorker = new Worker("./scripts/card-selection/card-selector/card-selector.js");
+                cardWorker = new Worker("./scripts/card-selection/card-selector/card-selector.w.js");
 
                 selectedSets = [];
                 for (setCheckbox of currentSetsCheckboxes) {
@@ -787,7 +790,7 @@ function updateUrlKingdomCode() {
     if (currentKingdom.kingdomCards) {
         // Generate the code
         if (typeof (Worker) !== "undefined") {
-            var codeWorker = new Worker("./scripts/card-selection/kingdom-code/kingdom-code.js");
+            var codeWorker = new Worker("./scripts/card-selection/kingdom-code/kingdom-code.w.js");
             var parameters = {
                 request: 'cards-to-code',
                 kingdomCards: currentKingdom.kingdomCards,
@@ -1583,7 +1586,7 @@ function loadKingdomFromCode(kingdomCode) {
 
         if (typeof (Worker) !== "undefined") {
             if (cardWorker === undefined) {
-                cardWorker = new Worker("./scripts/card-selection/kingdom-code/kingdom-code.js");
+                cardWorker = new Worker("./scripts/card-selection/kingdom-code/kingdom-code.w.js");
 
                 var parameters = {
                     request: 'code-to-cards',

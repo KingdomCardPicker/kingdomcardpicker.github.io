@@ -6,15 +6,15 @@ const PROGRESS_CARDS = 6;
 const POTION_FACTOR = [0, 2, 1, 0, -1];
 
 function closeWithError(msg) {
-    postMessage({result: 'error', message: msg});
+    postMessage({ result: 'error', message: msg });
 }
 
-self.addEventListener('message', function(event) {
+self.addEventListener('message', function (event) {
     var parameters = event.data;
-    importScripts(parameters.appDir + "/scripts/marknote.js");
-    importScripts(parameters.appDir + "/scripts/card-selection/xml-to-card.js");
+    importScripts(parameters.appDir + "/scripts/marknote.w.js");
+    importScripts(parameters.appDir + "/scripts/card-selection/xml-to-card.w.js");
 
-    postMessage({result: "progress", progress: PROGRESS_LOAD});
+    postMessage({ result: "progress", progress: PROGRESS_LOAD });
 
     var synergyParser = new marknote.Parser();
     var synergyDoc = synergyParser.parseURL(parameters.appDir + "/data/synergies.xml", null, "GET");

@@ -27,8 +27,7 @@
             }
         </script>
 
-        <script src="./scripts/jquery-3.2.1.min.js"></script>
-        <script src="./scripts/fastclick.min.js"></script>
+        <script src="./scripts/kingdom.min.js"></script>
 
         <script>
             if (window.module) {
@@ -37,6 +36,19 @@
 
             var attachFastClick = Origami.fastclick;
             attachFastClick(document.body);
+
+            // Add service worker
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('./sw.js').then(function (registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
         </script>
     </head>
 
@@ -208,42 +220,6 @@
                 "touchstart",
                 function () { }, true);
         </script>
-
-        <script src="./scripts/tether.min.js"></script>
-        <script src="./scripts/bootstrap.min.js"></script>
-
-        <!-- QR Code Reader -->
-        <script src="./scripts/card-selection/kingdom-code/code-reader/grid.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/version.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/detector.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/formatinf.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/errorlevel.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/bitmat.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/datablock.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/bmparser.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/datamask.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/rsdecoder.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/gf256poly.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/gf256.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/decoder.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/qrcode.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/findpat.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/alignpat.js"></script>
-        <script src="./scripts/card-selection/kingdom-code/code-reader/databr.js"></script>
-
-        <!-- QR Code Generator -->
-        <script src="./scripts/card-selection/kingdom-code/jquery-qrcode.min.js"></script>
-
-        <!-- Kingdom Scripts -->
-        <script src="./scripts/set-selection/set-selector.js"></script>
-        <script src="./scripts/card-selection/card-adder.js"></script>
-        <script src="./scripts/ui/dialog-info/dialog-info.js"></script>
-
-        <!-- UI Scripts -->
-        <script src="./scripts/ui/checkbox-switch.js"></script>
-        <script src="./scripts/ui/dialog.js"></script>
-        <script src="./scripts/ui/drawer.js"></script>
-        <script src="./scripts/ui/input.js"></script>
     </body>
 
 </html>

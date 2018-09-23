@@ -1,13 +1,13 @@
 BASECODE = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function closeWithError(msg) {
-    postMessage({result: 'error', message: msg});
+    postMessage({ result: 'error', message: msg });
 }
 
-self.addEventListener('message', function(event) {
+self.addEventListener('message', function (event) {
     parameters = event.data;
-    importScripts("BigInteger.min.js");
-    importScripts("base-convert.js");
+    importScripts("BigInteger.min.w.js");
+    importScripts("base-convert.w.js");
 
     if (parameters.request === "cards-to-code") {
         convertKingdomToCode(parameters);
@@ -20,7 +20,7 @@ self.addEventListener('message', function(event) {
 
 // Converts the current kingdom cards to an alphaneumeric code
 function convertKingdomToCode(parameters) {
-    importScripts(parameters.appDir + "/scripts/marknote.js");
+    importScripts(parameters.appDir + "/scripts/marknote.w.js");
 
     var cardNumbers = [];
     var baneCardId = undefined;
@@ -78,14 +78,14 @@ function convertKingdomToCode(parameters) {
     var kingdomCode = baseConvert(kingdomId, 11, BASECODE.length, BASECODE);
 
     // Send the cards to the main process
-    postMessage({result: "success", kingdomCode: kingdomCode});
+    postMessage({ result: "success", kingdomCode: kingdomCode });
 }
 
 function convertCodeToKingdom(parameters) {
-    importScripts(parameters.appDir + "/scripts/marknote.js");
-    importScripts(parameters.appDir + "/scripts/card-selection/xml-to-card.js");
+    importScripts(parameters.appDir + "/scripts/marknote.w.js");
+    importScripts(parameters.appDir + "/scripts/card-selection/xml-to-card.w.js");
 
-    postMessage({result: "progress", progress: 1});
+    postMessage({ result: "progress", progress: 1 });
 
     kingdomCode = parameters.kingdomCode;
 
@@ -111,7 +111,7 @@ function convertCodeToKingdom(parameters) {
         closeWithError("The kingdom code was not valid");
     }
 
-    postMessage({result: "progress", progress: 2});
+    postMessage({ result: "progress", progress: 2 });
 
     // Seperate the cards by their sets
     var setCards = {};
@@ -139,7 +139,7 @@ function convertCodeToKingdom(parameters) {
         }
     }
 
-    postMessage({result: "progress", progress: 3});
+    postMessage({ result: "progress", progress: 3 });
 
     kingdomCards = [];
     var baneCard = undefined;
@@ -193,7 +193,7 @@ function convertCodeToKingdom(parameters) {
         }
     }
 
-    postMessage({result: "progress", progress: 6});
+    postMessage({ result: "progress", progress: 6 });
 
     supplyCards = [];
     // Parse supply cards
@@ -213,7 +213,7 @@ function convertCodeToKingdom(parameters) {
         }
     }
 
-    postMessage({result: "progress", progress: 8});
+    postMessage({ result: "progress", progress: 8 });
 
     if (kingdomCards.length < 10) {
         closeWithError("Not enough cards");

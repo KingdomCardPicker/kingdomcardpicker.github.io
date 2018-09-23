@@ -28,12 +28,18 @@
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.1.0",
     "gulp-serve": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglify-es": "^1.0.4",
     "gulp-wait": "0.0.2",
     "gulp-webserver": "^0.9.1",
     "node-sass": "^4.5.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "pump": "^3.0.0"
   },
   "dependencies": {
     "glob": "^7.1.1"

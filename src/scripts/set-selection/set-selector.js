@@ -71,10 +71,12 @@ function openSetDialog(isStartup) {
                 setDialog = undefined;
 
                 // Open the onboarding, if it hasn't already been opened
-                if (typeof (Storage) !== undefined) {
-                    if (!localStorage.getItem("Onboarding-Generate")) {
-                        $("#Onboarding-Generate").addClass('open');
-                        localStorage.setItem("Onboarding-Generate", true);
+                if (!$("#Generate-Button-Fab").hasClass("hidden")) {
+                    if (typeof (Storage) !== undefined) {
+                        if (!localStorage.getItem("Onboarding-Generate")) {
+                            $("#Onboarding-Generate").addClass('open');
+                            localStorage.setItem("Onboarding-Generate", true);
+                        }
                     }
                 }
             });
