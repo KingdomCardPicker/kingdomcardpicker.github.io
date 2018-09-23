@@ -272,34 +272,46 @@
   border-width: 10px; }
 
 @font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
+  font-family: "Material Icons";
   font-weight: 400;
+  font-style: normal;
   src: url("../fonts/MaterialIcons-Regular.eot");
   src: local("Material Icons"), local("MaterialIcons-Regular"), url("../fonts/MaterialIcons-Regular.ttf") format("truetype"); }
 
-.material-icons {
-  font-family: 'Material Icons';
+@font-face {
+  font-family: "Kingdom Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
+  src: url("../fonts/KingdomIcons.ttf") format("truetype"); }
+
+.material-icons {
+  font-family: "Material Icons"; }
+
+.kingdom-icons {
+  font-family: "Kingdom Icons"; }
+
+.material-icons,
+.kingdom-icons {
   /* Preferred icon size */
   display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
   white-space: nowrap;
+  letter-spacing: normal;
+  text-transform: none;
+  word-wrap: normal;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
   direction: ltr;
+  /* Support for IE. */
+  -webkit-font-feature-settings: "liga";
+          font-feature-settings: "liga";
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  -webkit-font-feature-settings: 'liga';
-          font-feature-settings: 'liga'; }
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility; }
 
 .checkbox-switch label.check-dominion,
 .checkbox-check label.check-dominion {
@@ -633,7 +645,11 @@ textarea {
       -ms-flex: 0 1 auto;
           flex: 0 1 auto; }
   .btn-toolbar i {
+    position: relative;
     font-size: 28px; }
+  .btn-toolbar i.kingdom-icons {
+    top: -1px;
+    font-size: 22px; }
 
 .btn-message {
   position: absolute;

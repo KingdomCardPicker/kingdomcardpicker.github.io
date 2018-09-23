@@ -229,7 +229,15 @@ textarea {
     flex: 0 1 auto;
 
     i {
+        position: relative;
+
         font-size: 28px;
+    }
+
+    i.kingdom-icons {
+        top: -1px;
+
+        font-size: 22px;
     }
 }
 
