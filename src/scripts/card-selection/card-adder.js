@@ -213,7 +213,7 @@ function generateNewKingdom() {
 
         if (typeof (Worker) !== "undefined") {
             if (cardWorker === undefined) {
-                cardWorker = new Worker("./scripts/card-selection/card-selector/card-selector.w.js");
+                cardWorker = new Worker("./app/scripts/card-selection/card-selector/card-selector.w.js");
 
                 selectedSets = [];
                 for (setCheckbox of currentSetsCheckboxes) {
@@ -790,7 +790,7 @@ function updateUrlKingdomCode() {
     if (currentKingdom.kingdomCards) {
         // Generate the code
         if (typeof (Worker) !== "undefined") {
-            var codeWorker = new Worker("./scripts/card-selection/kingdom-code/kingdom-code.w.js");
+            var codeWorker = new Worker("./app/scripts/card-selection/kingdom-code/kingdom-code.w.js");
             var parameters = {
                 request: 'cards-to-code',
                 kingdomCards: currentKingdom.kingdomCards,
@@ -1589,7 +1589,7 @@ function loadKingdomFromCode(kingdomCode) {
 
         if (typeof (Worker) !== "undefined") {
             if (cardWorker === undefined) {
-                cardWorker = new Worker("./scripts/card-selection/kingdom-code/kingdom-code.w.js");
+                cardWorker = new Worker("./app/scripts/card-selection/kingdom-code/kingdom-code.w.js");
 
                 var parameters = {
                     request: 'code-to-cards',

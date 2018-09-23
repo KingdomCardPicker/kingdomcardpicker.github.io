@@ -20,7 +20,7 @@ self.addEventListener('message', function (event) {
 
 // Converts the current kingdom cards to an alphaneumeric code
 function convertKingdomToCode(parameters) {
-    importScripts(parameters.appDir + "/scripts/marknote.w.js");
+    importScripts(parameters.appDir + "/app/scripts/marknote.w.js");
 
     var cardNumbers = [];
     var baneCardId = undefined;
@@ -82,8 +82,8 @@ function convertKingdomToCode(parameters) {
 }
 
 function convertCodeToKingdom(parameters) {
-    importScripts(parameters.appDir + "/scripts/marknote.w.js");
-    importScripts(parameters.appDir + "/scripts/card-selection/xml-to-card.w.js");
+    importScripts(parameters.appDir + "/app/scripts/marknote.w.js");
+    importScripts(parameters.appDir + "/app/scripts/card-selection/xml-to-card.w.js");
 
     postMessage({ result: "progress", progress: 1 });
 
