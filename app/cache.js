@@ -1,0 +1,1 @@
+var CACHE_NAME = 'kingdom-cache-v2';

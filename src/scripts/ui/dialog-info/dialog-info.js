@@ -1,4 +1,3 @@
-var CACHE_NAME = 'kingdom-cache-v1';
 var isDownloadingCards = false;
 infoDialog = undefined;
 

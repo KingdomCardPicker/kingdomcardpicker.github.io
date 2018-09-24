@@ -1,9 +1,9 @@
-var CACHE_NAME = 'kingdom-cache-v1';
 var urlsToCache = [
     './',
     './index.html'
 ];
 
+importScripts("./app/cache.js");
 self.addEventListener('install', function (event) {
     // Perform install steps
     event.waitUntil(
