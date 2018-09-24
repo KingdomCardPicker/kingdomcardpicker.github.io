@@ -19,10 +19,8 @@ gulp.task('serve', ['resources', 'sass', 'scripts'], function () {
         }
     });
 
-    gulp.watch(["app/**/*", "!app/resources.js", "!app/resources-cards.js"], ['resources']);
     gulp.watch("src/scss/**/*.scss", ['sass']);
     gulp.watch("src/scripts/**/*.js", ['scripts']);
-    gulp.watch("app/scripts/**/*.js").on('change', browserSync.reload);
     gulp.watch("index.html").on('change', browserSync.reload);
 
     gulp.watch("gulpfile.js").on('change', process.exit);
@@ -52,7 +50,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('scripts', function () {
-    return gulp.src(["src/scripts/**/*.js"])
+    gulp.src(["src/scripts/**/*.js"])
         .pipe(uglify())
         .pipe(gulp.dest("app/scripts/"));
 });

@@ -1,4 +1,5 @@
 var CACHE_NAME = 'kingdom-cache-v1';
+var isDownloadingCards = false;
 infoDialog = undefined;
 
 $(function () {
@@ -54,17 +55,45 @@ function openInfoDialog() {
             "</p>").appendTo(infoDialogText);
         var cacheCards = $("<div class='btn cache-cards'>Download Cards</div>").appendTo(infoDialogInner);
         cacheCards.on('click', function () {
-            caches.open(CACHE_NAME).then(function (cache) {
-                // Read resources
-                var resources = kingdomResourcesCardImages;
-                for (var i = 0; i < resources.length; ++i) {
-                    cache.add(resources[i]);
-                    cacheCards.html(i + "/" + resources.length);
-                }
+            if (!isDownloadingCards) {
+                isDownloadingCards = true;
+                caches.open(CACHE_NAME).then(function (cache) {
+                    // Read resources
+                    var resources = kingdomResourcesCardImages;
+                    var resourceIndex = 0;
+                    var loadedResourceIndex = 0;
+                    cacheCards.html(0 + "/" + resources.length);
+                    var checkCache = window.setInterval(function () {
+                        if (loadedResourceIndex >= resourceIndex) {
+                            if (resourceIndex < resources.length) {
+                                cache.add(resources[resourceIndex]);
+                                ++resourceIndex;
+                            }
+                        }
 
-                cacheCards.html("Done");
-            });
-        })
+                        if (loadedResourceIndex < resourceIndex) {
+                            caches.match(resources[loadedResourceIndex]).then(function (response) {
+                                if (response !== undefined && response.ok) {
+                                    if (loadedResourceIndex < resourceIndex) {
+                                        ++loadedResourceIndex;
+                                    }
+                                }
+                            });
+
+                            cacheCards.html(resourceIndex + "/" + resources.length);
+                        }
+
+                        if (loadedResourceIndex >= resources.length) {
+                            cacheCards.html("Done");
+                            isDownloadingCards = false;
+                            window.clearInterval(checkCache);
+                        }
+                    }, 10);
+                });
+            } else {
+                cacheCards.html("Download in Progress");
+            }
+        });
 
         var canAccessStoarge = false;
         if (typeof (Storage) !== undefined) {
