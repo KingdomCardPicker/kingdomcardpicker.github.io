@@ -63,6 +63,7 @@ $drawer-transition: box-shadow 0.275s $m-ease-in-out;
     .drawer-inner {
         display: flex;
         flex-direction: column;
+        overflow-x: hidden;
         overflow-y: hidden;
 
         border-top: 1px solid $divider-color;
@@ -78,6 +79,8 @@ $drawer-transition: box-shadow 0.275s $m-ease-in-out;
         }
 
         .drawer-inner-flex {
+            overflow-x: hidden;
+
             padding: 0 $drawer-padding;
 
             flex: 1 1 auto;
@@ -94,6 +97,7 @@ $drawer-transition: box-shadow 0.275s $m-ease-in-out;
         }
 
         .drawer-inner-fixed {
+            overflow-x: hidden;
             overflow-y: auto;
 
             padding: 6px $drawer-padding;
