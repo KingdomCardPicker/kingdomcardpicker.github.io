@@ -39,7 +39,8 @@
     "gulp-webserver": "^0.9.1",
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
-    "pump": "^3.0.0"
+    "pump": "^3.0.0",
+    "recursive-readdir": "^2.2.2"
   },
   "dependencies": {
     "glob": "^7.1.1"

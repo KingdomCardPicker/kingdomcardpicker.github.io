@@ -256,7 +256,13 @@ function absolutePath(base, relative) {
 		else
 			stack.push(parts[i]);
 	}
-	return stack.join("/");
+
+	var path = stack.join("/");
+	while (path.charAt(path.length - 1) === "/") {
+		path = path.slice(0, -1)
+	}
+
+	return path;
 }
 
 function setupSwitches() {
@@ -1195,7 +1201,6 @@ function setLoadingProgress(progress) {
 	}
 
 	var dataProgress = $("#LoadingIndicator").attr("data-progress");
-	console.log(dataProgress, progress, progress > dataProgress);
 	if (progress > dataProgress || progress === 0) {
 		$("#LoadingIndicator").attr("data-progress", progress);
 	}

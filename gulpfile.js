@@ -7,8 +7,10 @@ const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify-es').default;
 const pump = require('pump');
+const fs = require('fs');
+var fsrec = require("recursive-readdir");
 
-gulp.task('serve', ['sass', 'scripts'], function () {
+gulp.task('serve', ['resources', 'sass', 'scripts'], function () {
     browserSync.init({
         ghostMode: false,
         notify: false,
@@ -17,6 +19,7 @@ gulp.task('serve', ['sass', 'scripts'], function () {
         }
     });
 
+    gulp.watch("app/**/*", ['resources']);
     gulp.watch("src/scss/**/*.scss", ['sass']);
     gulp.watch("src/scripts/**/*.js", ['scripts']);
     gulp.watch("app/scripts/**/*.js").on('change', browserSync.reload);
@@ -41,7 +44,7 @@ gulp.task('watch', ['sass'], function () {
 
 gulp.task('sass', function () {
     return gulp.src("src/scss/main.scss")
-        .pipe(wait(1000))
+        .pipe(wait(500))
         .pipe(sass())
         .pipe(autoprefixer({ browsers: ['last 12 versions'] }))
         .pipe(gulp.dest("app/css/"))
@@ -52,6 +55,21 @@ gulp.task('scripts', function () {
     return gulp.src(["src/scripts/**/*.js"])
         .pipe(uglify())
         .pipe(gulp.dest("app/scripts/"));
+});
+
+gulp.task('resources', function () {
+    fsrec('app', function (err, files) {
+        var resources = [];
+        files.forEach(file => {
+            var fileName = file.split("\\").join("/");
+            if (!fileName.startsWith("app/img")) {
+                resources.push("'" + fileName + "'");
+            }
+        });
+
+        var resourcesJs = "var kingdomResources = [" + resources.join(",") + "]";
+        fs.writeFileSync('app/resources.js', resourcesJs);
+    });
 });
 
 gulp.task('uglify-error-debugging', function (cb) {

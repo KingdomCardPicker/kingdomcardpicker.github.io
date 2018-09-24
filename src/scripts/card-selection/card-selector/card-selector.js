@@ -13,6 +13,7 @@ self.addEventListener('message', function (event) {
     postMessage({ result: "progress", progress: 0 });
 
     var parameters = event.data;
+    console.log(parameters.appDir);
     importScripts(parameters.appDir + "/app/scripts/marknote.js");
     importScripts(parameters.appDir + "/app/scripts/card-selection/xml-to-card.js");
 
