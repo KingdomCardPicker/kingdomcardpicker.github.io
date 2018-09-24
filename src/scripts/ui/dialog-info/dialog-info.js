@@ -59,20 +59,19 @@ function openInfoDialog() {
                 isDownloadingCards = true;
                 caches.open(CACHE_NAME).then(function (cache) {
                     // Read resources
-                    var resources = kingdomResourcesCardImages;
                     var resourceIndex = 0;
                     var loadedResourceIndex = 0;
-                    cacheCards.html(0 + "/" + resources.length);
+                    cacheCards.html(0 + "/" + kingdomResourcesCardImages.length);
                     var checkCache = window.setInterval(function () {
                         if (loadedResourceIndex >= resourceIndex) {
-                            if (resourceIndex < resources.length) {
-                                cache.add(resources[resourceIndex]);
+                            if (resourceIndex < kingdomResourcesCardImages.length) {
+                                cache.add(kingdomResourcesCardImages[resourceIndex]);
                                 ++resourceIndex;
                             }
                         }
 
                         if (loadedResourceIndex < resourceIndex) {
-                            caches.match(resources[loadedResourceIndex]).then(function (response) {
+                            caches.match(kingdomResourcesCardImages[loadedResourceIndex]).then(function (response) {
                                 if (response !== undefined && response.ok) {
                                     if (loadedResourceIndex < resourceIndex) {
                                         ++loadedResourceIndex;
@@ -80,10 +79,10 @@ function openInfoDialog() {
                                 }
                             });
 
-                            cacheCards.html(resourceIndex + "/" + resources.length);
+                            cacheCards.html(resourceIndex + "/" + kingdomResourcesCardImages.length);
                         }
 
-                        if (loadedResourceIndex >= resources.length) {
+                        if (loadedResourceIndex >= kingdomResourcesCardImages.length) {
                             cacheCards.html("Done");
                             isDownloadingCards = false;
                             window.clearInterval(checkCache);
