@@ -19,7 +19,7 @@ gulp.task('serve', ['resources', 'sass', 'scripts'], function () {
         }
     });
 
-    gulp.watch("app/**/*", ['resources']);
+    gulp.watch(["app/**/*", "!app/resources.js", "!app/resources-cards.js"], ['resources']);
     gulp.watch("src/scss/**/*.scss", ['sass']);
     gulp.watch("src/scripts/**/*.js", ['scripts']);
     gulp.watch("app/scripts/**/*.js").on('change', browserSync.reload);
@@ -60,15 +60,20 @@ gulp.task('scripts', function () {
 gulp.task('resources', function () {
     fsrec('app', function (err, files) {
         var resources = [];
+        var cardResources = [];
         files.forEach(file => {
             var fileName = file.split("\\").join("/");
             if (!fileName.startsWith("app/img")) {
-                resources.push("'" + fileName + "'");
+                resources.push("\"" + fileName + "\"");
+            } else {
+                cardResources.push("\"" + fileName + "\"");
             }
         });
 
         var resourcesJs = "var kingdomResources = [" + resources.join(",") + "]";
         fs.writeFileSync('app/resources.js', resourcesJs);
+        var cardResourcesJs = "var kingdomResourcesCardImages = [" + cardResources.join(",") + "]";
+        fs.writeFileSync('app/resources-cards.js', cardResourcesJs);
     });
 });
 

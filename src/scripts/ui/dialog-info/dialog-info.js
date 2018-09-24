@@ -1,7 +1,8 @@
+var CACHE_NAME = 'kingdom-cache-v1';
 infoDialog = undefined;
 
-$(function() {
-    $("#Kingdom-Info").on('click', function() {
+$(function () {
+    $("#Kingdom-Info").on('click', function () {
         openInfoDialog();
     });
 });
@@ -19,8 +20,8 @@ function openInfoDialog() {
         $("<h1>Kingdom</h1>").appendTo(infoDialogInner);
         // Add the minimize buttons
         var minimizeButton = $("<div type='cancel' class='btn-icon btn-dialog-minimize'>" +
-        "<i class='material-icons'>close</i></div>").appendTo(infoDialogInner);
-        minimizeButton.click(function() {
+            "<i class='material-icons'>close</i></div>").appendTo(infoDialogInner);
+        minimizeButton.click(function () {
             infoDialog.trigger('dialog-close');
         });
 
@@ -36,7 +37,7 @@ function openInfoDialog() {
 
         $("<h2 class='subheading'>Sharing</h2>").appendTo(infoDialogText);
         $("<p>" +
-            "Kingdom also provides a way to share generated sets with other players," +
+            "Kingdom also provides a way to share generated sets with other players, " +
             "so that every player can access all the information on the cards from their own device." +
             "</p>").appendTo(infoDialogText);
 
@@ -46,8 +47,27 @@ function openInfoDialog() {
             "<br>" +
             "</p>").appendTo(infoDialogText);
 
+        $("<h2 class='subheading'>Use Offline</h2>").appendTo(infoDialogText);
+        $("<p>" +
+            "Download the card images to your device so that you can use Kingdom even when offline. " +
+            "The download is about 70MB so it is recommended you complete the download while connected to a Wi-Fi network." +
+            "</p>").appendTo(infoDialogText);
+        var cacheCards = $("<div class='btn cache-cards'>Download Cards</div>").appendTo(infoDialogInner);
+        cacheCards.on('click', function () {
+            caches.open(CACHE_NAME).then(function (cache) {
+                // Read resources
+                var resources = kingdomResourcesCardImages;
+                for (var i = 0; i < resources.length; ++i) {
+                    cache.add(resources[i]);
+                    cacheCards.html(i + "/" + resources.length);
+                }
+
+                cacheCards.html("Done");
+            });
+        })
+
         var canAccessStoarge = false;
-        if (typeof(Storage) !== undefined) {
+        if (typeof (Storage) !== undefined) {
             try {
                 localStorage.setItem("", "");
                 canAccessStoarge = true;
@@ -56,7 +76,7 @@ function openInfoDialog() {
             }
         }
 
-        infoDialog.one('dialog-close', function() {
+        infoDialog.one('dialog-close', function () {
             infoDialog = undefined;
         });
     }
