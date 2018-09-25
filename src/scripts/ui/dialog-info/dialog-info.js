@@ -28,14 +28,14 @@ function openInfoDialog() {
         var infoDialogText = $("<div class='dialog-content-text'></div>").appendTo(infoDialogInner);
 
         // Add the about section
-        $("<h2 class='subheading'>Generation</h2>").appendTo(infoDialogText);
+        $("<div class='subheading'>Generation</div>").appendTo(infoDialogText);
         $("<p>" +
             "Kingdom is a companion to the Dominion card game, with the goal of generating " +
             "sets with a variety of interesting card combinations and diverse strategies " +
             "to engage both new and experienced players." +
             "</p>").appendTo(infoDialogText);
 
-        $("<h2 class='subheading'>Sharing</h2>").appendTo(infoDialogText);
+        $("<div class='subheading'>Sharing</div>").appendTo(infoDialogText);
         $("<p>" +
             "Kingdom also provides a way to share generated sets with other players, " +
             "so that every player can access all the information on the cards from their own device." +
@@ -48,7 +48,7 @@ function openInfoDialog() {
             "</p>").appendTo(infoDialogText);
 
         if ('serviceWorker' in navigator) {
-            $("<h2 class='subheading'>Use Offline</h2>").appendTo(infoDialogText);
+            $("<div class='subheading'>Use Offline</div>").appendTo(infoDialogText);
             $("<p>" +
                 "Download the card images to your device so that you can use Kingdom even when offline. " +
                 "The download is about 70MB so it is recommended you complete the download while connected to a Wi-Fi network." +
