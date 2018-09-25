@@ -21,6 +21,7 @@ gulp.task('serve', ['resources', 'sass', 'scripts'], function () {
 
     gulp.watch("src/scss/**/*.scss", ['sass']);
     gulp.watch("src/scripts/**/*.js", ['scripts']);
+    gulp.watch("app/scripts/**/*.js").on('change', browserSync.reload);
     gulp.watch("index.html").on('change', browserSync.reload);
 
     gulp.watch("gulpfile.js").on('change', process.exit);
@@ -44,7 +45,7 @@ gulp.task('watch', ['sass'], function () {
 
 gulp.task('sass', function () {
     return gulp.src("src/scss/main.scss")
-        .pipe(wait(500))
+        .pipe(wait(1000))
         .pipe(sass())
         .pipe(autoprefixer({ browsers: ['last 12 versions'] }))
         .pipe(gulp.dest("app/css/"))

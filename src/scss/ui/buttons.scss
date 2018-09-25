@@ -12,6 +12,7 @@ $checkbox-check-size-touch-small: 20px;
 $checkbox-row-padding: 6px;
 // Buttons
 $button-toolbar-color: #757575;
+$button-progress-size: 50px;
 $shadow-button: 0 1px 2px rgba(0, 0, 0, 0.25);
 $shadow-button-hover: 0 1px 4px rgba(0, 0, 0, 0.5);
 // Fab
@@ -76,6 +77,12 @@ $button-fab-shadow-hover: 0 2.5px 10px rgba(0, 0, 0, 0.6);
         transform: translateX(24px);
 
         opacity: 0;
+    }
+}
+
+@keyframes animate-progress {
+    100% {
+        background-position: $button-progress-size * 2 0;
     }
 }
 
@@ -151,6 +158,18 @@ textarea {
 
     &:disabled {
         opacity: 0.5;
+    }
+
+    &.progress-button {
+        animation: animate-progress 2s linear infinite;
+
+        background-image: linear-gradient(-45deg,
+        transparent 33%, $primary-color 33%, $primary-color 66%, transparent 66%);
+        background-size: $button-progress-size * 2 $button-progress-size;
+    }
+
+    &.progress {
+        background-color: darken($primary-color, 10%);
     }
 }
 

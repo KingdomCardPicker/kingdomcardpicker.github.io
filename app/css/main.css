@@ -241,6 +241,14 @@
             transform: translateX(24px);
     opacity: 0; } }
 
+@-webkit-keyframes animate-progress {
+  100% {
+    background-position: 100px 0; } }
+
+@keyframes animate-progress {
+  100% {
+    background-position: 100px 0; } }
+
 :focus,
 button,
 input,
@@ -300,6 +308,14 @@ textarea {
     background-color: #1469c1; }
   .btn:disabled {
     opacity: 0.5; }
+  .btn.progress-button {
+    -webkit-animation: animate-progress 2s linear infinite;
+            animation: animate-progress 2s linear infinite;
+    background-image: -webkit-linear-gradient(135deg, transparent 33%, #1676d8 33%, #1676d8 66%, transparent 66%);
+    background-image: linear-gradient(-45deg, transparent 33%, #1676d8 33%, #1676d8 66%, transparent 66%);
+    background-size: 100px 50px; }
+  .btn.progress {
+    background-color: #115daa; }
 
 .btn-icon,
 .btn-toolbar {

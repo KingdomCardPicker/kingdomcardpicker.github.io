@@ -53,7 +53,7 @@ function openInfoDialog() {
                 "Download the card images to your device so that you can use Kingdom even when offline. " +
                 "The download is about 70MB so it is recommended you complete the download while connected to a Wi-Fi network." +
                 "</p>").appendTo(infoDialogText);
-            var cacheCards = $("<div class='btn cache-cards'>Download Cards</div>").appendTo(infoDialogInner);
+            var cacheCards = $("<div class='btn cache-cards progress-button'>Download Cards</div>").appendTo(infoDialogInner);
             cacheCards.on('click', function () {
                 if (!isDownloadingCards) {
                     isDownloadingCards = true;
@@ -62,6 +62,7 @@ function openInfoDialog() {
                         var resourceIndex = 0;
                         var loadedResourceIndex = 0;
                         cacheCards.html(0 + "/" + kingdomResourcesCardImages.length);
+                        cacheCards.addClass("progress");
                         var checkCache = window.setInterval(function () {
                             if (loadedResourceIndex >= resourceIndex) {
                                 if (resourceIndex < kingdomResourcesCardImages.length) {
@@ -84,6 +85,7 @@ function openInfoDialog() {
 
                             if (loadedResourceIndex >= kingdomResourcesCardImages.length) {
                                 cacheCards.html("Done");
+                                cacheCards.removeClass("progress");
                                 isDownloadingCards = false;
                                 window.clearInterval(checkCache);
                             }
