@@ -1334,9 +1334,10 @@ function openScanDialog() {
 		var qrInterval = undefined;
 		var currentStream = undefined;
 		// Add a video for the camera
-		var cameraVideo = $("<video autoplay playsinline style='display: none;'></video>").appendTo(codeScanDialogInner)[0];
+		var cameraVideo = $("<video autoplay playsinline></video>").appendTo(codeScanDialogInner)[0];
 		// Add an invisible canvas to do the processing
 		var processingCanvas = $("<canvas id='qr-canvas'></canvas>").appendTo(codeScanDialogInner)[0];
+
 		if (navigator.mediaDevices !== undefined) {
 			var isStreaming = false;
 
@@ -1350,7 +1351,6 @@ function openScanDialog() {
 			}).then(function (stream) {
 				currentStream = stream;
 				cameraVideo.srcObject = stream;
-				$(cameraVideo).css("display", "");
 				cameraVideo.play();
 			}).catch(function (err) {
 				console.log("Could not access camera");
@@ -1363,6 +1363,7 @@ function openScanDialog() {
 					processingCanvas.setAttribute("width", cameraVideo.videoWidth);
 					processingCanvas.setAttribute("height", cameraVideo.videoHeight);
 
+					$(cameraVideo).addClass("visible");
 					isStreaming = true;
 
 					qrInterval = window.setInterval(function () {
