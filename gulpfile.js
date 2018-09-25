@@ -26,6 +26,8 @@ gulp.task('serve', ['resources', 'sass', 'scripts'], function () {
     gulp.watch("gulpfile.js").on('change', process.exit);
 });
 
+gulp.task('build', ['resources', 'sass', 'scripts']);
+
 gulp.task('serve-build', ['sass'], function () {
     browserSync.init({
         ghostMode: false,

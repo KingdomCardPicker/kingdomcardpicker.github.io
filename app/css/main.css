@@ -933,7 +933,8 @@ input[type="file"] {
     .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner a {
       padding-bottom: 8px;
       text-decoration: none;
-      color: #1676d8; }
+      color: #1676d8;
+      overflow-wrap: break-word; }
     .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner h1 {
       padding-bottom: 8px; }
     .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner h2,
