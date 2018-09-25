@@ -1274,6 +1274,7 @@ input[type="file"] {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
+    overflow-x: hidden;
     overflow-y: hidden;
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     -webkit-box-flex: 1;
@@ -1296,6 +1297,7 @@ input[type="file"] {
           -ms-flex: 1 1 auto;
               flex: 1 1 auto; }
     .drawer .drawer-inner .drawer-inner-flex {
+      overflow-x: hidden;
       padding: 0 14px;
       -webkit-box-flex: 1;
       -webkit-flex: 1 1 auto;
@@ -1311,6 +1313,7 @@ input[type="file"] {
           -ms-flex: 0 1 auto;
               flex: 0 1 auto; }
     .drawer .drawer-inner .drawer-inner-fixed {
+      overflow-x: hidden;
       overflow-y: auto;
       padding: 6px 14px;
       border-top: 1px solid rgba(0, 0, 0, 0.15);
@@ -1713,8 +1716,8 @@ input[type="file"] {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  bottom: 50%;
   display: table;
   width: -webkit-calc(40% + 96px);
   width: calc(40% + 96px);

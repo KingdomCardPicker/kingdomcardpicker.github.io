@@ -1327,13 +1327,14 @@ function openScanDialog() {
 		});
 
 		// Add a description
-		$("<p>Kingdom codes are generated with each kingdom, " +
-			"scan one here to view the cards</p>").appendTo(codeScanDialogInner);
+		$("<p>Kingdom codes are generated with each kingdom, scan one here to view the cards. " +
+			"All data from the camera is processed on the device, and does not get sent anywhere." +
+			"</p>").appendTo(codeScanDialogInner);
 
 		var qrInterval = undefined;
 		var currentStream = undefined;
 		// Add a video for the camera
-		var cameraVideo = $("<video style='display: none; transform: scale(-1 , 1);' autoplay></video>").appendTo(codeScanDialogInner)[0];
+		var cameraVideo = $("<video autoplay playsinline style='display: none;'></video>").appendTo(codeScanDialogInner)[0];
 		// Add an invisible canvas to do the processing
 		var processingCanvas = $("<canvas id='qr-canvas'></canvas>").appendTo(codeScanDialogInner)[0];
 		if (navigator.mediaDevices !== undefined) {
@@ -1387,17 +1388,17 @@ function openScanDialog() {
 		};
 
 		// Add instructions
-		$("<p>For best results the code should be in focus, centered, and roughly " +
-			"one quarter of the photo. Make sure that the sending device's brightness " +
-			"is at maximum so that the code is readable.</p>").appendTo(codeScanDialogInner);
+		$("<p>For best results the code should be in focus and centered. " +
+			"A short video of the code (1 or 2 seconds) will work better " +
+			"than a photo.</p>").appendTo(codeScanDialogInner);
 
 		// File picker
 		var photoInputLoading = $("<div class='photoinput-loading'></div>").appendTo(codeScanDialogInner)[0];
 		$("<p class='photoinput-loading-text'>Scanning Photo</p>").appendTo(photoInputLoading);
 		$("<p class='photoinput-loading-error'>Could not find code</p>").appendTo(photoInputLoading);
 
-		var photoInput = $("<input type='file' id='CodePhotoInput' accept='image/*' capture='camera'>").appendTo(codeScanDialogInner)[0];
-		var photoInputLabel = $("<label class='btn' for='CodePhotoInput'>Take a Photo</label>").appendTo(codeScanDialogInner)[0];
+		var photoInput = $("<input type='file' id='CodePhotoInput' accept='video/*;capture=camcorder' capture='camera'>").appendTo(codeScanDialogInner)[0];
+		var photoInputLabel = $("<label class='btn' for='CodePhotoInput'>Take a Photo or Video</label>").appendTo(codeScanDialogInner)[0];
 
 		photoInput.addEventListener('change', function (e) {
 			$(photoInputLoading).addClass("loading");
