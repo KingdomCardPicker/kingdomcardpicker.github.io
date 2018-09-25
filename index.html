@@ -254,6 +254,7 @@
                 $("#Add-Home-Screen").removeClass("hidden");
                 $("#Add-Home-Screen").on("click", function () {
                     deferredPrompt.prompt();
+                    $(this).addClass("hidden");
                 });
             });
         </script>
