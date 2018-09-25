@@ -204,10 +204,10 @@
                 flex: auto;
 
                 &.visible {
-                    max-height: 50vh;
+                    max-height: 100vh;
                     padding-bottom: 12px;
 
-                    transition: max-height 0.5s $m-ease-in-out, padding-bottom 0.5s $m-ease-in-out, transform 0.4s $m-ease-out 0.2s, opacity 0.4s ease 0.2s;
+                    transition: max-height 0.5s $m-ease-in-out, padding-bottom 0.1s $m-ease-in-out, transform 0.4s $m-ease-out 0.2s, opacity 0.4s ease 0.2s;
                     transform: none;
 
                     opacity: 1;
