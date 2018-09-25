@@ -65,10 +65,6 @@ function openSetDialog(isStartup) {
             var closeButton = $("<div class='btn'>Save Expansions</div>").appendTo(setDialogButtons);
             closeButton.click(function () {
                 setDialog.trigger('dialog-close');
-            });
-
-            setDialog.one('dialog-close', function () {
-                setDialog = undefined;
 
                 // Open the onboarding, if it hasn't already been opened
                 if (!$("#Generate-Button-Fab").hasClass("hidden")) {
@@ -79,6 +75,10 @@ function openSetDialog(isStartup) {
                         }
                     }
                 }
+            });
+
+            setDialog.one('dialog-close', function () {
+                setDialog = undefined;
             });
         } else {
             $("<p>Kingdom does not work in Private mode</p>").appendTo(setSelection);
