@@ -3107,13 +3107,17 @@ hr {
               flex: 0 1 0; }
     .toolbar .toolbar-buttons .btn-toolbar {
       z-index: 1; }
+    .toolbar .toolbar-buttons .toolbar-install {
+      color: #498e38; }
     .toolbar .toolbar-buttons .toolbar-cards,
-    .toolbar .toolbar-buttons .toolbar-shuffle {
+    .toolbar .toolbar-buttons .toolbar-shuffle,
+    .toolbar .toolbar-buttons .toolbar-install {
       -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
       opacity: 1; }
       .toolbar .toolbar-buttons .toolbar-cards i,
-      .toolbar .toolbar-buttons .toolbar-shuffle i {
+      .toolbar .toolbar-buttons .toolbar-shuffle i,
+      .toolbar .toolbar-buttons .toolbar-install i {
         -webkit-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0s linear;
         transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0s linear;
         transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0s linear;
@@ -3122,7 +3126,8 @@ hr {
             -ms-transform: scale(1);
                 transform: scale(1); }
       .toolbar .toolbar-buttons .toolbar-cards.hidden,
-      .toolbar .toolbar-buttons .toolbar-shuffle.hidden {
+      .toolbar .toolbar-buttons .toolbar-shuffle.hidden,
+      .toolbar .toolbar-buttons .toolbar-install.hidden {
         z-index: 0;
         width: 0;
         margin: auto 0;
@@ -3130,7 +3135,8 @@ hr {
         opacity: 0;
         border-width: 0; }
         .toolbar .toolbar-buttons .toolbar-cards.hidden i,
-        .toolbar .toolbar-buttons .toolbar-shuffle.hidden i {
+        .toolbar .toolbar-buttons .toolbar-shuffle.hidden i,
+        .toolbar .toolbar-buttons .toolbar-install.hidden i {
           -webkit-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.8s linear;
           transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.8s linear;
           transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s linear;
@@ -3139,7 +3145,8 @@ hr {
               -ms-transform: scale(0);
                   transform: scale(0); }
         .toolbar .toolbar-buttons .toolbar-cards.hidden::before,
-        .toolbar .toolbar-buttons .toolbar-shuffle.hidden::before {
+        .toolbar .toolbar-buttons .toolbar-shuffle.hidden::before,
+        .toolbar .toolbar-buttons .toolbar-install.hidden::before {
           -webkit-transform: scale(0);
               -ms-transform: scale(0);
                   transform: scale(0); }

@@ -98,6 +98,11 @@
 
                     <div class="toolbar-fill"></div>
 
+                    <button id="Add-Home-Screen" class="btn-toolbar toolbar-install hidden">
+                        <div class="tooltip tooltip-left">Add to Home Screen</div>
+                        <i class="material-icons">add_to_home_screen</i>
+                    </button>
+
                     <button id="Kingdom-Info" class="btn-toolbar">
                         <div class="tooltip tooltip-left">About</div>
                         <i class="material-icons">info</i>
@@ -239,6 +244,18 @@
             document.addEventListener(
                 "touchstart",
                 function () { }, true);
+
+            var deferredPrompt;
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Prevent Chrome 67 and earlier from automatically showing the prompt
+                e.preventDefault();
+                deferredPrompt = e;
+                // Show the download button
+                $("#Add-Home-Screen").removeClass("hidden");
+                $("#Add-Home-Screen").on("click", function () {
+                    deferredPrompt.prompt();
+                });
+            });
         </script>
 
         <script src="./app/scripts/tether.min.js"></script>
