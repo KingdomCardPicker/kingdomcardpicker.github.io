@@ -365,7 +365,7 @@ $shadow-state-empty-inner: 0 2px 4px rgba(0, 0, 0, 0.2);
         background-color: #000000;
         box-shadow: $card-shadow;
 
-        filter: none;
+        filter: brightness(100%);
 
         @media (max-height: $screen-small), (max-width: $screen-small) {
             border-radius: $border-radius-card-small;

@@ -2158,8 +2158,8 @@ input[type="file"] {
     border-radius: 5px;
     background-color: #000000;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-    -webkit-filter: none;
-            filter: none; }
+    -webkit-filter: brightness(100%);
+            filter: brightness(100%); }
     @media (max-height: 480px), (max-width: 480px) {
       .cards-table-card img {
         border-radius: 2px; } }
