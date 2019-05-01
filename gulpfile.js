@@ -34,7 +34,7 @@ gulp.task('serve-build', ['sass'], function () {
         ghostMode: false,
         notify: false,
         server: {
-            baseDir: 'app'
+            baseDir: ''
         }
     });
 });

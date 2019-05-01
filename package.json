@@ -8,6 +8,7 @@
   "description": "A smart card selector for Dominion",
   "scripts": {
     "start": "electron .",
+    "serve": "gulp serve",
     "build-css": "gulp sass",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
@@ -37,12 +38,14 @@
     "gulp-uglify-es": "^1.0.4",
     "gulp-wait": "0.0.2",
     "gulp-webserver": "^0.9.1",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.12.0",
     "nodemon": "^1.11.0",
     "pump": "^3.0.0",
     "recursive-readdir": "^2.2.2"
   },
   "dependencies": {
+    "electron": "^5.0.0",
+    "electron-builder": "^20.39.0",
     "glob": "^7.1.1"
   }
 }
