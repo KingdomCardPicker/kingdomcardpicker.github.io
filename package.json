@@ -26,6 +26,8 @@
     }
   },
   "devDependencies": {
+    "electron": "^5.0.0",
+    "electron-builder": "^20.39.0",
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -44,8 +46,6 @@
     "recursive-readdir": "^2.2.2"
   },
   "dependencies": {
-    "electron": "^5.0.0",
-    "electron-builder": "^20.39.0",
     "glob": "^7.1.1"
   }
 }

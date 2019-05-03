@@ -2558,7 +2558,9 @@ input[type="file"] {
         -webkit-transform: translateX(0) rotateY(0deg);
                 transform: translateX(0) rotateY(0deg);
         opacity: 1;
-        background-color: #000000; }
+        background-color: #000000;
+        -webkit-filter: brightness(100%);
+                filter: brightness(100%); }
         @media (min-height: 240px) and (min-width: 240px) {
           .dialog.dialog-card-detail .dialog-content .dialog-content-inner .card-image-container img {
             width: 100%;

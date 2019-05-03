@@ -105,3 +105,4 @@ pkg/
 test/dest
 tmp/*
 gh-pages.txt
+dist/
