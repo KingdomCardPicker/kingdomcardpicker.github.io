@@ -1500,6 +1500,8 @@ input[type="file"] {
     height: 6px;
     margin: auto;
     content: "";
+    -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
     border-radius: 3px;
     background-color: #1676d8; }
   .loading-indicator::before {
@@ -1514,10 +1516,10 @@ input[type="file"] {
     border-radius: 50%; }
   .loading-indicator .circle .mask,
   .loading-indicator .circle .fill {
-    -webkit-transition: -webkit-transform 0.05s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: -webkit-transform 0.05s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: transform 0.05s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: transform 0.05s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, -webkit-transform 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, -webkit-transform 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.05s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+    transition: transform 0.05s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, -webkit-transform 0.05s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 50%; }
   .loading-indicator .circle .mask {
     clip: rect(-32px, 64px, 128px, 32px); }
@@ -1538,6 +1540,11 @@ input[type="file"] {
     transition: -webkit-transform 0.0s linear;
     transition: transform 0.0s linear;
     transition: transform 0.0s linear, -webkit-transform 0.0s linear; }
+  .loading-indicator[data-progress="17"]::before, .loading-indicator[data-progress="17"]::after {
+    background-color: #498e38; }
+  .loading-indicator[data-progress="17"] .circle .mask,
+  .loading-indicator[data-progress="17"] .circle .fill {
+    background-color: #498e38; }
   .loading-indicator[data-progress="0"] .circle .mask.full,
   .loading-indicator[data-progress="0"] .circle .fill {
     -webkit-transform: rotate(0deg);
