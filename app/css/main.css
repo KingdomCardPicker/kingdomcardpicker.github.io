@@ -405,7 +405,7 @@ textarea {
   background-color: #1676d8; }
   .btn-message.visible {
     opacity: 1;
-    background-color: #498e38; }
+    background-color: #53d816; }
 
 .checkbox-switch {
   position: relative;
@@ -1541,10 +1541,10 @@ input[type="file"] {
     transition: transform 0.0s linear;
     transition: transform 0.0s linear, -webkit-transform 0.0s linear; }
   .loading-indicator[data-progress="17"]::before, .loading-indicator[data-progress="17"]::after {
-    background-color: #498e38; }
+    background-color: #53d816; }
   .loading-indicator[data-progress="17"] .circle .mask,
   .loading-indicator[data-progress="17"] .circle .fill {
-    background-color: #498e38; }
+    background-color: #53d816; }
   .loading-indicator[data-progress="0"] .circle .mask.full,
   .loading-indicator[data-progress="0"] .circle .fill {
     -webkit-transform: rotate(0deg);
@@ -3041,7 +3041,7 @@ hr {
       z-index: 1; }
     .toolbar .toolbar-buttons .toolbar-install {
       display: none;
-      color: #498e38; }
+      color: #53d816; }
     .toolbar .toolbar-buttons .toolbar-cards,
     .toolbar .toolbar-buttons .toolbar-shuffle,
     .toolbar .toolbar-buttons .toolbar-install {
