@@ -8,6 +8,7 @@
   "description": "A smart card selector for Dominion",
   "scripts": {
     "start": "electron .",
+    "dev": "concurrently --kill-others \"electron .\" \"gulp watch\"",
     "serve": "gulp serve",
     "build-css": "gulp sass",
     "pack": "electron-builder --dir",
@@ -26,10 +27,11 @@
     }
   },
   "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "concurrently": "^4.1.0",
     "electron": "^5.0.0",
     "electron-builder": "^20.39.0",
-    "browser-sync": "^2.18.8",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^3.1.0",
