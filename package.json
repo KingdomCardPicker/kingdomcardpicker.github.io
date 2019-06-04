@@ -10,7 +10,7 @@
     "start": "electron .",
     "dev": "concurrently --kill-others \"electron .\" \"gulp watch\"",
     "serve": "gulp serve",
-    "build-css": "gulp sass",
+    "build": "gulp build",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
@@ -29,25 +29,23 @@
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "concurrently": "^4.1.0",
-    "electron": "^5.0.0",
-    "electron-builder": "^20.39.0",
-    "gulp": "^4.0.2",
+    "electron": "^5.0.2",
+    "electron-builder": "^20.41.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-concat": "^2.6.1",
     "gulp-minify": "^3.1.0",
-    "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.1.0",
     "gulp-serve": "^1.4.0",
-    "gulp-uglify": "^3.0.1",
+    "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^1.0.4",
     "gulp-wait": "0.0.2",
     "gulp-webserver": "^0.9.1",
     "node-sass": "^4.12.0",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.19.1",
     "pump": "^3.0.0",
     "recursive-readdir": "^2.2.2"
   },
   "dependencies": {
-    "glob": "^7.1.1"
+    "glob": "^7.1.4"
   }
 }
