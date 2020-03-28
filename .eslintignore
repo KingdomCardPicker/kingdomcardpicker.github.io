@@ -1,3 +1,3 @@
-external
+app
 node_modules
 *.min.js

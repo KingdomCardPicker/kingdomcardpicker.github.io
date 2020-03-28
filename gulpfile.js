@@ -35,7 +35,7 @@ gulp.task("serve", () => {
 
 gulp.task("build", () => {
     return new Promise(((resolve, reject) => {
-        gulp.parallel(["resources", "sass", "scripts"]);
+        gulp.series(["resources", "sass", "scripts"]);
         resolve();
     }));
 });
@@ -83,15 +83,15 @@ gulp.task("resources", () => {
             files.forEach((file) => {
                 const fileName = file.split("\\").join("/");
                 if (!fileName.startsWith("app/img")) {
-                    resources.push(`"${ fileName }"`);
+                    resources.push(`"${fileName}"`);
                 } else {
-                    cardResources.push(`"${ fileName }"`);
+                    cardResources.push(`"${fileName}"`);
                 }
             });
 
-            const resourcesJs = `var kingdomResources = [${ resources.join(",") }];`;
+            const resourcesJs = `var kingdomResources = [${resources.join(",")}];`;
             fs.writeFileSync("app/resources.js", resourcesJs);
-            const cardResourcesJs = `var kingdomResourcesCardImages = [${ cardResources.join(",") }];`;
+            const cardResourcesJs = `var kingdomResourcesCardImages = [${cardResources.join(",")}];`;
             fs.writeFileSync("app/resources-cards.js", cardResourcesJs);
 
             resolve();
