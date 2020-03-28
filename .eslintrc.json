@@ -1,0 +1,72 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true,
+        "jquery": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:json/recommended",
+        "plugin:promise/recommended",
+        "google"
+    ],
+    "plugins": [
+        "json",
+        "promise"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "max-len": [
+            "error",
+            160
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-unused-vars": "off",
+        "require-jsdoc": "off",
+        "new-cap": "off",
+        "no-useless-concat": "error",
+        "prefer-template": "error",
+        "prefer-arrow-callback": "error",
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "never"
+            }
+        ],
+        "promise/no-callback-in-promise": "off",
+        "promise/no-promise-in-callback": "off",
+        "promise/no-nesting": "off"
+    }
+}

@@ -1,1 +1,3 @@
-function createCheckboxSwitch(a){var n=$(a).find("label");$("<span></span>").appendTo(n)}
+"use strict"; function createCheckboxSwitch(a) {
+    const e=$(a).find("label"); $("<span></span>").appendTo(e);
+}

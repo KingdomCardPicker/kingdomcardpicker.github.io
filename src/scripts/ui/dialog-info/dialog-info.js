@@ -1,8 +1,8 @@
-var isDownloadingCards = false;
+let isDownloadingCards = false;
 infoDialog = undefined;
 
-$(function () {
-    $("#Kingdom-Info").on('click', function () {
+$(() => {
+    $("#Kingdom-Info").on("click", () => {
         openInfoDialog();
     });
 });
@@ -10,22 +10,22 @@ $(function () {
 function openInfoDialog() {
     if (infoDialog === undefined) {
         infoDialog = $("<div class='dialog dialog-info'></div>").appendTo($("body .main"));
-        var infoDialogMiddle = $("<div class='dialog-middle'></div>").appendTo(infoDialog);
-        var infoDialogContent = $("<div class='dialog-content'></div>").appendTo(infoDialogMiddle);
-        var infoDialogInner = $("<div class='dialog-content-inner'></div>").appendTo(infoDialogContent);
+        const infoDialogMiddle = $("<div class='dialog-middle'></div>").appendTo(infoDialog);
+        const infoDialogContent = $("<div class='dialog-content'></div>").appendTo(infoDialogMiddle);
+        const infoDialogInner = $("<div class='dialog-content-inner'></div>").appendTo(infoDialogContent);
 
         createDialog(infoDialog);
 
         // Create a title
         $("<h1>Kingdom</h1>").appendTo(infoDialogInner);
         // Add the minimize buttons
-        var minimizeButton = $("<div type='cancel' class='btn-icon btn-dialog-minimize'>" +
+        const minimizeButton = $("<div type='cancel' class='btn-icon btn-dialog-minimize'>" +
             "<i class='material-icons'>close</i></div>").appendTo(infoDialogInner);
-        minimizeButton.click(function () {
-            infoDialog.trigger('dialog-close');
+        minimizeButton.click(() => {
+            infoDialog.trigger("dialog-close");
         });
 
-        var infoDialogText = $("<div class='dialog-content-text'></div>").appendTo(infoDialogInner);
+        const infoDialogText = $("<div class='dialog-content-text'></div>").appendTo(infoDialogInner);
 
         // Add the about section
         $("<div class='subheading'>Generation</div>").appendTo(infoDialogText);
@@ -47,23 +47,23 @@ function openInfoDialog() {
             "<br>" +
             "</p>").appendTo(infoDialogText);
 
-        if ('serviceWorker' in navigator) {
+        if ("serviceWorker" in navigator) {
             $("<div class='subheading'>Use Offline</div>").appendTo(infoDialogText);
             $("<p>" +
                 "Download the card images to your device so that you can use Kingdom even when offline. " +
                 "The download is about 70MB so it is recommended you complete the download while connected to a Wi-Fi network." +
                 "</p>").appendTo(infoDialogText);
-            var cacheCards = $("<div class='btn cache-cards progress-button'>Download Cards</div>").appendTo(infoDialogInner);
-            cacheCards.on('click', function () {
+            const cacheCards = $("<div class='btn cache-cards progress-button'>Download Cards</div>").appendTo(infoDialogInner);
+            cacheCards.on("click", () => {
                 if (!isDownloadingCards) {
                     isDownloadingCards = true;
-                    caches.open(CACHE_NAME).then(function (cache) {
+                    caches.open(CACHE_NAME).then((cache) => {
                         // Read resources
-                        var resourceIndex = 0;
-                        var loadedResourceIndex = 0;
-                        cacheCards.html(0 + "/" + kingdomResourcesCardImages.length);
+                        let resourceIndex = 0;
+                        let loadedResourceIndex = 0;
+                        cacheCards.html(`${0 }/${ kingdomResourcesCardImages.length}`);
                         cacheCards.addClass("progress");
-                        var checkCache = window.setInterval(function () {
+                        var checkCache = window.setInterval(() => {
                             if (loadedResourceIndex >= resourceIndex) {
                                 if (resourceIndex < kingdomResourcesCardImages.length) {
                                     cache.add(kingdomResourcesCardImages[resourceIndex]);
@@ -72,7 +72,7 @@ function openInfoDialog() {
                             }
 
                             if (loadedResourceIndex < resourceIndex) {
-                                caches.match(kingdomResourcesCardImages[loadedResourceIndex]).then(function (response) {
+                                caches.match(kingdomResourcesCardImages[loadedResourceIndex]).then((response) => {
                                     if (response !== undefined && response.ok) {
                                         if (loadedResourceIndex < resourceIndex) {
                                             ++loadedResourceIndex;
@@ -80,7 +80,7 @@ function openInfoDialog() {
                                     }
                                 });
 
-                                cacheCards.html(resourceIndex + "/" + kingdomResourcesCardImages.length);
+                                cacheCards.html(`${resourceIndex }/${ kingdomResourcesCardImages.length}`);
                             }
 
                             if (loadedResourceIndex >= kingdomResourcesCardImages.length) {
@@ -97,7 +97,7 @@ function openInfoDialog() {
             });
         }
 
-        var canAccessStoarge = false;
+        let canAccessStoarge = false;
         if (typeof (Storage) !== undefined) {
             try {
                 localStorage.setItem("", "");
@@ -107,7 +107,7 @@ function openInfoDialog() {
             }
         }
 
-        infoDialog.one('dialog-close', function () {
+        infoDialog.one("dialog-close", () => {
             infoDialog = undefined;
         });
     }

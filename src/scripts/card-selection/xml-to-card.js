@@ -1,20 +1,20 @@
 function xmlToCardData(xmlCard, setName) {
-    var cardTypes = [];
-    var xmlTypes = xmlCard.getChildElements("type");
+    const cardTypes = [];
+    const xmlTypes = xmlCard.getChildElements("type");
     for (xmlType of xmlTypes) {
         cardTypes.push(xmlType.getContentAt(0).toString());
     }
 
-    var splitCards = [];
-    var xmlSplitCardContainers = xmlCard.getChildElements("splitcards");
+    const splitCards = [];
+    const xmlSplitCardContainers = xmlCard.getChildElements("splitcards");
     for (xmlSplitCardContainer of xmlSplitCardContainers) {
-        var xmlSplitCards = xmlSplitCardContainer.getChildElements("splitcard");
+        const xmlSplitCards = xmlSplitCardContainer.getChildElements("splitcard");
         for (xmlSplitCard of xmlSplitCards) {
             splitCards.push(xmlSplitCard.getAttributeValue("name").toString());
         }
     }
 
-    var cardData = {
+    const cardData = {
         cardName: xmlCard.getAttributeValue("name"),
 
         cardSet: setName,
@@ -26,8 +26,8 @@ function xmlToCardData(xmlCard, setName) {
         types: cardTypes,
 
         cardType: xmlCard.getAttributeValue("cardType"),
-        splitCards: splitCards
-    }
+        splitCards: splitCards,
+    };
 
     return cardData;
 }

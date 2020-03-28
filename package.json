@@ -13,7 +13,9 @@
     "build": "gulp build",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "eslint": "eslint . --ext .json,.js",
+    "eslint-fix": "eslint --fix . --ext .json,.js"
   },
   "build": {
     "appId": "joellaunder.kingdom",
@@ -27,20 +29,27 @@
     }
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "browser-sync": "^2.26.7",
     "concurrently": "^4.1.2",
     "electron": "^5.0.13",
     "electron-builder": "^20.44.4",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-json": "^2.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-minify": "^3.1.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^4.0.2",
     "gulp-serve": "^1.4.0",
     "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^1.0.4",
     "gulp-wait": "0.0.2",
     "node-sass": "^4.13.1",
-    "nodemon": "^1.19.4",
+    "nodemon": "^2.0.2",
     "pump": "^3.0.0",
     "recursive-readdir": "^2.2.2"
   },
