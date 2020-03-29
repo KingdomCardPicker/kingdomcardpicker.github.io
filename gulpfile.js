@@ -35,7 +35,6 @@ gulp.task("serve", () => {
 
 gulp.task("scripts", () => {
     return gulp.src(["src/scripts/**/*.js"])
-        .pipe(babel({ presets: ["@babel/env"] }))
         .pipe(uglify())
         .pipe(gulp.dest("app/scripts/"));
 });
