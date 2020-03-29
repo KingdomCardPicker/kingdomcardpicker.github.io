@@ -1,14 +1,14 @@
 function createDialog(dialog) {
     dialogBackground = $("<div class='dialog-background'></div").appendTo(dialog);
 
-    $(dialogBackground).click(() => {
-        $(dialog).trigger("dialog-close");
+    $(dialogBackground).click(function () {
+        $(dialog).trigger('dialog-close');
     });
 
-    $(dialog).on("dialog-close", function () {
+    $(dialog).on('dialog-close', function () {
         dialogClick = $(this);
         dialogClick.addClass("dialog-closing");
-        window.setTimeout(() => {
+        window.setTimeout(function () {
             dialogClick.remove();
         }, 500);
     });
@@ -16,13 +16,13 @@ function createDialog(dialog) {
     $(dialog).attr("tabindex", "0");
     dialog.focus();
 
-    $(dialog).on("hover", function () {
+    $(dialog).on('hover', function () {
         this.focus();
     });
 
-    $(dialog).on("keydown", function (event) {
+    $(dialog).on('keydown', function (event) {
         if (event.key === "Escape") {
-            $(this).trigger("dialog-close");
+            $(this).trigger('dialog-close');
         }
     });
 }

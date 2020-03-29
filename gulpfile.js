@@ -23,45 +23,14 @@ gulp.task("serve", () => {
             },
         });
 
-        gulp.watch("src/scss/**/*.scss", ["sass"]);
-        gulp.watch("src/scripts/**/*.js", ["scripts"]);
+        gulp.watch("src/scss/**/*.scss", gulp.series("sass"));
+        gulp.watch("src/scripts/**/*.js", gulp.series("scripts"));
         gulp.watch("app/scripts/**/*.js").on("change", browserSync.reload);
         gulp.watch("index.html").on("change", browserSync.reload);
 
         gulp.watch("gulpfile.js").on("change", process.exit);
         resolve();
     }));
-});
-
-gulp.task("build", () => {
-    return new Promise(((resolve, reject) => {
-        gulp.series(["resources", "sass", "scripts"]);
-        resolve();
-    }));
-});
-
-gulp.task("serve-build", () => {
-    gulp.series("sass");
-    return browserSync.init({
-        ghostMode: false,
-        notify: false,
-        server: {
-            baseDir: "",
-        },
-    });
-});
-
-gulp.task("watch", () => {
-    gulp.series("sass");
-    return gulp.watch("src/**/*.scss", gulp.series("sass"));
-});
-
-gulp.task("sass", () => {
-    return gulp.src("src/scss/main.scss")
-        .pipe(sass())
-        .pipe(autoprefixer())
-        .pipe(gulp.dest("app/css/"))
-        .pipe(browserSync.stream());
 });
 
 gulp.task("scripts", () => {
@@ -98,6 +67,31 @@ gulp.task("resources", () => {
         });
     }));
 });
+
+gulp.task("serve-build", () => {
+    gulp.series("sass");
+    return browserSync.init({
+        ghostMode: false,
+        notify: false,
+        server: {
+            baseDir: "",
+        },
+    });
+});
+
+gulp.task("sass", () => gulp.src("src/scss/main.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(autoprefixer({ cascade: false }))
+    .pipe(gulp.dest("app/css/"))
+    .pipe(browserSync.stream()));
+
+gulp.task("watch", () => {
+    gulp.series("sass");
+    gulp.watch("src/**/*.scss", gulp.series("sass"))
+        .on("error", gulp.series("watch"));
+});
+
+gulp.task("build", gulp.series(["resources", "sass", "scripts"]));
 
 gulp.task("uglify-error-debugging", (cb) => {
     pump([

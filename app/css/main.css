@@ -287,7 +287,7 @@ textarea {
     opacity: 0.5; }
   .btn.progress-button {
     -webkit-animation: animate-progress 2s linear infinite;
-            animation: animate-progress 2s linear infinite;
+    animation: animate-progress 2s linear infinite;
     background-image: linear-gradient(-45deg, transparent 33%, #1676d8 33%, #1676d8 66%, transparent 66%);
     background-size: 100px 50px; }
   .btn.progress {
@@ -526,8 +526,8 @@ textarea {
     border-radius: 24px;
     font-size: 14px;
     -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none; }
+    -moz-appearance: none;
+    appearance: none; }
   .input-text input[type="text"] {
     transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     border-color: #1676d8;
@@ -568,24 +568,24 @@ input[type="file"] {
     flex: 1 1 auto; }
     .input-number .input-number-value.value-in-left {
       -webkit-animation: value-in-left 0.1s cubic-bezier(0, 0, 0.2, 1);
-              animation: value-in-left 0.1s cubic-bezier(0, 0, 0.2, 1);
+      animation: value-in-left 0.1s cubic-bezier(0, 0, 0.2, 1);
       -webkit-animation-fill-mode: both;
-              animation-fill-mode: both; }
+      animation-fill-mode: both; }
     .input-number .input-number-value.value-out-left {
       -webkit-animation: value-out-left 0.1s cubic-bezier(0.4, 0, 1, 1);
-              animation: value-out-left 0.1s cubic-bezier(0.4, 0, 1, 1);
+      animation: value-out-left 0.1s cubic-bezier(0.4, 0, 1, 1);
       -webkit-animation-fill-mode: both;
-              animation-fill-mode: both; }
+      animation-fill-mode: both; }
     .input-number .input-number-value.value-in-right {
       -webkit-animation: value-in-right 0.1s cubic-bezier(0, 0, 0.2, 1);
-              animation: value-in-right 0.1s cubic-bezier(0, 0, 0.2, 1);
+      animation: value-in-right 0.1s cubic-bezier(0, 0, 0.2, 1);
       -webkit-animation-fill-mode: both;
-              animation-fill-mode: both; }
+      animation-fill-mode: both; }
     .input-number .input-number-value.value-out-right {
       -webkit-animation: value-out-right 0.1s cubic-bezier(0.4, 0, 1, 1);
-              animation: value-out-right 0.1s cubic-bezier(0.4, 0, 1, 1);
+      animation: value-out-right 0.1s cubic-bezier(0.4, 0, 1, 1);
       -webkit-animation-fill-mode: both;
-              animation-fill-mode: both; }
+      animation-fill-mode: both; }
 
 .btn-fab {
   position: fixed;
@@ -604,16 +604,16 @@ input[type="file"] {
   background-color: #1676d8;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden; }
+  backface-visibility: hidden; }
   .btn-fab.hidden {
     cursor: default;
     transition: transform 0.15s cubic-bezier(0.4, 0, 1, 1) 0.2s, opacity 0.15s cubic-bezier(0.4, 0, 1, 1) 0.2s;
     transform: scale3d(0, 0, 0);
     opacity: 0;
     -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none; }
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
     .btn-fab.hidden .btn-fab-btn {
       cursor: default; }
   .btn-fab .btn-fab-btn {
@@ -796,7 +796,7 @@ input[type="file"] {
         max-height: 100%;
         margin: auto;
         -webkit-animation: code-in 0.275s cubic-bezier(0, 0, 0.2, 1);
-                animation: code-in 0.275s cubic-bezier(0, 0, 0.2, 1); }
+        animation: code-in 0.275s cubic-bezier(0, 0, 0.2, 1); }
     .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner a,
     .dialog.dialog-code .dialog-middle .dialog-content .dialog-content-inner p {
       max-width: 100%; }
@@ -985,9 +985,9 @@ input[type="file"] {
       max-height: 90%;
       margin: auto;
       -webkit-animation: dialog-in 0.2s cubic-bezier(0, 0, 0.2, 1);
-              animation: dialog-in 0.2s cubic-bezier(0, 0, 0.2, 1);
+      animation: dialog-in 0.2s cubic-bezier(0, 0, 0.2, 1);
       -webkit-animation-fill-mode: backwards;
-              animation-fill-mode: backwards;
+      animation-fill-mode: backwards;
       border-radius: 2px;
       background-color: #ffffff;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8); }
@@ -1011,18 +1011,18 @@ input[type="file"] {
     height: 100%;
     content: "";
     -webkit-animation: dialog-background-in 0.25s cubic-bezier(0, 0, 0.2, 1);
-            animation: dialog-background-in 0.25s cubic-bezier(0, 0, 0.2, 1);
+    animation: dialog-background-in 0.25s cubic-bezier(0, 0, 0.2, 1);
     background-color: rgba(0, 0, 0, 0.5); }
   .dialog.dialog-closing .dialog-content {
     -webkit-animation: dialog-out 0.15s cubic-bezier(0.4, 0, 1, 1);
-            animation: dialog-out 0.15s cubic-bezier(0.4, 0, 1, 1);
+    animation: dialog-out 0.15s cubic-bezier(0.4, 0, 1, 1);
     -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards; }
+    animation-fill-mode: forwards; }
   .dialog.dialog-closing .dialog-background {
     -webkit-animation: dialog-background-out 0.15s cubic-bezier(0.4, 0, 1, 1);
-            animation: dialog-background-out 0.15s cubic-bezier(0.4, 0, 1, 1);
+    animation: dialog-background-out 0.15s cubic-bezier(0.4, 0, 1, 1);
     -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards; }
+    animation-fill-mode: forwards; }
 
 .drawer {
   position: fixed;
@@ -1208,7 +1208,7 @@ input[type="file"] {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4); }
   .loading-indicator.animating::after, .loading-indicator.animating::before {
     -webkit-animation: loading-indicator-spinner 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.35s infinite;
-            animation: loading-indicator-spinner 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.35s infinite; }
+    animation: loading-indicator-spinner 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.35s infinite; }
   .loading-indicator::before, .loading-indicator::after {
     position: absolute;
     z-index: 2;
@@ -1374,54 +1374,54 @@ input[type="file"] {
   height: 12px;
   margin: 0 12px;
   -webkit-animation: loading-indicator-dot 1.5s cubic-bezier(0, 0, 0.2, 1) infinite alternate both;
-          animation: loading-indicator-dot 1.5s cubic-bezier(0, 0, 0.2, 1) infinite alternate both;
+  animation: loading-indicator-dot 1.5s cubic-bezier(0, 0, 0.2, 1) infinite alternate both;
   border-radius: 12px;
   background-color: #1676d8;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); }
 
 .loading-indeterminate-dots span:nth-child(0) {
   -webkit-animation-delay: 1s;
-          animation-delay: 1s; }
+  animation-delay: 1s; }
 
 .loading-indeterminate-dots span:nth-child(1) {
   -webkit-animation-delay: 1.25s;
-          animation-delay: 1.25s; }
+  animation-delay: 1.25s; }
 
 .loading-indeterminate-dots span:nth-child(2) {
   -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s; }
+  animation-delay: 1.5s; }
 
 .loading-indeterminate-dots span:nth-child(3) {
   -webkit-animation-delay: 1.75s;
-          animation-delay: 1.75s; }
+  animation-delay: 1.75s; }
 
 .loading-indeterminate-dots span:nth-child(4) {
   -webkit-animation-delay: 2s;
-          animation-delay: 2s; }
+  animation-delay: 2s; }
 
 .loading-indeterminate-dots span:nth-child(5) {
   -webkit-animation-delay: 2.25s;
-          animation-delay: 2.25s; }
+  animation-delay: 2.25s; }
 
 .loading-indeterminate-dots span:nth-child(6) {
   -webkit-animation-delay: 2.5s;
-          animation-delay: 2.5s; }
+  animation-delay: 2.5s; }
 
 .loading-indeterminate-dots span:nth-child(7) {
   -webkit-animation-delay: 2.75s;
-          animation-delay: 2.75s; }
+  animation-delay: 2.75s; }
 
 .loading-indeterminate-dots span:nth-child(8) {
   -webkit-animation-delay: 3s;
-          animation-delay: 3s; }
+  animation-delay: 3s; }
 
 .loading-indeterminate-dots span:nth-child(9) {
   -webkit-animation-delay: 3.25s;
-          animation-delay: 3.25s; }
+  animation-delay: 3.25s; }
 
 .loading-indeterminate-dots span:nth-child(10) {
   -webkit-animation-delay: 3.5s;
-          animation-delay: 3.5s; }
+  animation-delay: 3.5s; }
 
 .tooltip {
   position: absolute;
@@ -1552,7 +1552,7 @@ input[type="file"] {
     transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
     opacity: 0;
     -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); }
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); }
     @media (min-width: 360px) and (min-height: 360px) {
       .cards-table-state img {
         top: -28%;
@@ -1726,7 +1726,7 @@ input[type="file"] {
     background-color: #000000;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
     -webkit-filter: brightness(100%);
-            filter: brightness(100%); }
+    filter: brightness(100%); }
     @media (max-height: 480px), (max-width: 480px) {
       .cards-table-card img {
         border-radius: 2px; } }
@@ -1803,9 +1803,9 @@ input[type="file"] {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     font-size: 48px;
     -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none; }
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
     @media (max-height: 480px), (max-width: 480px) {
       .cards-table-card i {
         left: -36px;
@@ -1813,7 +1813,7 @@ input[type="file"] {
         font-size: 36px; } }
   .cards-table-card.hover img {
     -webkit-filter: brightness(50%);
-            filter: brightness(50%); }
+    filter: brightness(50%); }
   .cards-table-card.hover i {
     opacity: 1; }
   .cards-table-card:active img {
@@ -1821,7 +1821,7 @@ input[type="file"] {
     transition: filter 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     transition: filter 0.1s cubic-bezier(0.4, 0, 0.2, 1), -webkit-filter 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     -webkit-filter: brightness(40%);
-            filter: brightness(40%); }
+    filter: brightness(40%); }
   .cards-table-card:active i {
     transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1; }
@@ -1870,9 +1870,9 @@ input[type="file"] {
       top: -36px;
       font-size: 36px;
       -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none; }
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
   .cards-table-basic.cards-table-supply-special {
     height: calc(100% - 108px);
     padding-bottom: 0; }
@@ -1935,9 +1935,9 @@ input[type="file"] {
       top: -36px;
       font-size: 36px;
       -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none; }
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
   .cards-table-specialcards.cards-table-supply {
     width: calc(100% - 96px);
     padding-right: 0; }
@@ -2055,7 +2055,7 @@ input[type="file"] {
         opacity: 1;
         background-color: #000000;
         -webkit-filter: brightness(100%);
-                filter: brightness(100%); }
+        filter: brightness(100%); }
         @media (min-height: 240px) and (min-width: 240px) {
           .dialog.dialog-card-detail .dialog-content .dialog-content-inner .card-image-container img {
             width: 100%;
@@ -2088,9 +2088,9 @@ input[type="file"] {
         text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
         font-size: 96px;
         -webkit-user-select: none;
-           -moz-user-select: none;
-            -ms-user-select: none;
-                user-select: none; }
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; }
         @media (max-height: 480px), (max-width: 480px) {
           .dialog.dialog-card-detail .dialog-content .dialog-content-inner .card-image-container i {
             left: -48px;
@@ -2098,12 +2098,12 @@ input[type="file"] {
             font-size: 48px; } }
       .dialog.dialog-card-detail .dialog-content .dialog-content-inner .card-image-container:hover img {
         -webkit-filter: brightness(50%);
-                filter: brightness(50%); }
+        filter: brightness(50%); }
       .dialog.dialog-card-detail .dialog-content .dialog-content-inner .card-image-container:hover i {
         opacity: 1; }
       .dialog.dialog-card-detail .dialog-content .dialog-content-inner .card-image-container:active img {
         -webkit-filter: brightness(40%);
-                filter: brightness(40%); }
+        filter: brightness(40%); }
       .dialog.dialog-card-detail .dialog-content .dialog-content-inner .card-image-container:active i {
         opacity: 0.9; }
     .dialog.dialog-card-detail .dialog-content .dialog-content-inner .card-toolbar {
@@ -2363,7 +2363,7 @@ body {
   width: 100%;
   height: 100%;
   -webkit-animation: fade-in 0.5s cubic-bezier(0, 0, 0.2, 1);
-          animation: fade-in 0.5s cubic-bezier(0, 0, 0.2, 1);
+  animation: fade-in 0.5s cubic-bezier(0, 0, 0.2, 1);
   color: rgba(0, 0, 0, 0.87);
   background-color: #ffffff;
   font-family: "Font-Main", sans-serif;
@@ -2371,9 +2371,9 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-rendering: optimizeLegibility;
   -webkit-user-select: none !important;
-     -moz-user-select: none !important;
-      -ms-user-select: none !important;
-          user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
   will-change: transform; }
 
 h1,

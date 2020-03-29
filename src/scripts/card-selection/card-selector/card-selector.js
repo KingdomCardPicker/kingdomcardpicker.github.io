@@ -6,42 +6,42 @@ const PROGRESS_CARDS = 6;
 const POTION_FACTOR = [0, 2, 1, 0, -1];
 
 function closeWithError(msg) {
-    postMessage({ result: "error", message: msg });
+    postMessage({ result: 'error', message: msg });
 }
 
-self.addEventListener("message", (event) => {
+self.addEventListener('message', function (event) {
     postMessage({ result: "progress", progress: 0 });
 
-    const parameters = event.data;
+    var parameters = event.data;
     console.log(parameters.appDir);
-    importScripts(`${parameters.appDir }/app/scripts/marknote.js`);
-    importScripts(`${parameters.appDir }/app/scripts/card-selection/xml-to-card.js`);
+    importScripts(parameters.appDir + "/app/scripts/marknote.js");
+    importScripts(parameters.appDir + "/app/scripts/card-selection/xml-to-card.js");
 
     postMessage({ result: "progress", progress: PROGRESS_LOAD });
 
-    const synergyParser = new marknote.Parser();
-    const synergyDoc = synergyParser.parseURL(`${parameters.appDir }/app/data/synergies.xml`, null, "GET");
+    var synergyParser = new marknote.Parser();
+    var synergyDoc = synergyParser.parseURL(parameters.appDir + "/app/data/synergies.xml", null, "GET");
     if (synergyParser.getXHRStatus() === 200) {
-        const root = synergyDoc.getRootElement();
-        const synergiesXml = root.getChildElements("s");
+        var root = synergyDoc.getRootElement();
+        var synergiesXml = root.getChildElements("s");
 
-        const synergies = [];
+        var synergies = [];
         for (sXml of synergiesXml) {
-            const s = {
+            var s = {
                 c1: sXml.getAttributeValue("c1"),
                 c2: sXml.getAttributeValue("c2"),
-                r: parseInt(sXml.getContentAt(0)),
-            };
+                r: parseInt(sXml.getContentAt(0))
+            }
 
             synergies.push(s);
         }
 
-        const similarIgnoreParser = new marknote.Parser();
-        const similarIgnoreDoc = similarIgnoreParser.parseURL(`${parameters.appDir }/app/data/similarignore.xml`, null, "GET");
+        var similarIgnoreParser = new marknote.Parser();
+        var similarIgnoreDoc = similarIgnoreParser.parseURL(parameters.appDir + "/app/data/similarignore.xml", null, "GET");
         if (similarIgnoreParser.getXHRStatus() === 200) {
-            const similarIgnoreXml = similarIgnoreDoc.getRootElement().getChildElements("type");
+            var similarIgnoreXml = similarIgnoreDoc.getRootElement().getChildElements("type");
 
-            const similarIgnore = [];
+            var similarIgnore = [];
             for (siXml of similarIgnoreXml) {
                 similarIgnore.push(siXml.getContentAt(0).toString());
             }
@@ -54,26 +54,26 @@ self.addEventListener("message", (event) => {
 });
 
 function generateCards(parameters, synergies, similarIgnore) {
-    const availableCards = [];
+    var availableCards = [];
 
-    const cardsWithCost = {};
+    var cardsWithCost = {};
 
-    let parsedSets = 0;
+    var parsedSets = 0;
     for (set of parameters.sets) {
-        const filename = `${set.toLowerCase().replace(" ", "") }.xml`;
-        const fileUrl = `${parameters.appDir }/app/data/cards/${ filename}`;
-        const xmlParser = new marknote.Parser();
-        const doc = xmlParser.parseURL(fileUrl, null, "GET");
+        var filename = set.toLowerCase().replace(' ', '') + ".xml";
+        var fileUrl = parameters.appDir + "/app/data/cards/" + filename;
+        var xmlParser = new marknote.Parser();
+        var doc = xmlParser.parseURL(fileUrl, null, "GET");
         if (xmlParser.getXHRStatus() === 200) {
-            const base = doc.getRootElement();
-            const setName = base.getAttributeValue("name");
+            var base = doc.getRootElement();
+            var setName = base.getAttributeValue("name");
 
-            const xmlSets = base.getChildElements();
+            var xmlSets = base.getChildElements();
             for (xmlSet of xmlSets) {
-                const setVersion = xmlSet.getAttributeValue("version");
-                const hasVersion = parameters[setName + setVersion];
+                var setVersion = xmlSet.getAttributeValue("version");
+                var hasVersion = parameters[setName + setVersion];
                 if (setVersion === "" || hasVersion === "on") {
-                    const xmlCards = xmlSet.getChildElements("card");
+                    var xmlCards = xmlSet.getChildElements("card")
                     for (xmlCard of xmlCards) {
                         cardData = xmlToCardData(xmlCard, setName);
                         availableCards.push(cardData);
@@ -88,55 +88,55 @@ function generateCards(parameters, synergies, similarIgnore) {
                 }
             }
         } else {
-            closeWithError(`There was a problem parsing the cards for ${ set}`);
+            closeWithError("There was a problem parsing the cards for " + set);
         }
 
         parsedSets += 1;
-        const roundProgress = Math.round((parsedSets * PROGRESS_SETS_TOTAL) / parameters.sets.length);
+        var roundProgress = Math.round((parsedSets * PROGRESS_SETS_TOTAL) / parameters.sets.length);
 
         postMessage({
             result: "progress",
-            progress: PROGRESS_SETS + roundProgress - 1,
+            progress: PROGRESS_SETS + roundProgress - 1
         });
     }
 
     postMessage({
         result: "progress",
-        progress: PROGRESS_SETS + PROGRESS_SETS_TOTAL,
+        progress: PROGRESS_SETS + PROGRESS_SETS_TOTAL
     });
 
     generateKingdom(parameters, synergies, availableCards, cardsWithCost, similarIgnore);
 }
 
 function generateKingdom(parameters, synergies, availableCards, cardsWithCost, similarIgnore) {
-    const kingdomCards = [];
-    let output = "";
+    var kingdomCards = [];
+    var output = "";
 
-    let needBane = false;
-    let baneCard = undefined;
+    var needBane = false;
+    var baneCard = undefined;
 
-    let kingdomSize = 10;
+    var kingdomSize = 10;
 
-    let potionCards = 0;
-    let specialCards = 0;
+    var potionCards = 0;
+    var specialCards = 0;
 
-    let rejectedCount = 0;
+    var rejectedCount = 0;
 
     if (availableCards.length === 0) {
         closeWithError("No sets were selected");
     }
 
     while (kingdomCards.length < kingdomSize) {
-        let successOutput = "";
+        var successOutput = "";
         // Construct a list of possible synergies, given the current cards
-        const typeChances = findTypeChances(kingdomCards, availableCards, synergies);
+        var typeChances = findTypeChances(kingdomCards, availableCards, synergies);
         // Find the total chance
-        let totalChance = 0;
+        var totalChance = 0;
         for (typeChance of typeChances) {
             totalChance += typeChance.chance;
         }
 
-        let randomness = parameters.randomness;
+        var randomness = parameters.randomness;
         if (randomness === undefined || randomness < 0.001) {
             randomness = 0.001;
         }
@@ -152,14 +152,14 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                 cardIndex = Math.floor(Math.random() * availableCards.length);
                 card = availableCards[cardIndex];
 
-                successOutput += `${card.cardName } chosen at random` + "\n\n";
+                successOutput += card.cardName + " chosen at random" + "\n\n";
             } else {
-                const chance = Math.random() * totalChance;
+                var chance = Math.random() * totalChance;
 
                 var type = undefined;
-                let typeR = 0;
-                let originalType = undefined;
-                let currentChance = 0;
+                var typeR = 0;
+                var originalType = undefined;
+                var currentChance = 0;
                 for (typeChance of typeChances) {
                     if (type === undefined) {
                         currentChance += typeChance.chance;
@@ -172,15 +172,15 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                 }
 
                 if (type !== undefined) {
-                    const cardsOfType = [];
+                    var cardsOfType = [];
                     for (ci = 0; ci < availableCards.length; ++ci) {
                         var c = availableCards[ci];
                         for (t of c.types) {
                             if (t === type) {
                                 var typeCard = {
                                     card: c,
-                                    i: ci,
-                                };
+                                    i: ci
+                                }
 
                                 cardsOfType.push(typeCard);
                             }
@@ -193,22 +193,22 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                     }
 
                     var typeCard = cardsOfType[cardIndex];
-                    const newCard = typeCard.card;
+                    var newCard = typeCard.card;
 
                     // Check based on existing cards that are similar to new card
-                    let globalSimilarity = 0;
-                    let globalSharedCost = 0;
-                    let globalSharedSets = 0;
+                    var globalSimilarity = 0;
+                    var globalSharedCost = 0;
+                    var globalSharedSets = 0;
                     for (ci = 0; ci < kingdomCards.length; ++ci) {
                         var c = kingdomCards[ci];
 
                         // Find shared traits
-                        let sharedTraits = 0;
+                        var sharedTraits = 0;
                         for (t1 of c.types) {
                             for (t2 of newCard.types) {
                                 // Find similarities
                                 if (t1 === t2) {
-                                    let isIgnore = false;
+                                    var isIgnore = false;
                                     for (it of similarIgnore) {
                                         if (t1 === it) {
                                             isIgnore = true;
@@ -222,8 +222,8 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                             }
                         }
 
-                        const scaleFactor = Math.sqrt(c.types.length) + Math.sqrt(newCard.types.length);
-                        const similarity = sharedTraits / scaleFactor;
+                        var scaleFactor = Math.sqrt(c.types.length) + Math.sqrt(newCard.types.length);
+                        var similarity = sharedTraits / scaleFactor;
                         globalSimilarity += similarity;
 
                         if (c.cost === newCard.cost && c.altCost !== "potion" && newCard.altCost !== "potion") {
@@ -239,9 +239,9 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                         }
                     }
 
-                    let isNewCardValid = true;
+                    var isNewCardValid = true;
 
-                    let sharedCostHighFactor = Math.pow(globalSharedCost, 2) * (Math.pow(Math.abs(newCard.cost - 3), 0.5) + 1);
+                    var sharedCostHighFactor = Math.pow(globalSharedCost, 2) * (Math.pow(Math.abs(newCard.cost - 3), 0.5) + 1);
                     if (globalSharedCost === 0) {
                         sharedCostHighFactor -= 0.3;
                     } else if (globalSharedCost >= 3) {
@@ -252,15 +252,15 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                         }
                     }
 
-                    const sharedCostFactor = sharedCostHighFactor / Math.pow(cardsWithCost[newCard.cost], 0.75);
-                    const costLengthFactor = Math.pow(kingdomCards.length, 0.35);
-                    const costFactor = sharedCostFactor / costLengthFactor;
+                    var sharedCostFactor = sharedCostHighFactor / Math.pow(cardsWithCost[newCard.cost], 0.75);
+                    var costLengthFactor = Math.pow(kingdomCards.length, 0.35);
+                    var costFactor = sharedCostFactor / costLengthFactor;
 
                     globalSimilarity += costFactor;
 
                     if (parameters.distributeSets) {
                         if (parameters.sets.length > 1) {
-                            const setFactor = (Math.pow(globalSharedSets, 2) / Math.pow(kingdomCards.length, 1.2)) * 0.5;
+                            var setFactor = (Math.pow(globalSharedSets, 2) / Math.pow(kingdomCards.length, 1.2)) * 0.5;
                             globalSimilarity += setFactor;
                         }
                     }
@@ -287,12 +287,12 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                     }
 
                     if (newCard.cardType === "Event" || newCard.cardType === "Landmark") {
-                        const specialFactor = (Math.pow(availableCards.length, 0.02) - 1);
+                        var specialFactor = (Math.pow(availableCards.length, 0.02) - 1);
                         globalSimilarity += specialFactor;
                     }
 
                     // Find all cards with the same type as the original
-                    const originalTypeCards = [];
+                    var originalTypeCards = []
                     for (c of kingdomCards) {
                         for (t of c.types) {
                             if (t == originalType) {
@@ -309,21 +309,21 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                         card = newCard;
                         cardIndex = typeCard.i;
 
-                        const chosenCard = `'${ type }' (${ card.cardName })`;
-                        const originalCard = `'${ originalType }' (${ originalTypeCards.join(", ") })`;
+                        var chosenCard = "'" + type + "' (" + card.cardName + ")";
+                        var originalCard = "'" + originalType + "' (" + originalTypeCards.join(", ") + ")";
 
                         if (parameters.debug === "all") {
-                            console.log(`${card.cardName } chosen : ${ globalSimilarity.toFixed(2)}`);
+                            console.log(card.cardName + " chosen : " + globalSimilarity.toFixed(2));
                         }
 
-                        successOutput += `${chosenCard } chosen because of ${ originalCard }\n    similarity: ${ globalSimilarity.toFixed(2) }\n\n`;
+                        successOutput += chosenCard + " chosen because of " + originalCard + "\n    similarity: " + globalSimilarity.toFixed(2) + "\n\n";
                     } else {
                         rejectedCount += 1;
                         if (parameters.debug === "all") {
                             if (isNewCardValid) {
-                                console.log(`${newCard.cardName } rejected : ${ globalSimilarity.toFixed(2)}`);
+                                console.log(newCard.cardName + " rejected : " + globalSimilarity.toFixed(2));
                             } else {
-                                console.log(`${newCard.cardName } rejected because invalid`);
+                                console.log(newCard.cardName + " rejected because invalid");
                             }
                         }
                     }
@@ -331,7 +331,7 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
             }
 
             if (card !== undefined) {
-                let addCard = false;
+                var addCard = false;
                 if (needBane) {
                     if (card.cost === "2" || card.cost === "3") {
                         if (card.altCost !== "potion") {
@@ -341,22 +341,22 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
 
                                 addCard = true;
 
-                                successOutput += `${card.cardName } chosen as bane for Young Witch\n\n`;
+                                successOutput += card.cardName + " chosen as bane for Young Witch\n\n";
                             } else {
-                                output += `${card.cardName } rejected as bane due to card type\n\n`;
+                                output += card.cardName + " rejected as bane due to card type\n\n";
                             }
                         } else {
-                            output += `${card.cardName } rejected as bane due to potion\n\n`;
+                            output += card.cardName + " rejected as bane due to potion\n\n";
                         }
                     } else {
-                        output += `${card.cardName } rejected as bane due to cost\n\n`;
+                        output += card.cardName + " rejected as bane due to cost\n\n";
                     }
                 } else {
                     if (card.cardName === "Young Witch") {
                         kingdomSize += 1;
 
-                        const banePossibilities = [];
-                        const banePossibilityIndexes = [];
+                        var banePossibilities = [];
+                        var banePossibilityIndexes = [];
                         for (pBane of kingdomCards) {
                             if (pBane.cost === "2" || pBane.cost === "3") {
                                 if (pBane.altCost !== "potion") {
@@ -368,10 +368,10 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
                         }
 
                         if (banePossibilities.length > 0) {
-                            const baneCardIndex = Math.floor(Math.random() * banePossibilities.length);
+                            var baneCardIndex = Math.floor(Math.random() * banePossibilities.length);
                             baneCard = banePossibilities[baneCardIndex];
 
-                            successOutput += `${baneCard.cardName } chosen as bane for Young Witch\n\n`;
+                            successOutput += baneCard.cardName + " chosen as bane for Young Witch\n\n";
                         } else {
                             needBane = true;
                         }
@@ -405,20 +405,20 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
 
                 postMessage({
                     result: "progress",
-                    progress: PROGRESS_CARDS + kingdomCards.length - 1,
+                    progress: PROGRESS_CARDS + kingdomCards.length - 1
                 });
             }
         }
     }
 
-    output += `Rejected: ${ rejectedCount } cards` + "\n";
+    output += "Rejected: " + rejectedCount + " cards" + "\n";
     if (parameters.debug === "cards" || parameters.debug === "all") {
         console.log(output);
     }
 
     // Check for Obelisk
-    let obeliskCard = undefined;
-    let hasObelisk = false;
+    var obeliskCard = undefined;
+    var hasObelisk = false;
     for (card of kingdomCards) {
         if (card.cardName === "Obelisk") {
             hasObelisk = true;
@@ -427,10 +427,10 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
 
     if (hasObelisk) {
         // Make a list of the possible cards for Obelisk
-        const possibleObeliskCards = [];
+        var possibleObeliskCards = [];
         for (card of kingdomCards) {
-            const cardTypes = card.cardType.split("/");
-            let isAction = false;
+            var cardTypes = card.cardType.split("/");
+            var isAction = false;
             for (type of cardTypes) {
                 if (type === "Action") {
                     isAction = true;
@@ -443,7 +443,7 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
         }
 
         if (possibleObeliskCards.length > 0) {
-            const obeliskCardIndex = Math.floor(Math.random() * possibleObeliskCards.length);
+            var obeliskCardIndex = Math.floor(Math.random() * possibleObeliskCards.length);
             obeliskCard = possibleObeliskCards[obeliskCardIndex];
         } else {
             for (var ci = 0; ci < kingdomCards.length; ++ci) {
@@ -456,7 +456,7 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
     }
 
     // Determine the number of prosperity cards
-    let prosperityCards = 0;
+    var prosperityCards = 0;
     for (card of kingdomCards) {
         if (card.cardType !== "Event" && card.cardType !== "Landmark") {
             if (card.cardSet === "Prosperity") {
@@ -466,19 +466,19 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
     }
 
     // Determine if colony and platinum cards will be used
-    let useProsperity = false;
-    const prosperityNum = Math.random() * kingdomCards.length;
+    var useProsperity = false;
+    var prosperityNum = Math.random() * kingdomCards.length;
     if (prosperityCards >= prosperityNum) {
         useProsperity = true;
     }
 
     if (parameters.debug === "all") {
-        const pString = useProsperity ?
-            "Proserity cards in use" :
-            "Proserity cards not in use";
-        const pCardsString = `${prosperityCards } cards`;
-        const pChanceString = `${prosperityNum.toFixed(2) } chance`;
-        console.log(`${pString } with ${ pCardsString } and ${ pChanceString}`);
+        var pString = useProsperity
+            ? "Proserity cards in use"
+            : "Proserity cards not in use";
+        var pCardsString = prosperityCards + " cards";
+        var pChanceString = prosperityNum.toFixed(2) + " chance";
+        console.log(pString + " with " + pCardsString + " and " + pChanceString);
     }
 
     supplyCards = [];
@@ -492,7 +492,7 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
         kingdomCards: kingdomCards,
         supplyCards: supplyCards,
         baneCard: baneCard,
-        obeliskCard: obeliskCard,
+        obeliskCard: obeliskCard
     };
 
     // Send the cards to the main process
@@ -501,15 +501,15 @@ function generateKingdom(parameters, synergies, availableCards, cardsWithCost, s
 
 function findTypeChances(kingdomCards, availableCards, synergies) {
     // Construct a list of chances for each type of card
-    const typeChances = [];
+    var typeChances = [];
     for (s of synergies) {
         c1 = s.c1;
         c2 = s.c2;
 
         // Find the similar cards
-        let c1sInKingdom = 0;
-        let c2sInKingdom = 0;
-        let c2sInCards = 0;
+        var c1sInKingdom = 0;
+        var c2sInKingdom = 0;
+        var c2sInCards = 0;
 
         for (c of kingdomCards) {
             for (t of c.types) {
@@ -532,8 +532,8 @@ function findTypeChances(kingdomCards, availableCards, synergies) {
         }
 
         // Find the other synergies with the same c1 and c2
-        let c1sInSynergies = 0;
-        let c2sInSynergies = 0;
+        var c1sInSynergies = 0;
+        var c2sInSynergies = 0;
         for (s2 of synergies) {
             if (c1 === s2.c1) {
                 c1sInSynergies += 1;
@@ -546,21 +546,21 @@ function findTypeChances(kingdomCards, availableCards, synergies) {
 
         if (c1sInKingdom > 0 && c2sInCards > 0 && c1sInSynergies > 0) {
             // Find a scaling factor
-            const c2sCardsFactor = Math.pow(c2sInCards, 3) * 0.1;
-            const c1sSynergiesFactor = Math.pow(c1sInSynergies, 0.6);
-            const c2sSynergiesFactor = Math.pow(c2sInSynergies, 0.5);
-            const c1sKingdomFactor = Math.pow(c1sInKingdom, 0.3);
-            const c2sKingdomFactor = Math.pow(2, c2sInKingdom);
-            const scaleFactor = ((c1sKingdomFactor / c1sSynergiesFactor / c2sSynergiesFactor) * c2sCardsFactor) / c2sKingdomFactor;
+            var c2sCardsFactor = Math.pow(c2sInCards, 3) * 0.1;
+            var c1sSynergiesFactor = Math.pow(c1sInSynergies, 0.6);
+            var c2sSynergiesFactor = Math.pow(c2sInSynergies, 0.5);
+            var c1sKingdomFactor = Math.pow(c1sInKingdom, 0.3);
+            var c2sKingdomFactor = Math.pow(2, c2sInKingdom);
+            var scaleFactor = ((c1sKingdomFactor / c1sSynergiesFactor / c2sSynergiesFactor) * c2sCardsFactor) / c2sKingdomFactor;
 
-            const adjustedChance = s.r + 1;
-            const scaledChance = adjustedChance * scaleFactor;
+            var adjustedChance = s.r + 1;
+            var scaledChance = adjustedChance * scaleFactor;
 
-            const typeChance = {
+            var typeChance = {
                 c1: c1,
                 cardType: c2,
-                chance: scaledChance,
-            };
+                chance: scaledChance
+            }
 
             typeChances.push(typeChance);
         }

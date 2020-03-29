@@ -1,10 +1,10 @@
 BASECODE = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function closeWithError(msg) {
-    postMessage({ result: "error", message: msg });
+    postMessage({ result: 'error', message: msg });
 }
 
-self.addEventListener("message", (event) => {
+self.addEventListener('message', function (event) {
     parameters = event.data;
     importScripts("BigInteger.min.js");
     importScripts("base-convert.js");
@@ -20,19 +20,19 @@ self.addEventListener("message", (event) => {
 
 // Converts the current kingdom cards to an alphaneumeric code
 function convertKingdomToCode(parameters) {
-    importScripts(`${parameters.appDir }/app/scripts/marknote.js`);
+    importScripts(parameters.appDir + "/app/scripts/marknote.js");
 
-    const cardNumbers = [];
-    let baneCardId = undefined;
-    let obeliskCardId = undefined;
+    var cardNumbers = [];
+    var baneCardId = undefined;
+    var obeliskCardId = undefined;
     // Generate a number for each card in the kingdom
     for (card of parameters.kingdomCards) {
-        let setId = parameters.totalSets[card.cardSet].toString();
+        var setId = parameters.totalSets[card.cardSet].toString();
         while (setId.length < 2) {
-            setId = `0${ setId}`;
+            setId = "0" + setId;
         }
 
-        const n = setId + card.cardNumber.toString();
+        var n = setId + card.cardNumber.toString();
         cardNumbers.push(n);
 
         if (parameters.baneCard === card) {
@@ -44,13 +44,13 @@ function convertKingdomToCode(parameters) {
         }
     }
 
-    const supplyCardNumbers = [];
+    var supplyCardNumbers = [];
     // Generate a number for the supply cards
-    const xmlParser = new marknote.Parser();
-    const doc = xmlParser.parseURL(`${parameters.appDir }/app/data/supply.xml`, null, "GET");
+    var xmlParser = new marknote.Parser();
+    var doc = xmlParser.parseURL(parameters.appDir + "/app/data/supply.xml", null, "GET");
     if (xmlParser.getXHRStatus() === 200) {
-        const base = doc.getRootElement();
-        const xmlSupplyCards = base.getChildElements("card");
+        var base = doc.getRootElement();
+        var xmlSupplyCards = base.getChildElements("card");
         for (xmlSupplyCard of xmlSupplyCards) {
             xmlSupplyCardName = xmlSupplyCard.getAttributeValue("name");
             xmlSupplyCardNumber = xmlSupplyCard.getAttributeValue("n");
@@ -63,48 +63,48 @@ function convertKingdomToCode(parameters) {
     }
 
     // Join the card numbers into a single base-11 number
-    const supplyCardsId = supplyCardNumbers.join("a");
-    const kingdomCardsId = cardNumbers.join("a");
-    let kingdomId = `a${ supplyCardsId }aa${ kingdomCardsId}`;
+    var supplyCardsId = supplyCardNumbers.join('a');
+    var kingdomCardsId = cardNumbers.join('a');
+    var kingdomId = "a" + supplyCardsId + "aa" + kingdomCardsId;
     if (baneCardId !== undefined) {
-        kingdomId += `aa${ baneCardId}`;
+        kingdomId += "aa" + baneCardId;
         if (obeliskCardId !== undefined) {
-            kingdomId += `a${ obeliskCardId}`;
+            kingdomId += "a" + obeliskCardId;
         }
     } else if (obeliskCardId !== undefined) {
-        kingdomId += `${"aa" + "0" + "a"}${ obeliskCardId}`;
+        kingdomId += "aa" + "0" + "a" + obeliskCardId;
     }
 
-    const kingdomCode = baseConvert(kingdomId, 11, BASECODE.length, BASECODE);
+    var kingdomCode = baseConvert(kingdomId, 11, BASECODE.length, BASECODE);
 
     // Send the cards to the main process
     postMessage({ result: "success", kingdomCode: kingdomCode });
 }
 
 function convertCodeToKingdom(parameters) {
-    importScripts(`${parameters.appDir }/app/scripts/marknote.js`);
-    importScripts(`${parameters.appDir }/app/scripts/card-selection/xml-to-card.js`);
+    importScripts(parameters.appDir + "/app/scripts/marknote.js");
+    importScripts(parameters.appDir + "/app/scripts/card-selection/xml-to-card.js");
 
     postMessage({ result: "progress", progress: 1 });
 
     kingdomCode = parameters.kingdomCode;
 
     // Convert the code back to base 11
-    const kingdomId = baseConvert(kingdomCode, BASECODE.length, 11, BASECODE).substring(1).split("aa");
-    const supplyCardsId = kingdomId[0];
-    const kingdomCardsId = kingdomId[1];
-    const specialCardsId = kingdomId[2];
+    var kingdomId = baseConvert(kingdomCode, BASECODE.length, 11, BASECODE).substring(1).split('aa');
+    var supplyCardsId = kingdomId[0];
+    var kingdomCardsId = kingdomId[1];
+    var specialCardsId = kingdomId[2];
 
-    let baneCardId = undefined;
-    let obeliskCardId = undefined;
+    var baneCardId = undefined;
+    var obeliskCardId = undefined;
     if (specialCardsId !== undefined) {
-        const specialCardIds = specialCardsId.split("a");
+        var specialCardIds = specialCardsId.split('a');
         baneCardId = specialCardIds[0];
         obeliskCardId = specialCardIds[1];
     }
 
-    const supplyCardIds = supplyCardsId.split("a");
-    const cardIds = kingdomCardsId.split("a");
+    var supplyCardIds = supplyCardsId.split('a');
+    var cardIds = kingdomCardsId.split('a');
 
     // Error if not enough cards
     if (cardIds.length < 10) {
@@ -114,9 +114,9 @@ function convertCodeToKingdom(parameters) {
     postMessage({ result: "progress", progress: 2 });
 
     // Seperate the cards by their sets
-    const setCards = {};
-    const setBaneCard = {};
-    const setObeliskCard = {};
+    var setCards = {};
+    var setBaneCard = {};
+    var setObeliskCard = {};
     for (id of cardIds) {
         // Get the set code
         setCode = id.substring(0, 2);
@@ -142,16 +142,16 @@ function convertCodeToKingdom(parameters) {
     postMessage({ result: "progress", progress: 3 });
 
     kingdomCards = [];
-    let baneCard = undefined;
-    let obeliskCard = undefined;
+    var baneCard = undefined;
+    var obeliskCard = undefined;
     // Parse each set and add the cards
     for (set in setCards) {
         var setName = "";
-        let setNameId = undefined;
+        var setNameId = undefined;
         for (name in parameters.totalSets) {
-            let setId = parameters.totalSets[name].toString();
+            var setId = parameters.totalSets[name].toString();
             while (setId.length < 2) {
-                setId = `0${ setId}`;
+                setId = "0" + setId;
             }
 
             if (set === setId) {
@@ -160,17 +160,17 @@ function convertCodeToKingdom(parameters) {
             }
         }
 
-        const filename = `${setName.toLowerCase().replace(" ", "") }.xml`;
-        const fileUrl = `${parameters.appDir }/app/data/cards/${ filename}`;
+        var filename = setName.toLowerCase().replace(' ', '') + ".xml";
+        var fileUrl = parameters.appDir + "/app/data/cards/" + filename;
         var xmlParser = new marknote.Parser();
         var doc = xmlParser.parseURL(fileUrl, null, "GET");
         if (xmlParser.getXHRStatus() === 200) {
             var base = doc.getRootElement();
             var setName = base.getAttributeValue("name");
 
-            const xmlSets = base.getChildElements();
+            var xmlSets = base.getChildElements();
             for (xmlSet of xmlSets) {
-                const xmlCards = xmlSet.getChildElements("card");
+                var xmlCards = xmlSet.getChildElements("card");
                 for (xmlCard of xmlCards) {
                     cardId = xmlCard.getAttributeValue("n");
 
@@ -198,10 +198,10 @@ function convertCodeToKingdom(parameters) {
     supplyCards = [];
     // Parse supply cards
     var xmlParser = new marknote.Parser();
-    var doc = xmlParser.parseURL(`${parameters.appDir }/app/data/supply.xml`, null, "GET");
+    var doc = xmlParser.parseURL(parameters.appDir + "/app/data/supply.xml", null, "GET");
     if (xmlParser.getXHRStatus() === 200) {
         var base = doc.getRootElement();
-        const xmlSupplyCards = base.getChildElements("card");
+        var xmlSupplyCards = base.getChildElements("card");
         for (xmlSupplyCard of xmlSupplyCards) {
             xmlSupplyCardName = xmlSupplyCard.getAttributeValue("name");
             xmlSupplyCardNumber = xmlSupplyCard.getAttributeValue("n");
@@ -219,13 +219,13 @@ function convertCodeToKingdom(parameters) {
         closeWithError("Not enough cards");
     }
 
-    const result = {
+    var result = {
         result: "success",
         kingdomCards: kingdomCards,
         supplyCards: supplyCards,
         obeliskCard: obeliskCard,
-        baneCard: baneCard,
-    };
+        baneCard: baneCard
+    }
 
     // Send the cards to the main process
     postMessage(result);

@@ -1,7 +1,7 @@
 setDialog = undefined;
 
-$(() => {
-    $("#SetSelection-Open").on("click", () => {
+$(function () {
+    $("#SetSelection-Open").on('click', function () {
         openSetDialog();
     });
 });
@@ -9,25 +9,25 @@ $(() => {
 function openSetDialog(isStartup) {
     if (setDialog === undefined) {
         setDialog = $("<div class='dialog dialog-set'></div>").appendTo($("body .main"));
-        const setDialogMiddle = $("<div class='dialog-middle'></div>").appendTo(setDialog);
-        const setDialogContent = $("<div class='dialog-content'></div>").appendTo(setDialogMiddle);
-        const setDialogInner = $("<div class='dialog-content-inner'></div>").appendTo(setDialogContent);
+        var setDialogMiddle = $("<div class='dialog-middle'></div>").appendTo(setDialog);
+        var setDialogContent = $("<div class='dialog-content'></div>").appendTo(setDialogMiddle);
+        var setDialogInner = $("<div class='dialog-content-inner'></div>").appendTo(setDialogContent);
 
         createDialog(setDialog);
 
         // Create a title
         $("<h1>My Expansions</h1>").appendTo(setDialogInner);
         // Add the minimize buttons
-        const minimizeButton = $("<div type='cancel' class='btn-icon btn-dialog-minimize'>" +
+        var minimizeButton = $("<div type='cancel' class='btn-icon btn-dialog-minimize'>" +
             "<i class='material-icons'>close</i></div>").appendTo(setDialogInner);
-        minimizeButton.click(() => {
-            setDialog.trigger("dialog-close");
+        minimizeButton.click(function () {
+            setDialog.trigger('dialog-close');
         });
 
         // Generate the outer container
-        const setSelection = $("<div class='set-selection'></div>").appendTo(setDialogInner);
+        var setSelection = $("<div class='set-selection'></div>").appendTo(setDialogInner);
 
-        let canAccessStoarge = false;
+        var canAccessStoarge = false;
         if (typeof (Storage) !== undefined) {
             try {
                 localStorage.setItem("", "");
@@ -52,32 +52,32 @@ function openSetDialog(isStartup) {
             addSet(setSelection, "Empires", ["Empires"]);
 
             // Add the buttons
-            const setDialogButtons = $("<div class='dialog-content-buttons'></div>").appendTo(setDialogInner);
+            var setDialogButtons = $("<div class='dialog-content-buttons'></div>").appendTo(setDialogInner);
 
             if (isStartup) {
-                const scanButton = $("<div class='btn'>Scan a Code</div>").appendTo(setDialogButtons);
-                scanButton.click(() => {
-                    setDialog.trigger("dialog-close");
+                var scanButton = $("<div class='btn'>Scan a Code</div>").appendTo(setDialogButtons);
+                scanButton.click(function () {
+                    setDialog.trigger('dialog-close');
                     openScanDialog();
                 });
             }
 
-            const closeButton = $("<div class='btn'>Save Expansions</div>").appendTo(setDialogButtons);
-            closeButton.click(() => {
-                setDialog.trigger("dialog-close");
+            var closeButton = $("<div class='btn'>Save Expansions</div>").appendTo(setDialogButtons);
+            closeButton.click(function () {
+                setDialog.trigger('dialog-close');
 
                 // Open the onboarding, if it hasn't already been opened
                 if (!$("#Generate-Button-Fab").hasClass("hidden")) {
                     if (typeof (Storage) !== undefined) {
                         if (!localStorage.getItem("Onboarding-Generate")) {
-                            $("#Onboarding-Generate").addClass("open");
+                            $("#Onboarding-Generate").addClass('open');
                             localStorage.setItem("Onboarding-Generate", true);
                         }
                     }
                 }
             });
 
-            setDialog.one("dialog-close", () => {
+            setDialog.one('dialog-close', function () {
                 setDialog = undefined;
             });
         } else {
@@ -128,7 +128,7 @@ function addSet(c, setName, setButtons) {
                 if (typeof (Storage) !== undefined) {
                     value = localStorage.getItem(s.attr("id"));
                     s.prop("checked", value === "on");
-                    s.trigger("change");
+                    s.trigger('change');
                 }
             }
 
@@ -147,7 +147,7 @@ function addSet(c, setName, setButtons) {
         if (typeof (Storage) !== undefined) {
             value = localStorage.getItem(switchMain.attr("id"));
             switchMain.prop("checked", value === "on");
-            switchMain.trigger("change");
+            switchMain.trigger('change');
         }
 
         // Store the sets when changed
@@ -177,11 +177,11 @@ function addSwitch(c, name, setName, small = false) {
     }
 
     // Generate the text
-    $(`<p>${ name }</p>`).appendTo(switchContainer);
+    $("<p>" + name + "</p>").appendTo(switchContainer);
     // Add the input
-    checkbox = $(`<input type='checkbox' id='Sets-Selection-${ sId }' name='sets-${ name }' value='${ name }'/>`).appendTo(switchContainer);
+    checkbox = $("<input type='checkbox' id='Sets-Selection-" + sId + "' name='sets-" + name + "' value='" + name + "'/>").appendTo(switchContainer);
     // Add the label
-    switchLabel = $(`<label for='Sets-Selection-${ sId }' class='check-${ setName.toLowerCase().replace(" ", "") }'>`).appendTo(switchContainer);
+    switchLabel = $("<label for='Sets-Selection-" + sId + "' class='check-" + setName.toLowerCase().replace(' ', '') + "'>").appendTo(switchContainer);
 
     createCheckboxSwitch(switchContainer);
 
@@ -189,10 +189,10 @@ function addSwitch(c, name, setName, small = false) {
 }
 
 function checkOwnedSets() {
-    let ownedSetsCount = 0;
+    var ownedSetsCount = 0;
     if (typeof (Storage) !== undefined) {
         for (setName in totalSets) {
-            const sId = `Sets-Selection-${ setName }${setName}`;
+            var sId = "Sets-Selection-" + setName + setName;
             if (localStorage.getItem(sId) === "on") {
                 ownedSetsCount += 1;
             }
