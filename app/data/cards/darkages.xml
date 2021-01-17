@@ -54,8 +54,7 @@
         </card>
         <card name="Storeroom" cardType="Action" n="8" cost="3">
             <type>Terminal</type>
-            <type>+Buy                                                
-            </card>
+            <type>+Buy</type>
             <type>Discard</type>
             <type>Sifter</type>
             <type>+Coins</type>
